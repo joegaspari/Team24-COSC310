@@ -1,0 +1,57 @@
+
+{"intents": [
+    {"tag": "greeting",
+     "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Hay", "What's up"],
+     "responses": ["Hello", "Hi", "Hi there", "Howdy Parnter", "How's it hanging my new human friend"]
+    },
+    {"tag": "goodbye",
+     "patterns": ["Bye", "See you later", "Goodbye"],
+     "responses": ["See you later", "Have a nice day", "Bye! Come back again"]
+    },
+    {"tag": "thanks",
+     "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help"],
+     "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"]
+    },
+    {"tag": "about",
+     "patterns": ["Who are you?", "What are you?", "Who you are?" ],
+     "responses": ["I.m FOX, your bot assistant", "I'm FOX, an Artificial Intelligent bot"]
+    },
+    {"tag": "name",
+    "patterns": ["what is your name", "what should I call you", "whats your name?"],
+    "responses": ["You can call me FOX.", "I'm FOX!", "Just call me FOX"]
+    },
+    {"tag": "help",
+    "patterns": ["Could you help me?", "give me a hand please", "Can you help?", "What can you do for me?", "I need a support", "I need a help", "support me please"],
+    "responses": ["Tell me how I can assist you", "I'm here to help you book your next dream vacation", "Yes Sure, How can I support you in deciding where to travel next","I can easily help you choose where to go next"]
+    },
+    {"tag": "trip",
+    "patterns": ["I wanna book a flight", "I want to get away", "I want to take a holiday", "can you show me some potential trips", "Are there any holiday deals"],
+    "responses": ["Before we begin let's figure out what type of get away your looking for", "What kind of holiday are you looking for adventure, relaxation or site seeing?", "Are you looking to explore, get a tan or experience the culture"]
+    },
+    {"tag": "adventure",
+    "patterns": ["I'd like to go explore","I want to adventure and see the outdoors","adventure"],
+    "responses": ["I like a human who likes to explore, do you prefer a hot or cold climate?", "OOOh great idea, time to get that camera ready! Do you like hot or cold temperatures for your trip"]
+    },
+    {"tag": "relax",
+    "patterns": ["I want to sit by a beach", "I want to enjoy a book by the beach", "Some time to unwind and relax","I want to relax"],
+    "responses": ["Rest and relaxation a little R&R, somewhere hot or cooler perhaps??"]
+    },
+    {"tag": "culture",
+    "patterns": ["I want to experience the culture", "I want to meet the locals, learn their customs", "Maybe try some new foods and experience the culture of the country"],
+    "responses": ["Chef's kiss to some beautiful food and people, do you have a preference on climate", "ooooh I like it, try new things and meet new people. Does being in a hot place matter much to you"]
+    },
+    {"tag": "hot",
+    "patterns": ["I like it warm", "I want to sweat", "I like the heat", "I don't like the cold", "somewhere hot", "somewhere I can tan"],
+    "responses": ["Perfect, how about the British Virgin Islands, specifically Tortolla?", "What about a trip to Tulum?", "Soak up the rays in the south of Italy", "Why not stay in north america and hit the Hawian Islands!"]
+    },
+    {"tag": "no_temp",
+    "patterns": ["I dont mind either warm or cold", "I can handle any climate", "Temperature is not a priority", "somewhere temporate", "I like an in between"],
+    "responses": ["Why not a stay in and explore Osaka Japan, I hear the food is killer", "Take a tour in Paris and see the Louvre", "Try out the slots in Atlanta Georgia!", "How about hiking through the Scottish isles"]
+    },
+    {"tag": "cold",
+    "patterns": ["I like the cold", "I don't like the heat", "I want to enjoy the winter somewhere", "I like winter activities", "the cold is my happy place"],
+    "responses": ["Why not a ski-cation at BigWhite in Canada, I hear the slopes are knarly", "Take a tour of Alaska and sled with the huskies!", "How about trying a new culture and heading to vienna to experience the art and food!", "Why not explore the natural beauty that Reykajavik has to offer!"]
+    }
+
+]
+}
