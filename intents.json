@@ -58,11 +58,11 @@
     },
     {"tag": "oneway",
     "patterns": ["I was hoping to go one way", "I don't want a return flight", "I want a one way flight", "one way", "oneway"],
-    "responses": ["Amazing. We can easily find you a killer one way flight. When would you like to leave?", "Ooh extended vacation!! I like it. We will set your booking to one way. Do you have a date in mind?", "Talk about a new adventure! One way it is, my friend! When would you like to fly out?", "One way eh? Nice, we've got that saved. When are you thinking about leaving?"]
+    "responses": ["Amazing. We can easily find you a killer one way flight. When would you like to leave? Enter confirm to continue booking", "Ooh extended vacation!! I like it. We will set your booking to one way. Do you have a date in mind? Enter confirm to continue booking", "Talk about a new adventure! One way it is, my friend! When would you like to fly out? Enter confirm to continue booking", "One way eh? Nice, we've got that saved. When are you thinking about leaving? Enter confirm to continue booking"]
     },
     {"tag": "roundtrip",
-    "patterns": ["I want my flight to be round trip", "round trip", "I want a return flight", "I can't holiday forever", "No, round trip"],
-    "responses": ["We can find you both a return and departure! When are the dates you're interested in?", "Yeah, I totally understand, when are you thinking for both departure and return times?", "Roger, Roger. What dates are you thinking?"]
+    "patterns": ["I want my flight to be round", "round", "I want a return flight", "I can't holiday forever", "No, round"],
+    "responses": ["We can find you both a return and departure! When are the dates you're interested in? Enter confirm to continue booking", "Yeah, I totally understand, when are you thinking for both departure and return times? Enter confirm to continue booking", "Roger, Roger. What dates are you thinking? Enter confirm to continue booking"]
     }
    
 ]
