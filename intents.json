@@ -18,7 +18,7 @@
     },
     {"tag": "about",
      "patterns": ["Who are you?", "What are you?", "Who you are?" ],
-     "responses": ["I.m FOX, your bot assistant", "I'm FOX, an Artificial Intelligent bot"]
+     "responses": ["I'm FOX, your bot assistant", "I'm FOX, an Artificial Intelligent bot"]
     },
     {"tag": "name",
     "patterns": ["what is your name", "what should I call you", "whats your name?"],
