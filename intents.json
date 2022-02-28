@@ -25,15 +25,15 @@
     "responses": ["Tell me how I can assist you", "I'm here to help you book your next dream vacation", "Yes Sure, How can I support you in deciding where to travel next","I can easily help you choose where to go next"]
     },
     {"tag": "trip",
-    "patterns": ["I wanna book a flight", "I want to get away", "I want to take a holiday", "can you show me some potential trips", "Are there any holiday deals"],
+    "patterns": ["I wanna book a flight", "I want to get away", "I want to take a holiday", "can you show me some potential trips", "Are there any holiday deals", "I would like to book a flight.", "I'm trying to fly to"],
     "responses": ["Before we begin let's figure out what type of get away your looking for", "What kind of holiday are you looking for adventure, relaxation or site seeing?", "Are you looking to explore, get a tan or experience the culture"]
     },
     {"tag": "adventure",
     "patterns": ["I'd like to go explore","I want to adventure and see the outdoors","adventure"],
-    "responses": ["I like a human who likes to explore, do you prefer a hot or cold climate?", "OOOh great idea, time to get that camera ready! Do you like hot or cold temperatures for your trip"]
+    "responses": ["I like a human who likes to explore, do you prefer a hot or cold climate?", "Oooh great idea, time to get that camera ready! Do you like hot or cold temperatures for your trip?"]
     },
     {"tag": "relax",
-    "patterns": ["I want to sit by a beach", "I want to enjoy a book by the beach", "Some time to unwind and relax","I want to relax"],
+    "patterns": ["I want to sit by a beach", "I want to enjoy a book by the beach", "Some time to unwind and relax","I want to relax", "I'd like to go somewhere warm.", "I'd like to be somewhere warm."],
     "responses": ["Rest and relaxation a little R&R, somewhere hot or cooler perhaps??"]
     },
     {"tag": "culture",
@@ -61,5 +61,5 @@
     "responses": ["We can find you both a return and departure! When are the dates your interested in?", "Yeah I totally understand, when are you thinking for both departure and return times?", "Roger, Roger, What dates are you thinking?"]
     }
    
-]
+]   
 }
