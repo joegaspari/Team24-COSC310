@@ -7,7 +7,7 @@ spacy.load('en_core_web_sm')
 
 
 #run chat.py 
-import chat
+exec("chat.py")
 
 #import fox.py
 import Fox as Fox
