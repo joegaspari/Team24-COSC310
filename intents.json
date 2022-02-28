@@ -30,7 +30,7 @@
     },
     {"tag": "trip",
     "patterns": ["I wanna book a flight", "I want to get away", "I want to take a holiday", "can you show me some potential trips", "Are there any holiday deals", "I would like to book a flight.", "I'm trying to fly to"],
-    "responses": ["Before we begin, let's figure out what type of get away your looking for.", "What kind of holiday are you looking for? Adventure, relaxation, or site seeing?", "Are you looking to explore, get a tan, or experience the culture?"]
+    "responses": ["let's figure out what type of get away your looking for, adventure, some R&R, or a site seeing trip", "What kind of holiday are you looking for? Adventure, relaxation, or site seeing?", "Are you looking to explore, get a tan, or experience the culture?"]
     },
     {"tag": "adventure",
     "patterns": ["I'd like to go explore","I want to adventure and see the outdoors","adventure"],

@@ -74,6 +74,8 @@ def predict_label( sent, model):
 
 #We now need to extract the response from the intent file
 
+
+
 def getResponse( ints, jFile):
     '''
     Getresponse : takes (ints) produced by the model prediction and the json file holding the patterns and responses as arguments
