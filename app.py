@@ -9,13 +9,13 @@ spacy.load('en_core_web_sm')
 #When this is commented, the previously trained and saved model is loaded (allows for quick testing)
 #Uncomment when changes made to chat.py
 
-#run chat.py 
+#import chat
 #exec(open('chat.py').read())
 
 #Import Fox which contains method for processing user inputs
 import Fox as Fox
 
-#use FOX_response(msg):
+
 
 app = Flask(__name__)
 
