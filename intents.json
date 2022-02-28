@@ -14,7 +14,7 @@
     },
     {"tag": "returnthanks",
     "patterns": ["I am well thank you! How are you?", "I am good and you", "Things are going well and your self?", "How are you?"],
-    "responses": ["I'm doing great. Just chilling looking at flight deals", "I am groovy, my friend. Can we help you find some flights?", "I'm good—just drowning in vacation deals right now. Can I help you find one?"]
+    "responses": ["I'm doing great. Just chilling looking at flight deals", "I am groovy, my friend. Can we help you find some flights?", "I'm good just drowning in vacation deals right now. Can I help you find one?"]
     },
     {"tag": "about",
      "patterns": ["Who are you?", "What are you?", "Who you are?" ],
@@ -38,7 +38,7 @@
     },
     {"tag": "relax",
     "patterns": ["I want to sit by a beach", "I want to enjoy a book by the beach", "Some time to unwind and relax","I want to relax", "I'd like to go somewhere warm.", "I'd like to be somewhere warm."],
-    "responses": ["Rest and relaxation—a little R&R. Somewhere hot? Or cooler, perhaps?"]
+    "responses": ["Rest and relaxation a little R&R. Somewhere hot? Or cooler, perhaps?"]
     },
     {"tag": "culture",
     "patterns": ["I want to experience the culture", "I want to meet the locals, learn their customs", "Maybe try some new foods and experience the culture of the country"],
