@@ -42,16 +42,24 @@
     },
     {"tag": "hot",
     "patterns": ["I like it warm", "I want to sweat", "I like the heat", "I don't like the cold", "somewhere hot", "somewhere I can tan"],
-    "responses": ["Perfect, how about the British Virgin Islands, specifically Tortolla?", "What about a trip to Tulum?", "Soak up the rays in the south of Italy", "Why not stay in north america and hit the Hawian Islands!"]
+    "responses": ["Perfect, how about the British Virgin Islands, specifically Tortolla? Also one way or round trip?", "What about a trip to Tulum? Also are you thinkin one way or round trip?", "Soak up the rays in the south of Italy, whatcha thinking one way or round trip?", "Why not stay in north america and hit the Hawian Islands! Also one way or round trip?"]
     },
     {"tag": "no_temp",
     "patterns": ["I dont mind either warm or cold", "I can handle any climate", "Temperature is not a priority", "somewhere temporate", "I like an in between"],
-    "responses": ["Why not a stay in and explore Osaka Japan, I hear the food is killer", "Take a tour in Paris and see the Louvre", "Try out the slots in Atlanta Georgia!", "How about hiking through the Scottish isles"]
+    "responses": ["Why not a stay in and explore Osaka Japan, I hear the food is killer. Also one way or round trip?", "Take a tour in Paris and see the Louvre... whatcha thinking one way or round trip?", "Try out the slots in Atlanta Georgia! whatcha thinking one way or round trip?", "How about hiking through the Scottish isles, whatcha thinking one way or round trip?"]
     },
     {"tag": "cold",
     "patterns": ["I like the cold", "I don't like the heat", "I want to enjoy the winter somewhere", "I like winter activities", "the cold is my happy place"],
-    "responses": ["Why not a ski-cation at BigWhite in Canada, I hear the slopes are knarly", "Take a tour of Alaska and sled with the huskies!", "How about trying a new culture and heading to vienna to experience the art and food!", "Why not explore the natural beauty that Reykajavik has to offer!"]
+    "responses": ["Why not a ski-cation at BigWhite in Canada, I hear the slopes are knarly. Also are you thinkin one way or round trip?", "Take a tour of Alaska and sled with the huskies! Round trip flight or one way my friend? ", "How about trying a new culture and heading to vienna to experience the art and food! whatcha thinking one way or round trip?", "Why not explore the natural beauty that Reykajavik has to offer! Maybe stay a while and book one way!"]
+    },
+    {"tag": "oneway",
+    "patterns": ["I was hoping to go one way", "I don't want a return flight", "I want a one way flight", "one way", "oneway"],
+    "responses": ["Amazing we can easily find you a killer one way flight, when do you want to leave?", "Ooh extended vacation!! I like it, we will set your booking to one way, have a date in mind?", "Talk about a new adventure! One way it is my friend! When do you want to fly out?", "One way eh? Nice we got that saved, tell me when you're thinking about leaving?"]
+    },
+    {"tag": "roundtrip",
+    "patterns": ["I want my flight to be round trip", "round trip", "I want a return flight", "I can't holiday forever", "No, round trip"],
+    "responses": ["We can find you both a return and departure! When are the dates your interested in?", "Yeah I totally understand, when are you thinking for both departure and return times?", "Roger, Roger, What dates are you thinking?"]
     }
-
+   
 ]
 }
