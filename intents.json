@@ -2,7 +2,7 @@
 {"intents": [
     {"tag": "greeting",
      "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Hay", "What's up"],
-     "responses": ["Hello", "Hi", "Hi there", "Howdy Parnter", "How's it hanging my new human friend"]
+     "responses": ["Hello", "Hi", "Hi there", "Howdy, partner", "How's it hanging, my new human friend?"]
     },
     {"tag": "goodbye",
      "patterns": ["Bye", "See you later", "Goodbye"],
@@ -14,11 +14,11 @@
     },
     {"tag": "returnthanks",
     "patterns": ["I am well thank you! How are you?", "I am good and you", "Things are going well and your self?", "How are you?"],
-    "responses": ["I am great, just chilling looking at flight deals", "I am groovy my friend, can we help you find some flights?", "I'm good, just drowning in vacation deals right now, can I help you find one?"]
+    "responses": ["I'm doing great. Just chilling looking at flight deals", "I am groovy, my friend. Can we help you find some flights?", "I'm good—just drowning in vacation deals right now. Can I help you find one?"]
     },
     {"tag": "about",
      "patterns": ["Who are you?", "What are you?", "Who you are?" ],
-     "responses": ["I'm FOX, your bot assistant", "I'm FOX, an Artificial Intelligent bot"]
+     "responses": ["I'm FOX, your bot assistant", "I'm FOX, an Artificial Intelligence bot"]
     },
     {"tag": "name",
     "patterns": ["what is your name", "what should I call you", "whats your name?"],
@@ -26,31 +26,31 @@
     },
     {"tag": "help",
     "patterns": ["Could you help me?", "give me a hand please", "Can you help?", "What can you do for me?", "I need a support", "I need a help", "support me please"],
-    "responses": ["Tell me how I can assist you", "I'm here to help you book your next dream vacation", "Yes Sure, How can I support you in deciding where to travel next","I can easily help you choose where to go next"]
+    "responses": ["Of course. What would you like assistance with?", "I'm here to help you book your next dream vacation.", "Yes Sure, How can I support you in deciding where to travel next","I can easily help you choose where to go next"]
     },
     {"tag": "trip",
     "patterns": ["I wanna book a flight", "I want to get away", "I want to take a holiday", "can you show me some potential trips", "Are there any holiday deals", "I would like to book a flight.", "I'm trying to fly to"],
-    "responses": ["Before we begin let's figure out what type of get away your looking for", "What kind of holiday are you looking for adventure, relaxation or site seeing?", "Are you looking to explore, get a tan or experience the culture"]
+    "responses": ["Before we begin, let's figure out what type of get away your looking for.", "What kind of holiday are you looking for? Adventure, relaxation, or site seeing?", "Are you looking to explore, get a tan, or experience the culture?"]
     },
     {"tag": "adventure",
     "patterns": ["I'd like to go explore","I want to adventure and see the outdoors","adventure"],
-    "responses": ["I like a human who likes to explore, do you prefer a hot or cold climate?", "Oooh great idea, time to get that camera ready! Do you like hot or cold temperatures for your trip?"]
+    "responses": ["I love to explore, too. Would you prefer a hot or cold climate?", "Oooh great idea, time to get that camera ready! Do you like hot or cold temperatures for your trip?"]
     },
     {"tag": "relax",
     "patterns": ["I want to sit by a beach", "I want to enjoy a book by the beach", "Some time to unwind and relax","I want to relax", "I'd like to go somewhere warm.", "I'd like to be somewhere warm."],
-    "responses": ["Rest and relaxation a little R&R, somewhere hot or cooler perhaps??"]
+    "responses": ["Rest and relaxation—a little R&R. Somewhere hot? Or cooler, perhaps?"]
     },
     {"tag": "culture",
     "patterns": ["I want to experience the culture", "I want to meet the locals, learn their customs", "Maybe try some new foods and experience the culture of the country"],
-    "responses": ["Chef's kiss to some beautiful food and people, do you have a preference on climate", "ooooh I like it, try new things and meet new people. Does being in a hot place matter much to you"]
+    "responses": ["Chef's kiss to some beautiful food and people. Do you have a preference on climate?", "Ooooh I like it—try new things and meet new people. Does being in a hot place matter much to you?"]
     },
     {"tag": "hot",
     "patterns": ["I like it warm", "I want to sweat", "I like the heat", "I don't like the cold", "somewhere hot", "somewhere I can tan"],
-    "responses": ["Perfect, how about the British Virgin Islands, specifically Tortolla? Also one way or round trip?", "What about a trip to Tulum? Also are you thinkin one way or round trip?", "Soak up the rays in the south of Italy, whatcha thinking one way or round trip?", "Why not stay in north america and hit the Hawian Islands! Also one way or round trip?"]
+    "responses": ["Perfect. How about the British Virgin Islands, specifically Tortolla? Also, one way or round trip?", "What about a trip to Tulum? Also, are you thinkin one way or round trip?", "Soak up the rays in the south of Italy. Whatcha thinking, one way or round trip?", "Why not stay in North America and hit the Hawian Islands! Also, would you like a one way or round trip?"]
     },
     {"tag": "no_temp",
-    "patterns": ["I dont mind either warm or cold", "I can handle any climate", "Temperature is not a priority", "somewhere temporate", "I like an in between"],
-    "responses": ["Why not a stay in and explore Osaka Japan, I hear the food is killer. Also one way or round trip?", "Take a tour in Paris and see the Louvre... whatcha thinking one way or round trip?", "Try out the slots in Atlanta Georgia! whatcha thinking one way or round trip?", "How about hiking through the Scottish isles, whatcha thinking one way or round trip?"]
+    "patterns": ["I dont mind either warm or cold", "I can handle any climate", "Temperature is not a priority", "somewhere temporate", "I like an in between", "Doesn't matter", "I don't care"],
+    "responses": ["Why not explore Osaka Japan? I hear the food is killer. Also, would you like a one way or round trip?", "Take a tour in Paris and see the Louvre... Whatcha think, one way or round trip?", "Try out the slots in Atlanta Georgia! Whatcha thinking, one way or round trip?", "How about hiking through the Scottish isles. Whatcha think, one way or round trip?"]
     },
     {"tag": "cold",
     "patterns": ["I like the cold", "I don't like the heat", "I want to enjoy the winter somewhere", "I like winter activities", "the cold is my happy place"],
@@ -58,11 +58,11 @@
     },
     {"tag": "oneway",
     "patterns": ["I was hoping to go one way", "I don't want a return flight", "I want a one way flight", "one way", "oneway"],
-    "responses": ["Amazing we can easily find you a killer one way flight, when do you want to leave?", "Ooh extended vacation!! I like it, we will set your booking to one way, have a date in mind?", "Talk about a new adventure! One way it is my friend! When do you want to fly out?", "One way eh? Nice we got that saved, tell me when you're thinking about leaving?"]
+    "responses": ["Amazing. We can easily find you a killer one way flight. When would you like to leave?", "Ooh extended vacation!! I like it. We will set your booking to one way. Do you have a date in mind?", "Talk about a new adventure! One way it is, my friend! When would you like to fly out?", "One way eh? Nice, we've got that saved. When are you thinking about leaving?"]
     },
     {"tag": "roundtrip",
     "patterns": ["I want my flight to be round trip", "round trip", "I want a return flight", "I can't holiday forever", "No, round trip"],
-    "responses": ["We can find you both a return and departure! When are the dates your interested in?", "Yeah I totally understand, when are you thinking for both departure and return times?", "Roger, Roger, What dates are you thinking?"]
+    "responses": ["We can find you both a return and departure! When are the dates you're interested in?", "Yeah, I totally understand, when are you thinking for both departure and return times?", "Roger, Roger. What dates are you thinking?"]
     }
 ]
 }
