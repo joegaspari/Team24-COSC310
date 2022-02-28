@@ -7,6 +7,15 @@ import os
 import spacy
 spacy.load('en_core_web_sm')
 
+
+#run chat.py 
+import chat
+
+#import fox.py
+import Fox as Fox
+
+#use FOX_response(msg):
+
 app = Flask(__name__)
 
 
@@ -36,9 +45,10 @@ def get_bot_response():
         # try:
 
     user_input = request.args.get('msg')
-    print("user input is: " + user_input)
+    #print("user input is: " + user_input)
     # response = chatbot.get_response(user_input)
-    response = str(englishBot.get_response(user_input))
+    
+    response = str(Fox.FOX_response(user_input))
 
     #print(response)
 
