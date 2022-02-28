@@ -63,6 +63,6 @@
     {"tag": "roundtrip",
     "patterns": ["I want my flight to be round trip", "round trip", "I want a return flight", "I can't holiday forever", "No, round trip"],
     "responses": ["We can find you both a return and departure! When are the dates your interested in?", "Yeah I totally understand, when are you thinking for both departure and return times?", "Roger, Roger, What dates are you thinking?"]
-    },
+    }
 ]
 }
