@@ -13,8 +13,8 @@
      "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"]
     },
     {"tag": "returnthanks",
-    "patterns": ["I am well thank you! How are you?", "I am good and you", "Things are going well and your self?", "How are you?"],
-    "responses": ["I am great, just chilling looking at flight deals", "I am groovy my friend, can we help you find some flights?", "I'm good, just drowning in vacation deals right now, can I help you find one?"]
+    "patterns": ["I am well thank you! How are you?", "I am good and you", "Things are going well and your self?", "How are you?", "hows it going"],
+    "responses": ["I am great, just chilling looking at flight deals, can I help you with anything?", "I am groovy my friend, can we help you find some flights?", "I'm good, just drowning in vacation deals right now, can I help you find one?"]
     },
     {"tag": "about",
      "patterns": ["Who are you?", "What are you?", "Who you are?" ],
@@ -26,11 +26,11 @@
     },
     {"tag": "help",
     "patterns": ["Could you help me?", "give me a hand please", "Can you help?", "What can you do for me?", "I need a support", "I need a help", "support me please"],
-    "responses": ["Tell me how I can assist you", "I'm here to help you book your next dream vacation", "Yes Sure, How can I support you in deciding where to travel next","I can easily help you choose where to go next"]
+    "responses": ["Yeah I can help do you want to book a flight?", "I'm here to help you book your next dream vacation, are you looking to get away?", "Yes Sure, How can I support you in deciding where to travel next, are you looking for deals","I can easily help you choose where to go next, what type of holiday are you looking for? A cultural emmersion, a relaxing get away or an adventure"]
     },
     {"tag": "trip",
     "patterns": ["I wanna book a flight", "I want to get away", "I want to take a holiday", "can you show me some potential trips", "Are there any holiday deals"],
-    "responses": ["Before we begin let's figure out what type of get away your looking for", "What kind of holiday are you looking for adventure, relaxation or site seeing?", "Are you looking to explore, get a tan or experience the culture"]
+    "responses": ["Before we begin let's figure out what type of get away your looking for, adventure, relaxation or a cultural emmursion", "What kind of holiday are you looking for adventure, relaxation or site seeing?", "Are you looking to explore, get a tan or experience the culture"]
     },
     {"tag": "adventure",
     "patterns": ["I'd like to go explore","I want to adventure and see the outdoors","adventure"],
@@ -60,8 +60,8 @@
     "patterns": ["I was hoping to go one way", "I don't want a return flight", "I want a one way flight", "one way", "oneway"],
     "responses": ["Amazing we can easily find you a killer one way flight, when do you want to leave?", "Ooh extended vacation!! I like it, we will set your booking to one way, have a date in mind?", "Talk about a new adventure! One way it is my friend! When do you want to fly out?", "One way eh? Nice we got that saved, tell me when you're thinking about leaving?"]
     },
-    {"tag": "roundtrip",
-    "patterns": ["I want my flight to be round trip", "round trip", "I want a return flight", "I can't holiday forever", "No, round trip"],
+    {"tag": "round",
+    "patterns": ["I want my flight to be round", "round", "I want a return flight", "I can't holiday forever", "No, round"],
     "responses": ["We can find you both a return and departure! When are the dates your interested in?", "Yeah I totally understand, when are you thinking for both departure and return times?", "Roger, Roger, What dates are you thinking?"]
     }
    
