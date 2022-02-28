@@ -12,6 +12,10 @@
      "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help"],
      "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"]
     },
+    {"tag": "returnthanks",
+    "patterns": ["I am well thank you! How are you?", "I am good and you", "Things are going well and your self?", "How are you?"],
+    "responses": ["I am great, just chilling looking at flight deals", "I am groovy my friend, can we help you find some flights?", "I'm good, just drowning in vacation deals right now, can I help you find one?"]
+    },
     {"tag": "about",
      "patterns": ["Who are you?", "What are you?", "Who you are?" ],
      "responses": ["I.m FOX, your bot assistant", "I'm FOX, an Artificial Intelligent bot"]
