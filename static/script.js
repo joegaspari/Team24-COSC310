@@ -1,60 +1,29 @@
-var firebaseApp = firebase.initializeApp({ 
-  apiKey: "AIzaSyC4cGXqwHlZC1iv9ZjeXaNqyzI-kMh7y6Y",
-    authDomain: "kupidochat-bd3c5.firebaseapp.com",
-    databaseURL: "https://kupidochat-bd3c5.firebaseio.com",
-    storageBucket: "kupidochat-bd3c5.appspot.com",
-    messagingSenderId: "972492700679"
-});
+window.onload = (event) => {
+  console.log('page is fully loaded');
+  function getResponse() {
+    let userText = $("#textInput").val();
+    let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
 
-var db = firebaseApp.database();
+    $("#textInput").val("");
+    $("#chatbox").append(userHtml);
+    document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
 
-var chatApp = db.ref('chatApp'); //chatApp
-
-var dirRef = chatApp.child('directory');
-var chatRef = chatApp.child('chats');
-var userRef = chatApp.child('users');
-
-
-var app = new Vue({
-  el: '#chatApp',
-  firebase: {
-    directory: dirRef
-  },
-  data: {
-    headUser: 'Marinho Gomes',
-    showChatList: false,
-    chatBoxArea: true,
-    currentChats: []
-  },
-  methods: {
-    showUsuario: function(id){
-      console.log(id);
-    },
-    expandTextArea: function(){
-      $('#chatBox-textbox').height(80);
-      $('#chatTextarea').height(60);
-    },
-    dexpandTetArea: function(){
-      $('#chatBox-textbox').height(60);
-      $('#chatTextarea').height(40);
-    },
-    toggleChat: function(){
-      if(this.chatBoxArea){
-        $('#chatbox-area').hide();
-      }else{
-        $('#chatbox-area').show();
-      }
-      this.chatBoxArea = !this.chatBoxArea;
-    },
-    openChatBox: function(info){
-      
-    },
-    startChat: function(user){
-      
-    },
-    expandChatList: function(){    $("#userListBox").slideToggle();
-      this.showChatList = !this.showChatList;
-      
-    }
+    $.get("/get", { msg: userText }).done(function(data) {
+      let botHtml = '<p class="botText"><span>' + data + '</span></p>';
+      $("#chatbox").append(botHtml);
+      document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+    });
   }
-})
+
+  // If enter is pressed, get a response
+  $("#textInput").keypress(function(e) {
+    if(e.which == 13) {
+        getResponse();
+    }
+  });
+
+  // If send button is pressed, get a response
+  $("#buttonInput").click(function() {
+    getResponse();
+  });
+};
