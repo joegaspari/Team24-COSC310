@@ -6,8 +6,7 @@ import pickle
 import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
-
-from tensorflow.keras.optimizers import SGD
+from keras.optimizers import SGD
 import random
 
 
@@ -27,8 +26,8 @@ documents = []
 ignore_words = ['?', '!']
     
 
-for intent in jFile['intents']:
-    for pattern in jFile['patterns']:
+for intent in intents['intents']:
+    for pattern in intents['patterns']:
          #We tokenize the words found within the patterns defined in the intents file
         w = nltk.word_tokenize(pattern)
         words.extend(w)

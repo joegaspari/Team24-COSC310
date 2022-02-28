@@ -1,8 +1,6 @@
 #import files
 from flask import Flask, render_template, request
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
-from chatterbot.trainers import ListTrainer
+
 import os
 import spacy
 spacy.load('en_core_web_sm')
@@ -17,20 +15,6 @@ import Fox as Fox
 #use FOX_response(msg):
 
 app = Flask(__name__)
-
-
-# Create a new chat bot named Charlie
-chatbot = ChatBot('Charlie')
-
-# trainer = ListTrainer(chatbot)
-# # Training 
-# trainer.train(['What is your name?', 'My name is Candice'])
-
-
-englishBot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
-trainer = ChatterBotCorpusTrainer(englishBot)
-trainer.train("chatterbot.corpus.english") #train the chatter bot for english
-
 
 
 
