@@ -1,5 +1,11 @@
 version: "3.0"
 
+# The domain.yml file is responsible for holding all of the conversation elements that the user and bot may produce.
+
+# The intents are described in the nlu.yml file, 
+# and are the possible user responses categorized by intent
+
+
 intents:
   - greet
   - mood_great
@@ -16,6 +22,11 @@ intents:
   - confirm_IMMUstatus
   - confirm_luxury
 
+
+# Entities are elements within a user's response
+# which the system can grab and subsequently 
+# store within the slots section
+
 entities:
   - temp
   - location
@@ -27,6 +38,10 @@ entities:
   - citizen
   - vaxx
   - class
+
+# The slots can be used to store user data across sessions or can be set to wipe clean each session
+# We currently are unable to implement this capture feature as the time for the assignment was limited
+# look back at version 2 for improvements to the depth of conversation entity implementation. 
 
 slots:
   temp:
@@ -111,7 +126,8 @@ slots:
     mappings:
       - type: from_entity
         entity: class
-        
+
+# Actions are the system's responses to the user's intents 
 actions:
   - utter_greet
   - utter_intro
@@ -127,6 +143,7 @@ actions:
   - utter_congrats
   - utter_APIcall
 
+# Responses define the particular text response given by the bot after each action call
 
 responses:
   utter_greet:

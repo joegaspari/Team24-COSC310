@@ -1,4 +1,9 @@
 version: "3.0"
+# The nlu document is responsible for holding all of the possible statements a user could give for the following intent.
+# we created the intents to follow the story line we are trying to achieve with the travel bot. 
+# The following are called entities [00-09-22](date) where the items within the square brackets is the value and the round brackets
+# hold the entity name. We can use these to capture key elements within a conversation to be saved for future api call.
+
 
 nlu:
 - intent: greet
