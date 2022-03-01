@@ -146,10 +146,10 @@ responses:
   - text: "You like {temp} weather too!! Wow see we should be palls! What continents on this planet interest you?!"
 
   utter_dest_suggestion:
-  - text: "OHH I see so a {temp} part of {location}, any specific country in mind?"
+  - text: "OHH I see so a nice part of the world!!, any specific country in mind?"
 
   utter_round:
-  - text: "Perfect, so we are looking for a flight to {country}, one way or round trip?"
+  - text: "Perfect, so we are looking for a flight, one way or round trip?"
 
   utter_dates:
   - text: "What dates are you looking for your trip?"
@@ -167,7 +167,7 @@ responses:
   - text: "GOOD WORK HUMAN, you are off to experience some new adventures!"
 
   utter_APIcall:
-  - text: "We will search for flights to {country} on {dates}, with a {class} class seat preference"
+  - text: "We will search for flights to country specified on your prefered dates!"
 
 session_config:
   session_expiration_time: 60
