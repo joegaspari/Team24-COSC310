@@ -1,0 +1,175 @@
+version: "3.0"
+
+intents:
+  - greet
+  - mood_great
+  - bot_challenge
+  - get_away
+  - describe_trip
+  - temp_preference
+  - vacation_location
+  - confirm_suggestion
+  - confirm_OneRound
+  - confirm_dates_one
+  - confirm_dates_round
+  - confirm_citizen
+  - confirm_IMMUstatus
+  - confirm_luxury
+
+entities:
+  - temp
+  - location
+  - country
+  - direction
+  - dates
+  - datesr
+  - datesr1
+  - citizen
+  - vaxx
+  - class
+
+slots:
+  temp:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: temp
+
+  location:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: location
+
+  country:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: country
+
+  direction:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: direction
+        
+  dates:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: dates
+        
+  datesr:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: datesr
+        
+
+  datesr1:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: datesr1
+        
+  citizen: 
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: citizen
+        
+
+  vaxx:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: vaxx
+        
+
+  class:
+    type: text
+    initial_value: null
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: class
+        
+actions:
+  - utter_greet
+  - utter_intro
+  - utter_trip_type
+  - utter_tempPref
+  - utter_regionQ
+  - utter_dest_suggestion
+  - utter_round
+  - utter_dates
+  - utter_citizenship
+  - utter_vaxx
+  - utter_lvl_luxury
+  - utter_congrats
+  - utter_APIcall
+
+
+responses:
+  utter_greet:
+  - text: "Hey! I'm Fox, how are you my new human friend!?"
+
+  utter_intro:
+  - text: "Thanks, for asking! I'm so excited to help! I can assist you in booking your dream vacation! Are you looking to get away?"
+  
+
+  utter_trip_type:
+  - text: "let's figure out what type of get away your looking for, adventure, some R&R, or a site seeing trip?"
+
+  utter_tempPref:
+  - text: "Amazing can I join!!! Do you have a preference in temperature/climate?"
+
+  utter_regionQ:
+  - text: "You like {temp} weather too!! Wow see we should be palls! What continents on this planet interest you?!"
+
+  utter_dest_suggestion:
+  - text: "OHH I see so a nice part of the world!!, any specific country in mind?"
+
+  utter_round:
+  - text: "Perfect, so we are looking for a flight, one way or round trip?"
+
+  utter_dates:
+  - text: "What dates are you looking for your trip?"
+
+  utter_citizenship:
+  - text: "For booking can you provide me your citizenship??"
+
+  utter_vaxx:
+  - text: "With COVID-19 restrictions still in place around the world could you let me in on your immunization status?"
+
+  utter_lvl_luxury:
+  - text: "Are you looking for economy, buisness class or first class flights for this trip?"
+
+  utter_congrats:
+  - text: "GOOD WORK HUMAN, you are off to experience some new adventures!"
+
+  utter_APIcall:
+  - text: "We will search for flights to country specified on your prefered dates!"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+  store_entities_as_slots: false
