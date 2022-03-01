@@ -3,7 +3,8 @@ from flask import Flask, render_template, request
 import os
 import spacy
 spacy.load('en_core_web_sm')
-
+import requests 
+import json
 
 #Import chat which trains the model 
 #When this is commented, the previously trained and saved model is loaded (allows for quick testing)
@@ -28,9 +29,13 @@ def hello():
 
 @app.route("/get")
 def get_bot_response():
-    user_input = request.args.get('msg')
-    response = str(Fox.FOX_response(user_input))
-    return str(response)
+    user_input = str(request.args.get('msg'))
+    data = json.dumps({"sender": "Rasa", "message": user_input})
+    headers = {'Content-type': 'application/json', 'Accept':'text/plain'}
+    res = requests.post('http://localhost:5005/webhooks/rest/webhook',  data= data, headers = headers)
+    res = res.json()
+    val = res[0]['text']
+    return str(val)
 
 
 if __name__ == '__main__':
