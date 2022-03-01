@@ -1,0 +1,125 @@
+version: "3.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: mood_great
+  examples: |
+    -I'm good how are you?
+    -I am good
+    -I am doing well
+    -I am great thanks
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who am I talking to?
+
+- intent: get_away
+  examples: |
+    - I am looking to get away
+    - I want to take a trip
+    - flight
+    - looking for flight deals
+    - get away
+    - holiday
+
+- intent: describe_trip
+  examples: |
+    - looking for an adventure
+    - wanting to go sit by a beach
+    - want to go visit somewhere with great culture
+    - want to go to the ocean
+    - hiking in a tropical area
+    - I want to relax
+    - I want some R&R
+
+- intent: temp_preference
+  examples: |
+    - I like it [hot] (temp)
+    - I prefer the temperature [cool] (temp)
+    - I like the temperature [hot] (temp)
+    - I prefer a [colder] (temp) climate
+    - I like a [temperate](temp) climate
+    - I prefer a [warmer](temp) climate
+    - I enjoy the [heat](temp)
+
+- intent: vacation_location
+  examples: |
+    - I have always wanted to go to [europe](location)
+    - I would like to visit [africa](location)
+    - My ideal vacation would be in [south-america](location)
+    - I hear the that [asia](location) is the place to be
+    - I would like to go somewhere in [india](location)
+    - I dream about going to the [norht-america](location)
+
+
+- intent: confirm_suggestion
+  examples: |
+    - The country of [canada](country)
+    - How about [germany](country)
+    - [Mexico](country)
+    - What about [Kenya](country)
+
+
+- intent: confirm_OneRound
+  examples: |
+    - I want a [return](direction) flight
+    - Oh I definitily want a [round-trip](direction) flight
+    - [one way](direction) please!
+    - [round trip](direction) for sure!
+    - I need to come home at some point! [round](direction) flight for me
+
+- intent: confirm_dates_one
+  examples: |
+    - I am looking for [09-01-2022](dates)
+    - I want a flight for [09-01-2022](dates)
+    -[09-01-2022](dates)
+
+- intent: confirm_dates_round
+  examples: |
+    - I am looking for [09-01-2022](datesr) till [09-12-2022](datesr1)
+    - I want a flight for [09-01-2022](datesr) till [09-12-2022](datesr1)
+    - I want to depart on [09-01-2022](datesr) and return [09-12-2022](datesr1)
+    - [09-01-2022](datesr) till [09-12-2022](datesr1)
+
+- intent: confirm_citizen
+  examples: |
+    - I am a [canadian](citizen) citizen
+    - I have [american](citizen) citizenship!
+    - [Mexican](citizen) citizen
+    - I have citizenship in [Japan](citizen) 
+
+- intent: confirm_IMMUstatus
+  examples: |
+    - I am [double](vaxx) vaccinated
+    - I have [both](vaxx) shots
+    - I am fully immune and have [both](vaxx) shots
+    - [double](vaxx) vaccinated
+    - [Not](vaxx) vaccinated
+    - I have a [single](vaxx) vaccination
+    - I have [no](vaxx) vaccinations
+
+- intent: confirm_luxury
+  examples: |
+    - [first](class)
+    - I am looking to save so [economy](class) class
+    - I can afford a nice flight, let's do [premium](class) class
+    - I need extra leg room, I choose [buisness](class) class

@@ -1,0 +1,55 @@
+version: "3.0"
+
+stories:
+# Here we can define the general flow that the bot will take when gathing information from the user
+# We can say that the action is what the bot does, and the intent is what the system gathers the user is asking
+
+
+- story: Book Flight
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_intro
+  - intent: get_away
+  - action: utter_trip_type
+  - intent: describe_trip
+  - action: utter_tempPref
+  - intent: temp_preference
+    entities: 
+    - temp
+  - action: utter_regionQ
+  - intent: vacation_location
+    entities: 
+    - location
+  - action: utter_dest_suggestion
+  - intent: confirm_suggestion
+    entities: 
+    - country
+  - action: utter_round
+  - intent: confirm_OneRound
+    entities: 
+    - direction
+  - action: utter_dates
+  - intent: confirm_dates_one
+    entities: 
+    - dates
+  - intent: confirm_dates_round
+    entities: 
+    - datesr
+    - datesr1
+
+  - action: utter_citizenship
+  - intent: confirm_citizen
+    entities: 
+    - citizen
+  - action: utter_vaxx
+  - intent: confirm_IMMUstatus
+    entities: 
+    - vaxx
+  - action: utter_lvl_luxury
+  - intent: confirm_luxury
+    entities: 
+    - class
+  - action: utter_congrats
+  - action: utter_APIcall

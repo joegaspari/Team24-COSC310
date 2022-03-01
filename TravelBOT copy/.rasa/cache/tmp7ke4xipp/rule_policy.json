@@ -1,0 +1,24 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"temp_preference\"}}]": "utter_regionQ",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"temp_preference\"}}, {\"prev_action\": {\"action_name\": \"utter_regionQ\"}, \"user\": {\"intent\": \"temp_preference\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"vacation_location\"}}]": "utter_dest_suggestion",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"vacation_location\"}}, {\"prev_action\": {\"action_name\": \"utter_dest_suggestion\"}, \"user\": {\"intent\": \"vacation_location\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"describe_trip\"}}]": "utter_tempPref",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"describe_trip\"}}, {\"prev_action\": {\"action_name\": \"utter_tempPref\"}, \"user\": {\"intent\": \"describe_trip\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"confirm_suggestion\"}}]": "utter_round",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"confirm_suggestion\"}}, {\"prev_action\": {\"action_name\": \"utter_round\"}, \"user\": {\"intent\": \"confirm_suggestion\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"confirm_OneRound\"}}]": "utter_dates",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"confirm_OneRound\"}}, {\"prev_action\": {\"action_name\": \"utter_dates\"}, \"user\": {\"intent\": \"confirm_OneRound\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent back",
+      "predicting default action with intent session_start",
+      "predicting default action with intent restart"
+    ]
+  }
+}

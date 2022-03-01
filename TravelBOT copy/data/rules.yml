@@ -1,0 +1,34 @@
+version: "3.0"
+
+rules:
+
+- rule: Ask temp
+  steps:
+  - intent: describe_trip
+  - action: utter_tempPref
+
+- rule: Ask region
+  steps:
+  - intent: temp_preference
+  - action: utter_regionQ
+
+- rule: Ask continent
+  steps:
+  - intent: vacation_location
+  - action: utter_dest_suggestion
+
+- rule: Ask country
+  steps:
+  - intent: confirm_suggestion
+  - action: utter_round
+
+- rule: Ask round trip or one-way
+  steps:
+  - intent: confirm_OneRound
+  - action: utter_dates
+
+
+
+
+
+  
