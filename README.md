@@ -5,7 +5,8 @@
 Flight Booking Chatbot 
 
 An application used to help a user find the perfect flight for them.
-Built using html, CSS, Python and Flask
+Built using html, CSS, Python and Flask.
+Rasa and Spacy were used in order to improve bot accuracy and overall conversational flow.
 
 
 ## Project Status
