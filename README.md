@@ -8,9 +8,12 @@ An application used to help a user find the perfect flight for them.
 Built using html, CSS, Python and Flask.
 Rasa and Spacy were used in order to improve bot accuracy and overall conversational flow.
 
+The Rasa model allows the implementation of multiple story flows following intents created to predict user responses.
 
 ## Project Status
 Assignment 2 milestone complete. The next step is to further test input and responses and implement an API to lookup and return actual data.
+
+We are looking to increase the system's ability to recognize a particular intent by adding in more dynamic conversation variants.
 
 
 ## Project Screen Shots
