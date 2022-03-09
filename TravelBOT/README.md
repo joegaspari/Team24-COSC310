@@ -17,50 +17,50 @@ We are looking to increase the system's ability to recognize a particular intent
 
 ## Project Screen Shots
 
-[ PRETEND SCREEN SHOT IS HERE ]
+[ SCREEN SHOT IS HERE ]
 
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+[ OTHER SCREEN SHOT IS HERE ]
 
 
-## Installation and Setup Instructions
-
-#### Example:  
-
-Clone down this repository. You will need to install all libraries listed in requirements.txt
+## Installation and Setup Instructions  
 
 ***Your system may require the python 3.8 version to run Rasa libraries***
 
-Navigate to the TravelBot folder and confirm the virtual environment is running for that file. You will run:
+### Navigate to the TravelBOT directory
 
-Installation:
+`cd TravelBOT`  
 
-`pip3 install -U --user pip && pip3 install rasa`  
+Create a new virtual environment:
 
-When this is complete, you will run:
+`pip install virtualenv`  
 
-'rasa data validate'
+After the virtual environment is created, you will run:
+
+`python -m venv venv`
+
+Now activate the newly created virtual environment:
+
+`env\Scripts\activate`
+
+Now all the build dependencies can be installed:
+
+`python -m pip install requirements.txt`
 
 To confirm the files are in place and the model will load. Then begin to train the model on your local device by entering: 
 
-'rasa train'
+`rasa train`
 
 In the console... Once the model is trained (takes a few seconds!!!) you will see a file saved response in your terminal or command line and thus can enter:
 
-'rasa run -m models --enable-api'
+`rasa run -m models --enable-api`
 
-Proceed to navigate to the main directory in your terminal window and proceed to enter:
+Now open another terminal window outside of the virtual environment and start the flask server:
 
-'python app.py'
+`python app.py`
+or
+`flask run`  
 
-If Flask server needed:
-
-    Export Flask Server. Syntax depends on terminal used. See:  
-    `https://flask.palletsprojects.com/en/2.0.x/quickstart/`  
-
-    To Start Flask Server:
-    `flask run`  
-
-You should then be able to view the chat interface by using this URL:
+You should then be able to view the chat interface by using this URL: </br>
 To View App:
 
 `http://127.0.0.1:5000/`  
