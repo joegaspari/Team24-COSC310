@@ -26,9 +26,3 @@ rules:
   steps:
   - intent: confirm_OneRound
   - action: utter_dates
-
-
-
-
-
-  
