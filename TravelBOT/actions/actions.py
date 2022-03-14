@@ -16,10 +16,10 @@
 
 
 
-class FetchStatus(Action):
-    def name(self):
-        return 'action_fetch_status'
-    def run(self, dispatcher, tracker, domain):
-        url = "https://some.api.com/user/xxx/status"
-        status = requests.get(url).json
-        return [SlotSet("status", status)]
+# class FetchStatus(Action):
+#     def name(self):
+#         return 'action_fetch_status'
+#     def run(self, dispatcher, tracker, domain):
+#         url = "https://some.api.com/user/xxx/status"
+#         status = requests.get(url).json
+#         return [SlotSet("status", status)]

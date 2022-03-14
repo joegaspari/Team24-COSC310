@@ -64,7 +64,7 @@ nlu:
 
 #We are going to define an OR in our story to allow three possible intents 
 - intent: adventure_trip
-  example: | 
+  examples: | 
     - I want to explore and adventure
     - I want to hike and explore
     - I want to go somewhere and explore
@@ -72,7 +72,7 @@ nlu:
     - to adventure
 
 - intent: relaxation_trip
-  example: | 
+  examples: | 
     - I want to relax
     - I want to sit by a beach
     - I want to chill out
@@ -87,7 +87,7 @@ nlu:
 
 
 - intent: historical_trip
-  example: | 
+  examples: | 
     - I want to see historical sites
     - I want to site see
     - I want to experience the culture

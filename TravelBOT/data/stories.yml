@@ -22,39 +22,39 @@ stories:
   - action: utter_tempPref
   - intent: temp_preference
     entities: 
-    - temp
+    - temp: hot
   - action: utter_regionQ
   - intent: vacation_location
     entities: 
-    - location
+    - location: asia
   - action: utter_dest_suggestion
   - intent: confirm_suggestion
     entities: 
-    - country
+    - country: china
   - action: utter_round
-  - intent: confirm_OneRound
+  - intent: confirm_ROUND
     entities: 
-    - direction
+    - direction: round
   - action: utter_dates
   - intent: confirm_dates_one
     entities: 
-    - dates
+    - dates: 2022-09-09
   - intent: confirm_dates_round
     entities: 
-    - datesr
-    - datesr1
+    - datesr: 2022-12-25
+    - datesr1: 2022-03-15
 
   - action: utter_citizenship
   - intent: confirm_citizen
     entities: 
-    - citizen
+    - citizen: canadian
   - action: utter_vaxx
   - intent: confirm_IMMUstatus
     entities: 
-    - vaxx
+    - vaxx: fully
   - action: utter_lvl_luxury
   - intent: confirm_luxury
     entities: 
-    - class
+    - class: economy
   - action: utter_congrats
   - action: utter_APIcall

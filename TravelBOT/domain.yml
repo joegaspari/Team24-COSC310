@@ -47,84 +47,81 @@ entities:
 # look back at version 2 for improvements to the depth of conversation entity implementation. 
 
 slots:
-  temp:
+  temperature:
     type: text
-    initial_value: null
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: temp
 
-  location:
+  continent:
     type: text
-    initial_value: null
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: location
 
-  country:
+  country_loc:
     type: text
-    initial_value: null
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: country
 
-  direction:
+  direction_flight:
     type: text
-    initial_value: null
+ 
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: direction
         
-  dates:
+  dates_oneway:
     type: text
-    initial_value: null
+ 
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: dates
         
-  datesr:
+  dates_round_depart:
     type: text
-    initial_value: null
+  
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: datesr
         
 
-  datesr1:
+  dates_round_return:
     type: text
-    initial_value: null
+
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: datesr1
         
-  citizen: 
+  citizen_user: 
     type: text
-    initial_value: null
+
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: citizen
         
 
-  vaxx:
+  vaxx_status:
     type: text
-    initial_value: null
+
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: vaxx
         
 
-  class:
+  seat_prefer:
     type: text
-    initial_value: null
+
     influence_conversation: false
     mappings:
       - type: from_entity
@@ -163,13 +160,13 @@ responses:
   - text: "Amazing can I join!!! Do you have a preference in temperature/climate?"
 
   utter_regionQ:
-  - text: "You like {temp} weather too!! Wow see we should be palls! What continents on this planet interest you?!"
+  - text: "You like {temperature} weather too!! Wow see we should be palls! What continents on this planet interest you?!"
 
   utter_dest_suggestion:
-  - text: "OHH I see so a nice part of the world!!, any specific country in mind?"
+  - text: "OHH I've seen some servers in {continent}, nice bots over there!!, any specific country in mind?"
 
   utter_round:
-  - text: "Perfect, so we are looking for a flight, one way or round trip?"
+  - text: "Perfect, so we are looking for a flight to {country_loc}, one way or round trip?"
 
   utter_dates:
   - text: "What dates are you looking for your trip?"
@@ -187,7 +184,7 @@ responses:
   - text: "GOOD WORK HUMAN, you are off to experience some new adventures!"
 
   utter_APIcall:
-  - text: "We will search for flights to country specified on your prefered dates!"
+  - text: "We will search for flights to {country_loc} specified with {seat_prefer} seats, departing on {dates_oneway}!"
 
 session_config:
   session_expiration_time: 60
