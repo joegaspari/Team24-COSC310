@@ -9,13 +9,16 @@ version: "3.0"
 intents:
   - greet
   - mood_great
-  - bot_challenge
+  - mood_bad
   - get_away
-  - describe_trip
+  # - start
+  - adventure_trip
+  - relaxation_trip
+  - historical_trip
   - temp_preference
   - vacation_location
   - confirm_suggestion
-  - confirm_OneRound
+  - confirm_ROUND
   - confirm_dates_one
   - confirm_dates_round
   - confirm_citizen
@@ -150,7 +153,7 @@ responses:
   - text: "Hey! I'm Fox, how are you my new human friend!?"
 
   utter_intro:
-  - text: "Thanks, for asking! I'm so excited to help! I can assist you in booking your dream vacation! Are you looking to get away?"
+  - text: "I'm so excited to help! I can assist you in booking your dream vacation! Are you looking to get away?"
   
 
   utter_trip_type:

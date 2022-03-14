@@ -9,11 +9,16 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
+  - or:
+    - intent: mood_great
+    - intent: mood_bad
   - action: utter_intro
   - intent: get_away
   - action: utter_trip_type
-  - intent: describe_trip
+  - or:
+    - intent: adventure_trip
+    - intent: relaxation_trip
+    - intent: historical_trip
   - action: utter_tempPref
   - intent: temp_preference
     entities: 

@@ -26,6 +26,10 @@ We are looking to increase the system's ability to recognize a particular intent
 
 ***Your system may require the python 3.8 version to run Rasa libraries***
 
+
+
+## Option 1:
+
 ### Navigate to the TravelBOT directory
 
 `cd TravelBOT`  
@@ -63,7 +67,48 @@ or
 You should then be able to view the chat interface by using this URL: </br>
 To View App:
 
-`http://127.0.0.1:5000/`  
+`http://127.0.0.1:5000/` 
+
+## Option 2: (Using Conda) perform this in terminal
+
+Navigate to TravelBot Directory:
+
+`cd TravelBOT` 
+
+Create Conda virtual environment using a older version of Python:
+
+`conda create -n myenv python=3.8`
+
+Activate the virtual environment using:
+
+`conda activate myenv`
+
+Install pip and Rasa into virtual environment
+
+`pip3 install -U --user pip && pip3 install rasa`
+
+Begin Rasa training upon successful installation:
+
+
+`rasa train`
+
+In the console... Once the model is trained (takes a few seconds!!!) you will see a file saved response in your terminal or command line and thus can enter:
+
+`rasa run -m models --enable-api`
+
+Now open another terminal window outside of the virtual environment and start the flask server:
+
+`python app.py`
+or
+`flask run`  
+
+You should then be able to view the chat interface by using this URL: </br>
+To View App:
+
+`http://127.0.0.1:5000/` 
+
+
+###
 
 # TravelBOT
 
