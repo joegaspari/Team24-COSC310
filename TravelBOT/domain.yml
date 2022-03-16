@@ -1,192 +1,52 @@
-version: "3.0"
-
-# The domain.yml file is responsible for holding all of the conversation elements that the user and bot may produce.
-
-# The intents are described in the nlu.yml file, 
-# and are the possible user responses categorized by intent
-
-
-intents:
-  - greet
-  - mood_great
-  - mood_bad
-  - get_away
-  # - start
-  - adventure_trip
-  - relaxation_trip
-  - historical_trip
-  - temp_preference
-  - vacation_location
-  - confirm_suggestion
-  - confirm_ROUND
-  - confirm_dates_one
-  - confirm_dates_round
-  - confirm_citizen
-  - confirm_IMMUstatus
-  - confirm_luxury
-
-
-# Entities are elements within a user's response
-# which the system can grab and subsequently 
-# store within the slots section
-
-entities:
-  - temp
-  - location
-  - country
-  - direction
-  - dates
-  - datesr
-  - datesr1
-  - citizen
-  - vaxx
-  - class
-
-# The slots can be used to store user data across sessions or can be set to wipe clean each session
-# We currently are unable to implement this capture feature as the time for the assignment was limited
-# look back at version 2 for improvements to the depth of conversation entity implementation. 
-
-slots:
-  temperature:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: temp
-
-  continent:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: location
-
-  country_loc:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: country
-
-  direction_flight:
-    type: text
- 
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: direction
-        
-  dates_oneway:
-    type: text
- 
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: dates
-        
-  dates_round_depart:
-    type: text
-  
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: datesr
-        
-
-  dates_round_return:
-    type: text
-
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: datesr1
-        
-  citizen_user: 
-    type: text
-
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: citizen
-        
-
-  vaxx_status:
-    type: text
-
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: vaxx
-        
-
-  seat_prefer:
-    type: text
-
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: class
-
-# Actions are the system's responses to the user's intents 
-actions:
-  - utter_greet
-  - utter_intro
-  - utter_trip_type
-  - utter_tempPref
-  - utter_regionQ
-  - utter_dest_suggestion
-  - utter_round
-  - utter_dates
-  - utter_citizenship
-  - utter_vaxx
-  - utter_lvl_luxury
-  - utter_congrats
-  - utter_APIcall
-
-# Responses define the particular text response given by the bot after each action call
-
-responses:
-  utter_greet:
-  - text: "Hey! I'm Fox, how are you my new human friend!?"
-
-  utter_intro:
-  - text: "I'm so excited to help! I can assist you in booking your dream vacation! Are you looking to get away?"
-  
-
-  utter_trip_type:
-  - text: "let's figure out what type of get away your looking for, adventure, some R&R, or a site seeing trip?"
-
-  utter_tempPref:
-  - text: "Amazing can I join!!! Do you have a preference in temperature/climate?"
-
-  utter_regionQ:
-  - text: "You like {temperature} weather too!! Wow see we should be palls! What continents on this planet interest you?!"
-
-  utter_dest_suggestion:
-  - text: "OHH I've seen some servers in {continent}, nice bots over there!!, any specific country in mind?"
-
-  utter_round:
-  - text: "Perfect, so we are looking for a flight to {country_loc}, one way or round trip?"
-
-  utter_dates:
-  - text: "What dates are you looking for your trip?"
-
-  utter_citizenship:
-  - text: "For booking can you provide me your citizenship??"
-
-  utter_vaxx:
-  - text: "With COVID-19 restrictions still in place around the world could you let me in on your immunization status?"
-
-  utter_lvl_luxury:
-  - text: "Are you looking for economy, buisness class or first class flights for this trip?"
-
-  utter_congrats:
-  - text: "GOOD WORK HUMAN, you are off to experience some new adventures!"
-
-  utter_APIcall:
-  - text: "We will search for flights to {country_loc} specified with {seat_prefer} seats, departing on {dates_oneway}!"
-
+version: '3.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
-  store_entities_as_slots: false
+intents:
+- city_info
+- weather
+- greet
+- mood_great
+- mood_bad
+- goodbye
+- thanks
+- deny
+- confirm
+- weather_for_loc
+entities:
+- weather_loc
+slots:
+  weather_location:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: weather_loc
+responses:
+  utter_goodbye:
+  - text: Goodbye friend
+  - text: bye
+  - text: bye for now
+  - text: catch you later
+  - text: gotta go
+  - text: See you
+  utter_greet_reply:
+  - text: Howdy Human, how's it going??
+  - text: Hows it hanging my friend???
+  - text: How are you????? I am SO excited to chat
+  utter_howru:
+  - text: I am good thanks for asking! How can I help?
+  utter_welcome:
+  - text: You are welcome!
+  - text: no sweat little bean! I got you!
+  - text: Welcome!
+  utter_ask_location:
+  - text: What city?
+  - text: In what city are you curious?
+  - text: I'm gonna need a location here my friend!
+  utter_getting_weather:
+  - text: gotcha! okay let me get the weather for [weather_location] ...
+actions:
+- action_get_weather
+- utter_ask_location
+- utter_getting_weather

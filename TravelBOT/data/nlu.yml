@@ -1,18 +1,4 @@
 version: "3.0"
-# The nlu document is responsible for holding all of the possible statements a user could give for the following intent.
-# we created the intents to follow the story line we are trying to achieve with the travel bot. 
-# The following are called entities [00-09-22](date) where the items within the square brackets is the value and the round brackets
-# hold the entity name. We can use these to capture key elements within a conversation to be saved for future api call.
-
-#When a user inputs a message such as "I'm looking to book a flight" we say that the intention of the statement is flight booking, the natural language understanding (NLU) file
-#is used to identify this intent. 
-
-# Entity : Input messages may contain information like name, place etc.. These are details which need to be extracted. 
-# For example, consider “I want to book a table on the name of Sinduja”. You need extract the name “Sinduja” which is an entity.
-
-#We may want to include retrieval intents : A question like intent that allows the bot to have structured responses to such as "What is the weather like in berlin?"
-#This kind of question like intent can be directly split into two sub intents 
-
 nlu:
 - intent: greet
   examples: |
@@ -20,408 +6,106 @@ nlu:
     - hello
     - hi
     - hello there
-    - good morning
-    - good evening
     - moin
     - hey there
-    - let's go
-    - hey dude
     - goodmorning
     - goodevening
     - good afternoon
-
+    - hi again
+    - hi folks
+    - hi mister
+    - hi miss
+    - hi robot
+    - hey bot
+    - hi bot
+    - hello robot
 - intent: mood_great
   examples: |
     - I'm good how are you?
     - I am good
     - I am doing well
     - I am great thanks
-
 - intent: mood_bad
   examples: |
     - I am not doing great
-    - Not well
-    - Not good 
-    - Not great
+    - Not well, how are you?
+    - Not good, how are you?
+    - Not great, how are you?
     - Not feeling good
-
-- intent: get_away
+- intent: goodbye
   examples: |
-    - i am looking to get away
-    - I want to get away 
-    - get away
-    - holiday
-    - vacation
-
-# - intent: start
-#   examples: | 
-#     - how do i get started
-#     - how do i begin 
-#     - how do we start
-#     - where do we begin
-#     - how does this work
-#     - what can you do
-
-#We are going to define an OR in our story to allow three possible intents 
-- intent: adventure_trip
-  examples: | 
-    - I want to explore and adventure
-    - I want to hike and explore
-    - I want to go somewhere and explore
-    - I want an adventure
-    - to adventure
-
-- intent: relaxation_trip
-  examples: | 
-    - I want to relax
-    - I want to sit by a beach
-    - I want to chill out
-    - I want no stress
-    - I want to veg out 
-    - relaxation
-    - sit by a beach 
-    - sit in the sand 
-    - sit in the sun
-    - Rest and relaxation
-    - R&R
-
-
-- intent: historical_trip
-  examples: | 
-    - I want to see historical sites
-    - I want to site see
-    - I want to experience the culture
-    - I love history
-    - historical site seeing 
-    - experience the culture and history
-
-
-
-- intent: temp_preference
+    - Bye
+    - Goodbye
+    - See you later
+    - Bye bot
+    - Goodbye friend
+    - bye
+    - bye for now
+    - catch you later
+    - gotta go
+    - See you
+    - goodnight
+    - have a nice day
+    - i'm off
+    - see you later alligator
+    - we'll speak soon
+- intent: thanks
   examples: |
-    - I like it [hot] (temp)
-    - I prefer the temperature [cool] (temp)
-    - I like the temperature [hot] (temp)
-    - I prefer a [colder] (temp) climate
-    - I like a [temperate](temp) climate
-    - I prefer a [warmer](temp) climate
-    - I enjoy the [heat](temp)
-
-- synonym: hot
+    - thank you
+    - thank you very much
+    - thanks
+    - great, thank you
+- intent: deny
   examples: |
-    - warm
-    - heat
-    - warmer
-    - boiling 
-    - smoldering
-
-- synonym: cool
+    - no
+    - no thank you
+    - n
+    - nope
+    - nada
+    - nah
+    - no thanks
+- intent: confirm
   examples: |
-    - cold
-    - colder
-    - freezing
-    - chilly
-
-- synonym: temperate
+    - yes
+    - yes please
+    - yes thank you
+    - yup
+    - y
+    - confirm
+    - I do
+    - indeed
+- intent: weather
   examples: |
-    - mild
-    - in-between
-    - moderate
-
-
-
-- intent: vacation_location
+    - what's the weather
+    - what is the temperature today
+    - what is the temperature
+    - I want to know the weather
+    - whats the forecast for today
+    - how is the weather today
+    - hows the forecast for today
+    - whats the temp today
+    - whats the weather like today
+- intent: weather_for_loc
   examples: |
-    - I have always wanted to go to [europe](location)
-    - I would like to visit [africa](location)
-    - My ideal vacation would be in [south-america](location)
-    - I hear the that [asia](location) is the place to be
-    - I would like to go somewhere in [australia](location)
-    - I dream about going to the [north-america](location)
-
-# A look up table is used to help the bot classify the entity 
-- lookup: location
+    - what is the weather like in [Calgary](weather_loc)
+    - what is the temperature today in [London](weather_loc)
+    - how is the forecast for [Mumbai](weather_loc)
+    - what is the temp today in [New York](weather_loc)
+    - can you tell me the weather in [Vancouver](weather_loc)
+    - weather of [Kelowna](weather_loc)
+    - tell me weather of [Toronto](weather_loc)
+- intent: city_info
   examples: |
-    - europe
-    - africa
-    - south-america
-    - asia
-    - australia
-    - north-america
-    - antarctica
-
-- intent: confirm_suggestion
-  examples: |
-    - The country of [canada](country)
-    - How about [germany](country)
-    - [Mexico](country)
-    - What about [Kenya](country)
-
-- lookup: country
-  examples: |
-    - Afghanistan
-    - Albania
-    - Algeria
-    - Andorra
-    - Angola
-    - Antigua
-    - Argentina
-    - Armenia
-    - Austria
-    - Azerbaijan
-    - Bahrain
-    - Bangladesh
-    - Barbados
-    - Belarus
-    - Belgium
-    - Belize
-    - Benin
-    - Bhutan
-    - Bolivia
-    - Bosnia and Herzegovina
-    - Botswana
-    - Brazil
-    - Brunei
-    - Bulgaria
-    - Burkina Faso
-    - Burundi
-    - Cabo Verde
-    - Cambodia
-    - Cameroon
-    - Canada
-    - Central African Republic
-    - Chad
-    - Channel Islands
-    - Chile
-    - China
-    - Colombia
-    - Comoros
-    - Congo
-    - Costa Rica
-    - Côte d'Ivoire
-    - Croatia
-    - Cuba
-    - Cyprus
-    - Czech Republic
-    - Denmark
-    - Djibouti
-    - Dominica
-    - Dominican Republic
-    - DR Congo
-    - Ecuador
-    - Egypt
-    - El Salvador
-    - Equatorial Guinea
-    - Eritrea
-    - Estonia
-    - Eswatini
-    - Ethiopia
-    - Faeroe Islands
-    - Finland
-    - France
-    - French Guiana
-    - Gabon
-    - Gambia
-    - Georgia
-    - Germany
-    - Ghana
-    - Gibraltar
-    - Greece
-    - Grenada
-    - Guatemala
-    - Guinea
-    - Guinea-Bissau
-    - Guyana
-    - Haiti
-    - Holy See
-    - Honduras
-    - Hong Kong
-    - Hungary
-    - Iceland
-    - India
-    - Indonesia
-    - Iran
-    - Iraq
-    - Ireland
-    - Isle of Man
-    - Israel
-    - Italy
-    - Jamaica
-    - Japan
-    - Jordan
-    - Kazakhstan
-    - Kenya
-    - Kuwait
-    - Kyrgyzstan
-    - Laos
-    - Latvia
-    - Lebanon
-    - Lesotho
-    - Liberia
-    - Libya
-    - Liechtenstein
-    - Lithuania
-    - Luxembourg
-    - Macao
-    - Madagascar
-    - Malawi
-    - Malaysia
-    - Maldives
-    - Mali
-    - Malta
-    - Mauritania
-    - Mauritius
-    - Mayotte
-    - Mexico
-    - Moldova
-    - Monaco
-    - Mongolia
-    - Montenegro
-    - Morocco
-    - Mozambique
-    - Myanmar
-    - Namibia
-    - Nepal
-    - Netherlands
-    - Nicaragua
-    - Niger
-    - Nigeria
-    - North Korea
-    - North Macedonia
-    - Norway
-    - Oman
-    - Pakistan
-    - Panama
-    - Paraguay
-    - Peru
-    - Philippines
-    - Poland
-    - Portugal
-    - Qatar
-    - Réunion
-    - Romania
-    - Russia
-    - Rwanda
-    - Saint Helena
-    - Saint Kitts and Nevis
-    - Saint Lucia
-    - Saint Vincent and the Grenadines
-    - San Marino
-    - Sao Tome & Principe
-    - Saudi Arabia
-    - Senegal
-    - Serbia
-    - Seychelles
-    - Sierra Leone
-    - Singapore
-    - Slovakia
-    - Slovenia
-    - Somalia
-    - South Africa
-    - South Korea
-    - South Sudan
-    - Spain
-    - Sri Lanka
-    - State of Palestine
-    - Sudan
-    - Suriname
-    - Sweden
-    - Switzerland
-    - Syria
-    - Taiwan
-    - Tajikistan
-    - Tanzania
-    - Thailand
-    - The Bahamas
-    - Timor-Leste
-    - Togo
-    - Trinidad and Tobago
-    - Tunisia
-    - Turkey
-    - Turkmenistan
-    - Uganda
-    - Ukraine
-    - United Arab Emirates
-    - United Kingdom
-    - United States
-    - Uruguay
-    - Uzbekistan
-    - Venezuela
-    - Vietnam
-    - Western Sahara
-    - Yemen
-    - Zambia
-    - Zimbabwe
-
-- intent: confirm_ROUND
-  examples: |
-    - I want a [return](direction) flight
-    - Oh I definitily want a [round-trip](direction) flight
-    - [one-way](direction) please!
-    - [round trip](direction) for sure!
-    - I need to come home at some point! [round](direction) flight for me
-
-- synonym: round-trip
-  examples: |
-    - round
-    - round trip
-    - return
-
-- synonym: one-way
-  examples: |
-    - one way
-
-
-- intent: confirm_dates_one
-  examples: |
-    - I am looking for [2022-09-02](dates)
-    - I want a flight for [2022-09-03](dates)
-    -[2023-10-12](dates)
-
-- regex: dates
-  examples: |
-    - /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
-
-
-
-- intent: confirm_dates_round
-  examples: |
-    - I am looking for [2022-09-02](datesr) till [2022-09-12](datesr1)
-    - I want a flight for [2022-09-02](datesr) till [2022-09-12](datesr1)
-    - I want to depart on [2022-09-02](datesr) and return [2022-09-12](datesr1)
-    - [2022-09-02](datesr) till [2022-09-12](datesr1)
-
-- regex: datesr
-  examples: |
-    - /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
-
-- regex: datesr1
-  examples: |
-    - /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
-
-
-
-
-- intent: confirm_citizen
-  examples: |
-    - I am a [canadian](citizen) citizen
-    - I have [american](citizen) citizenship!
-    - [Mexican](citizen) citizen
-    - I have citizenship in [Japan](citizen) 
-
-- intent: confirm_IMMUstatus
-  examples: |
-    - I am [double](vaxx) vaccinated
-    - I have [both](vaxx) shots
-    - I am fully immune and have [both](vaxx) shots
-    - [double](vaxx) vaccinated
-    - [Not](vaxx) vaccinated
-    - I have a [single](vaxx) vaccination
-    - I have [no](vaxx) vaccinations
-
-- intent: confirm_luxury
-  examples: |
-    - [first](class)
-    - I am looking to save so [economy](class) class
-    - I can afford a nice flight, let's do [premium](class) class
-    - I need extra leg room, I choose [buisness](class) class
+    - [New Delhi](weather_loc)
+    - [India](weather_loc)
+    - [Mumbai](weather_loc)
+    - [Noida](weather_loc)
+    - [Kolkata](weather_loc)
+    - [Bangalore](weather_loc)
+    - [London](weather_loc)
+    - [Toronto](weather_loc)
+    - [Calgary](weather_loc)
+    - [Kelowna](weather_loc)
+    - [New York](weather_loc)
+    - [Vancouver](weather_loc)
+    - [Kelowna](weather_loc)

@@ -4,57 +4,116 @@ stories:
 # Here we can define the general flow that the bot will take when gathing information from the user
 # We can say that the action is what the bot does, and the intent is what the system gathers the user is asking
 
-
-- story: Book Flight
+- story: meet
   steps:
-  - intent: greet
-  - action: utter_greet
-  - or:
-    - intent: mood_great
-    - intent: mood_bad
-  - action: utter_intro
-  - intent: get_away
-  - action: utter_trip_type
-  - or:
-    - intent: adventure_trip
-    - intent: relaxation_trip
-    - intent: historical_trip
-  - action: utter_tempPref
-  - intent: temp_preference
-    entities: 
-    - temp: hot
-  - action: utter_regionQ
-  - intent: vacation_location
-    entities: 
-    - location: asia
-  - action: utter_dest_suggestion
-  - intent: confirm_suggestion
-    entities: 
-    - country: china
-  - action: utter_round
-  - intent: confirm_ROUND
-    entities: 
-    - direction: round
-  - action: utter_dates
-  - intent: confirm_dates_one
-    entities: 
-    - dates: 2022-09-09
-  - intent: confirm_dates_round
-    entities: 
-    - datesr: 2022-12-25
-    - datesr1: 2022-03-15
+    - intent: greet
+    - action: utter_greet_reply
+    - or:
+      - intent: mood_great
+      - intent: mood_bad
+    - action: utter_howru
 
-  - action: utter_citizenship
-  - intent: confirm_citizen
-    entities: 
-    - citizen: canadian
-  - action: utter_vaxx
-  - intent: confirm_IMMUstatus
-    entities: 
-    - vaxx: fully
-  - action: utter_lvl_luxury
-  - intent: confirm_luxury
-    entities: 
-    - class: economy
-  - action: utter_congrats
-  - action: utter_APIcall
+- story: get_weather
+  steps: 
+    - intent: weather
+    - action: utter_ask_location
+    - intent: city_info
+    - action: utter_getting_weather
+    - action: action_get_weather
+    - intent: thanks
+    - action: utter_welcome
+    # - action: utter_anything_els
+    # - intent: deny
+    - action: utter_goodbye
+
+# - story: get_weather2
+#   steps: 
+#     - intent: weather
+#     - action: utter_ask_location
+#     - intent: city_info
+#     - action: utter_getting_weather
+#     - action: action_get_weather
+#     - intent: thanks
+#     - action: utter_welcome
+#     - action: utter_anything_els
+#     - intent: 
+#     - action: utter_goodbye  
+#  Here we need to add intent confirm then utter_howcan i help (which will be used in other stories in a bit)
+- story: get_weather_short
+  steps:
+    - intent: weather_for_loc
+    - action: utter_getting_weather
+    - action: action_get_weather
+    - intent: thanks
+    - action: utter_welcome
+    # - action: utter_anything_els
+    # - intent: deny
+    - action: utter_goodbye
+
+# - story: Book Flight
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - or:
+#     - intent: mood_great
+#     - intent: mood_bad
+#   - action: utter_intro
+#   - intent: get_away
+#   - action: utter_trip_type
+#   - or:
+#     - intent: adventure_trip
+#     - intent: relaxation_trip
+#     - intent: historical_trip
+#   - action: utter_tempPref
+#   - intent: temp_preference
+#     entities: 
+#     - temp: hot
+#   - action: utter_regionQ
+#   - intent: vacation_location
+#     entities: 
+#     - location: asia
+#   - action: utter_dest_suggestion
+#   - intent: confirm_suggestion
+#     entities: 
+#     - country: china
+#   - action: utter_round
+#   - intent: confirm_ROUND
+#     entities: 
+#     - direction: round
+#   - action: utter_dates
+#   - intent: confirm_dates_one
+#     entities: 
+#     - dates: 2022-09-09
+#   - intent: confirm_dates_round
+#     entities: 
+#     - datesr: 2022-12-25
+#     - datesr1: 2022-03-15
+
+#   - action: utter_citizenship
+#   - intent: confirm_citizen
+#     entities: 
+#     - citizen: canadian
+#   - action: utter_vaxx
+#   - intent: confirm_IMMUstatus
+#     entities: 
+#     - vaxx: fully
+#   - action: utter_lvl_luxury
+#   - intent: confirm_luxury
+#     entities: 
+#     - class: economy
+#   - action: utter_congrats
+#   - action: utter_APIcall
+
+- story: interactive_story_1
+  steps:
+  - intent: weather
+  - action: utter_ask_location
+  - intent: city_info
+    entities:
+    - weather_loc: Kelowna
+  - slot_was_set:
+    - weather_location: Kelowna
+  - action: utter_getting_weather
+  - action: action_get_weather
+  - slot_was_set:
+    - location: Kelowna

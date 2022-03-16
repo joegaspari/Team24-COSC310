@@ -1,25 +1,28 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
+from typing import Any, Text, Dict, List
 
+from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet
+from rasa_sdk.executor import CollectingDispatcher
+import requests
 
-# This is a simple example for a custom action which utters "Hello World!"
+class ActionCheckWeather(Action):
 
-
-
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-
-
-
-# class FetchStatus(Action):
-#     def name(self):
-#         return 'action_fetch_status'
-#     def run(self, dispatcher, tracker, domain):
-#         url = "https://some.api.com/user/xxx/status"
-#         status = requests.get(url).json
-#         return [SlotSet("status", status)]
+    def name(self)-> Text:
+        return "action_get_weather"
+    
+    def run(self, dispatcher, tracker, domain):
+        api_key = '846be7071eb6f82c31610e982ad63cf0'
+        loc = tracker.get_slot('weather_location')
+        current = requests.get('http://api.openweathermap.org/data/2.5/weather?q={}&appid={}'.format(loc, api_key)).json()
+        print(current)
+        country = current['sys']['country']
+        city = current['name']
+        condition = current['weather'][0]['main']
+        temperature_c = current['main']['temp']
+        temperature_c -= 273
+        temperature_c = round(temperature_c)
+        humidity = current['main']['humidity']
+        wind_mph = current['wind']['speed']
+        response = """It is currently {} in {} at the moment. The temperature is {} degrees, the humidity is {}% and the wind speed is {} mph.""".format(condition, city, temperature_c, humidity, wind_mph)
+        dispatcher.utter_message(response)
+        return [SlotSet('weather_location', loc)]
