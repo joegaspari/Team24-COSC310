@@ -1,4 +1,5 @@
 import requests
+import json
 
 url = "https://api.skypicker.com/flights"
 
@@ -12,4 +13,14 @@ r = requests.get(url = url, params = PARAMS)
 data = r.json()
 
 print(data)  
-  
+print("\n")
+# print(data['data'])
+
+# data1 = data['data']
+# print("\n")
+# for key in data1:
+    # print(key['id'])
+
+
+
+# json.dump(student, data1, indent=4)

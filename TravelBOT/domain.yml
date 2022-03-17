@@ -13,7 +13,7 @@ intents:
 - deny
 - confirm
 - weather_for_loc
-
+- destination
 
 #flights
 - confirm_desire_flight
@@ -30,6 +30,7 @@ intents:
     use_entities: []
 entities:
 - weather_loc
+- departure_loc
 slots:
   weather_location:
     type: text
@@ -37,6 +38,13 @@ slots:
     mappings:
     - type: from_entity
       entity: weather_loc
+  #flight
+  departure_location:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: departure_loc
 responses:
   utter_goodbye:
   - text: Goodbye friend

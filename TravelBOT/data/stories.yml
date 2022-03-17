@@ -132,6 +132,13 @@ stories:
     - action: utter_flight_intro
     - action: utter_where_to
     - intent: destination
+      entities:
+      - departure_loc: Kelowna
+    - slot_was_set:
+      - departure_location: Kelowna
+#    - slot_was_set:
+#      - weather_loc: Kelowna
+
     - action: utter_oneway_roundtrip
     - intent: one_way
     - action: utter_verify_trip
@@ -143,6 +150,6 @@ stories:
     - action: utter_bot_see_what_we_can_do
     - action: utter_bot_list_flights
     - intent: user_confirm_interest
-    - action: utter_user_confirm
+    # - action: utter_user_confirm
 
 

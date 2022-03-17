@@ -114,7 +114,7 @@ nlu:
 - intent: confirm_desire_flight
   examples: |
     - Yeah I wanna book a flight
-- intent: from_to
+- intent: departure_loc
   examples: |
     - From USA to Canada
 - intent: user_confirm_interest
