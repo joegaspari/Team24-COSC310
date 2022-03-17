@@ -13,6 +13,21 @@ intents:
 - deny
 - confirm
 - weather_for_loc
+
+
+#flights
+- confirm_desire_flight
+
+- user_enter_date_proper_format:
+    use_entities: []
+- from_to:
+    use_entities: []
+- one_way:
+    use_entities: []
+- user_confirm:
+    use_entities: []
+- user_confirm_interest:
+    use_entities: []
 entities:
 - weather_loc
 slots:
@@ -46,7 +61,35 @@ responses:
   - text: I'm gonna need a location here my friend!
   utter_getting_weather:
   - text: gotcha! okay let me get the weather for [weather_location] ...
+
+# flights
+  utter_flight_intro:
+    - text: Alright let me help you book a flight!
+  utter_where_to:
+    - text: Where do you want to go?
+  utter_oneway_roundtrip:
+    - text: One-way or round trip?
+  utter_verify_trip:
+    - text: 'You want to go from [entity1] to [entity2], is that correct?'
+    - text: Could you please input the date as mm/dd/yyyy?
+  utter_user_confirm:
+    - text: OK!
+  utter_untitled-path-intent-9:
+    - text: And when would you like to leave?
+  utter_bot_see_what_we_can_do:
+    - text: Let me see what we can do for you!
+  utter_bot_list_flights:
+    - text: |-
+        Here are 5 flights:
+        -1
+        -2
+        -3
+        -4
+        -5
+        Are any of these of interest to you?
 actions:
 - action_get_weather
 - utter_ask_location
 - utter_getting_weather
+
+

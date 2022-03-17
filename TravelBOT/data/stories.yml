@@ -4,6 +4,7 @@ stories:
 # Here we can define the general flow that the bot will take when gathing information from the user
 # We can say that the action is what the bot does, and the intent is what the system gathers the user is asking
 
+
 - story: meet
   steps:
     - intent: greet
@@ -12,6 +13,8 @@ stories:
       - intent: mood_great
       - intent: mood_bad
     - action: utter_howru
+    
+
 
 - story: get_weather
   steps: 
@@ -117,3 +120,29 @@ stories:
   - action: action_get_weather
   - slot_was_set:
     - location: Kelowna
+
+
+
+
+#flights
+- story: flight
+  steps:
+    - action: utter_ask_confirm
+    - intent: confirm_desire_flight
+    - action: utter_flight_intro
+    - action: utter_where_to
+    - intent: destination
+    - action: utter_oneway_roundtrip
+    - intent: one_way
+    - action: utter_verify_trip
+    - intent: user_confirm
+    - action: utter_untitled-path-intent-9
+    - intent: one_way
+    - action: utter_verify_trip
+    - intent: user_enter_date_proper_format
+    - action: utter_bot_see_what_we_can_do
+    - action: utter_bot_list_flights
+    - intent: user_confirm_interest
+    - action: utter_user_confirm
+
+

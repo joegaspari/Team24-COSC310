@@ -109,3 +109,21 @@ nlu:
     - [New York](weather_loc)
     - [Vancouver](weather_loc)
     - [Kelowna](weather_loc)
+
+# flights
+- intent: confirm_desire_flight
+  examples: |
+    - Yeah I wanna book a flight
+- intent: from_to
+  examples: |
+    - From USA to Canada
+- intent: user_confirm_interest
+  examples: |
+    - 'Yes the 3rd one :)'
+- intent: one_way
+  examples: |
+    - One-way please
+    - Next Tuesday
+- intent: user_confirm
+  examples: |
+    - Yep
