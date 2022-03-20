@@ -40,15 +40,19 @@ Create a new virtual environment:
 
 After the virtual environment is created, you will run:
 
-`python -m venv venv`
+`virtualenv venv`
 
 Now activate the newly created virtual environment:
 
-`env\Scripts\activate`
+Windows:
+`venv\Scripts\activate.bat`
+
+Linux and MacOS:
+`source venv/bin/activate`
 
 Now all the build dependencies can be installed:
 
-`python -m pip install requirements.txt`
+`pip install -r requirements.txt`
 
 To confirm the files are in place and the model will load. Then begin to train the model on your local device by entering: 
 
@@ -63,6 +67,8 @@ Now open another terminal window outside of the virtual environment and start th
 `python app.py`
 or
 `flask run`  
+
+If the above step does not work, try running `pip install -U spacy` and `python -m spacy download en_core_web_sm`
 
 You should then be able to view the chat interface by using this URL: </br>
 To View App:
