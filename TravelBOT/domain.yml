@@ -68,7 +68,7 @@ responses:
   - text: In what city are you curious?
   - text: I'm gonna need a location here my friend!
   utter_getting_weather:
-  - text: gotcha! okay let me get the weather for [weather_location] ...
+  - text: gotcha! okay let me get the weather for {weather_location} ...
 
 # flights
   utter_flight_intro:

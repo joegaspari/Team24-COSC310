@@ -45,6 +45,8 @@ stories:
 - story: get_weather_short
   steps:
     - intent: weather_for_loc
+      entities:
+        - weather_loc: London
     - action: utter_getting_weather
     - action: action_get_weather
     - intent: thanks
