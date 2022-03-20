@@ -3,6 +3,12 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- number_rooms
+- check_in
+- hotel_book
+- number_Adults
+- hotel_local
+- confirm
 - city_info
 - weather
 - greet
@@ -11,9 +17,18 @@ intents:
 - goodbye
 - thanks
 - deny
-- confirm
 - weather_for_loc
+- bot_name
+- name
+- what_canU_do
+- check_out
+- out_of_scope
+- out_of_scope_non_english
 entities:
+- hotel_location
+- name
+- number
+- time
 - weather_loc
 slots:
   weather_location:
@@ -22,6 +37,52 @@ slots:
     mappings:
     - type: from_entity
       entity: weather_loc
+  name_set:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: name
+  hotel_loc:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: hotel_location
+      conditions:
+      - active_loop: hotelForm
+  checkIn:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: time
+      conditions:
+      - active_loop: hotelForm
+  number_Adults:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: number
+      conditions:
+      - active_loop: hotelForm
+  number_rooms:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: number
+      conditions:
+      - active_loop: hotelForm
+  checkOut:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: time
+      conditions:
+      - active_loop: hotelForm
 responses:
   utter_goodbye:
   - text: Goodbye friend
@@ -46,7 +107,50 @@ responses:
   - text: I'm gonna need a location here my friend!
   utter_getting_weather:
   - text: gotcha! okay let me get the weather for [weather_location] ...
+  utter_name:
+  - text: My name is Fox, and I am a travel booking bot! I can do anything from book flights, tell you the weather or help with a hotel!
+  utter_ask_name:
+  - text: What is your name?
+  - text: what do they call you human?
+  - text: do you have a name friend??
+  utter_nice_2meet:
+  - text: It is a pleasure to meet you (name_set)
+  - text: (name_set) cool name I like it!!
+  utter_functionality:
+  - text: I am glad you asked! I am able to help you plan your next vacation! I can find flights hotels, and check the weather for you!
+  utter_ask_hotel_loc:
+  - text: Where are you thinking of staying? Do you have a city in mind?
+  - text: what city are you thinking of staying in?
+  - text: what city are you traveling to?
+  utter_ask_checkIn:
+  - text: For which date are you looking to check in? Format - (2022-08-15)
+  - text: what day are you needing the hotel for? Format - (2022-08-15)
+  - text: Can you give me a day for check in? Format - (2022-08-15)
+  utter_ask_number_Adults:
+  - text: How many adults are there going to be?
+  - text: Can you tell me how many will be staying?
+  - text: What is the number of adults that will be staying?
+  utter_ask_number_rooms:
+  - text: Perfect, so many questions hehe, just a couple more! How many rooms will you need?
+  - text: Amazing, next question, how many rooms are you needing?
+  - text: How many rooms are you needing for your stay?
+  - text: Do you need multiple rooms? Please specify a number of rooms!
+  utter_ask_checkOut:
+  - text: Lastly, when are you going to be checking out? Format - (2022-08-15)
+  - text: can you provide a check out date? Format - (2022-08-15)
+  - text: we are going to need a check out date to confirm available hotels! Format - (2022-08-15)
+  utter_see_do:
+  - text: perfect! let me see what I can do!
 actions:
 - action_get_weather
-- utter_ask_location
-- utter_getting_weather
+- action_hotelForm
+- utter_goodbye
+- utter_see_do
+forms:
+  hotelForm:
+    required_slots:
+    - hotel_loc
+    - checkIn
+    - number_Adults
+    - number_rooms
+    - checkOut

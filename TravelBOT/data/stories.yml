@@ -13,6 +13,47 @@ stories:
       - intent: mood_bad
     - action: utter_howru
 
+  ##### 
+  #utter_howru includes how can I help? 
+###############################
+#get user name
+- story: name
+  steps: 
+    - intent: bot_name
+    - action: utter_name
+
+- story: ask_name
+  steps: 
+    - action: utter_ask_name
+    - intent: name
+    - action: utter_nice_2meet
+
+
+###########################################
+# Story functions is meant to happen when a user asks what the bot can do
+
+- story: functions
+  steps:
+    - intent: what_canU_do
+    - action: utter_functionality
+
+
+
+##################################################
+# Story book_hotel
+
+- story: hotelBook_happyP
+  steps:
+    - intent: hotel_book
+    - action: hotelForm
+    - active_loop: hotelForm
+    - active_loop: null
+    - action: utter_see_do
+    - action: action_hotelForm
+    - action: utter_goodbye
+
+
+
 - story: get_weather
   steps: 
     - intent: weather
@@ -50,70 +91,68 @@ stories:
     # - intent: deny
     - action: utter_goodbye
 
-# - story: Book Flight
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - or:
-#     - intent: mood_great
-#     - intent: mood_bad
-#   - action: utter_intro
-#   - intent: get_away
-#   - action: utter_trip_type
-#   - or:
-#     - intent: adventure_trip
-#     - intent: relaxation_trip
-#     - intent: historical_trip
-#   - action: utter_tempPref
-#   - intent: temp_preference
-#     entities: 
-#     - temp: hot
-#   - action: utter_regionQ
-#   - intent: vacation_location
-#     entities: 
-#     - location: asia
-#   - action: utter_dest_suggestion
-#   - intent: confirm_suggestion
-#     entities: 
-#     - country: china
-#   - action: utter_round
-#   - intent: confirm_ROUND
-#     entities: 
-#     - direction: round
-#   - action: utter_dates
-#   - intent: confirm_dates_one
-#     entities: 
-#     - dates: 2022-09-09
-#   - intent: confirm_dates_round
-#     entities: 
-#     - datesr: 2022-12-25
-#     - datesr1: 2022-03-15
 
-#   - action: utter_citizenship
-#   - intent: confirm_citizen
-#     entities: 
-#     - citizen: canadian
-#   - action: utter_vaxx
-#   - intent: confirm_IMMUstatus
-#     entities: 
-#     - vaxx: fully
-#   - action: utter_lvl_luxury
-#   - intent: confirm_luxury
-#     entities: 
-#     - class: economy
-#   - action: utter_congrats
-#   - action: utter_APIcall
+
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: weather
+#   - action: utter_ask_location
+#   - intent: city_info
+#     entities:
+#     - weather_loc: Kelowna
+#   - slot_was_set:
+#     - weather_location: Kelowna
+#   - action: utter_getting_weather
+#   - action: action_get_weather
+#   - slot_was_set:
+#     - location: Kelowna
+
+
+
 
 - story: interactive_story_1
   steps:
-  - intent: weather
-  - action: utter_ask_location
-  - intent: city_info
+  - intent: hotel_book
+  - action: hotelForm
+  - active_loop: hotelForm
+  - slot_was_set:
+    - requested_slot: hotel_loc
+  - intent: hotel_local
+    entities:
+    - weather_loc: Kelowna
+  - action: hotelForm
+  - slot_was_set:
+    - requested_slot: hotel_loc
+  - intent: hotel_local
     entities:
     - weather_loc: Kelowna
   - slot_was_set:
     - weather_location: Kelowna
-  - action: utter_getting_weather
-  - action: action_get_weather
+
+- story: interactive_story_1
+  steps:
+  - intent: hotel_book
+  - action: hotelForm
+  - active_loop: hotelForm
   - slot_was_set:
-    - location: Kelowna
+    - requested_slot: hotel_loc
+  - slot_was_set:
+    - hotel_loc: London
+  - slot_was_set:
+    - requested_slot: checkIn
+  - slot_was_set:
+    - checkIn: '2023-02-01T00:00:00.000-08:00'
+  - slot_was_set:
+    - requested_slot: number_Adults
+  - slot_was_set:
+    - number_Adults: 2
+  - slot_was_set:
+    - requested_slot: number_rooms
+  - intent: confirm
+  - intent: number_rooms
+    entities:
+    - number: '1'
+    - number: 1
+  - slot_was_set:
+    - number_rooms: 1

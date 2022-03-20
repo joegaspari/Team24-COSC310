@@ -108,4 +108,147 @@ nlu:
     - [Kelowna](weather_loc)
     - [New York](weather_loc)
     - [Vancouver](weather_loc)
-    - [Kelowna](weather_loc)
+- intent: bot_name
+  examples: |
+    - what is your name?
+    - What do they call you?
+    - do you have a name?
+    - whats your name?
+- intent: name
+  examples: |
+    - My name is [Joe](name)
+    - they call me [Sarah](name)
+    - I'm [Kevin](name)
+    - I am [Gary](name)
+    - name is [Luke](name)
+- intent: what_canU_do
+  examples: |
+    - what can you do?
+    - How can you help me?
+    - what are you capable of?
+    - what can you do for me?
+    - what are you able to assist with?
+    - what are your functions
+    - help me
+    - help
+- intent: hotel_book
+  examples: |
+    - I want to book a hotel room
+    - I'm looking for a hotel room
+    - I need a hotel
+    - hotel
+    - hotel room
+    - I am looking for a hotel
+    - I urgently need a hotel
+    - a hotel
+    - can you help me find a hotel
+    - can you find me a hotel room
+    - are you able to find me a hotel room
+- intent: hotel_local
+  examples: |
+    - I am going to [Kelowna] (hotel_location)
+    - I want to stay in [London](hotel_location)
+    - In [Calgary](hotel_location)
+    - I am looking in [New York](hotel_location)
+    - I want a hotel in [Madrid](hotel_location)
+    - I am looking in [Vancouver](hotel_location)
+    - I am looking in [New York](hotel_location)
+- intent: check_in
+  examples: |
+    - [2022-09-22](time)
+    - I need the hotel for [2022-07-01](time)
+    - I am looking to check in on [2022-12-25](time)
+    - check in on [2022-01-29](time)
+    - check in day of [2022-04-22](time)
+    - I'm looking for [2022-11-11](time)
+    - I am looking on [02/04/2023](number)
+- intent: number_Adults
+  examples: |
+    - There will be [2](number)
+    - [2](number) people
+    - there are [4](number) people in total
+    - It will be just [1](number) person
+    - There is [2](number) people
+    - There will be [2](number)
+- intent: number_rooms
+  examples: |
+    - We will need [2](number) rooms
+    - I just need [1] (number) room
+    - [2](number) rooms please
+    - I will need [1](number) room please
+    - We need [2](number) rooms
+    - [3](number) rooms
+    - I need [4](number) rooms
+    - I just need [1](number) room
+- intent: check_out
+  examples: |
+    - we will check out on [2022-02-12](time)
+    - check out [2023-04-25](time)
+    - [2024-11-22](time)
+    - we are checking out on [2023-12-25](time)
+    - a check out date of [2022-10-22](time)
+    - checking out [2022-12-01](time)
+    - checking out on [2022-01-30](time)
+    - we are out of there on [2023-09-22](time)
+    - we are leaving [2024-09-22](time)
+- intent: out_of_scope
+  examples: |
+    - that's not what I want to do
+    - wait stop
+    - you're no help
+    - this is no help at all
+    - how old are you
+    - I want to order a pizza
+    - this isn't working
+    - I already told you that
+    - don't like that
+    - I don't want to tell you that
+    - none of your business
+    - that's not right
+    - stop asking
+    - nevermind
+    - I want to do something else
+    - I changed my mind
+- intent: out_of_scope_non_english
+  examples: |
+    - Wie fange ich mit Rasa an?
+    - hilf mir beim start
+    - tschüssikowski
+    - ¿Qué pasa?
+    - ça va ?
+    - como te llamas
+    - wer bist Du?
+    - como inicio en rasa
+    - come stai?
+    - como estas
+    - de donde eres
+    - de que lugar eres?
+    - epdi iruka
+    - eres humana
+    - kalhmera sara ti kaneis
+    - kannst du auch deutsch?
+    - kannst du dies auch auf deutsch?
+    - oui je besoine de l'aide
+    - que puedes hacer?
+    - tu parles francais?
+    - tudo bom
+    - tu pagal
+    - kannst du mir helfen
+    - tu kaisi he
+    - こにちは
+    - 日本語分かる？
+    - chào
+    - 你好
+    - I'm speaking a non-english language.
+    - 呵呵
+    - 我该如何使用
+    - 你懂中文吗？
+    - 您好
+    - 你叫什么名字
+    - 你是谁
+    - 中文
+    - kya hindi me bat kar sakate ho
+    - Dumme sara
+    - αστεία λές
+    - rasa codigo abierto
+    - 卧槽
