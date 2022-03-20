@@ -31,6 +31,7 @@ intents:
 entities:
 - weather_loc
 - departure_loc
+- arrival_loc
 slots:
   weather_location:
     type: text
@@ -40,6 +41,12 @@ slots:
       entity: weather_loc
   #flight
   departure_location:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: departure_loc
+  arrival_location:
     type: text
     influence_conversation: false
     mappings:
