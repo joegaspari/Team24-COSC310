@@ -18,6 +18,9 @@
 
 # import requests
 
+##########################
+# API TO GET CITY LAT LONG
+
 # url = "https://google-maps-geocoding.p.rapidapi.com/geocode/json"
 
 # querystring = {"address":"San Francisco","language":"en"}
@@ -29,15 +32,36 @@
 
 # response = requests.request("GET", url, headers=headers, params=querystring)
 
+
 # print(response.text)
 
+# import requests
+
+
+############################
+##
+# Api to call the hotels in that area using the other slots and the lat long produced from the first API call
 
 # url = "https://booking-com.p.rapidapi.com/v1/hotels/search-by-coordinates"
 
-# querystring = {"checkin_date":"2022-08-05","order_by":"popularity","units":"metric","longitude":"-18.5333","adults_number":"2","latitude":"65.9667","room_number":"1","locale":"ca","filter_by_currency":"CAD","checkout_date":"2022-08-06","children_number":"2","children_ages":"5,0","page_number":"0","categories_filter_ids":"class::2,class::4,free_cancellation::1","include_adjacency":"true"}
+# querystring = {"checkin_date":"2022-08-05","order_by":"popularity","units":"metric","longitude":"-122.3482","adults_number":"2","latitude":"37.812","room_number":"1","locale":"en-us","filter_by_currency":"USD","checkout_date":"2022-08-06","children_number":"2","children_ages":"5,0","page_number":"0","categories_filter_ids":"class::2,class::4,free_cancellation::1","include_adjacency":"true"}
 
 # headers = {
 #     'x-rapidapi-host': "booking-com.p.rapidapi.com",
+#     'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+#     }
+
+# response = requests.request("GET", url, headers=headers, params=querystring).json()
+
+# print(response)
+
+
+# url = "https://hotels4.p.rapidapi.com/locations/v2/search"
+
+# querystring = {"query":"new york","locale":"en_US","currency":"USD"}
+
+# headers = {
+#     'x-rapidapi-host': "hotels4.p.rapidapi.com",
 #     'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
 #     }
 
