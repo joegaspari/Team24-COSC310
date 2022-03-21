@@ -1,5 +1,5 @@
    
-import requests
+# import requests
 
 # api_key = '846be7071eb6f82c31610e982ad63cf0'
 # loc = "Kelowna"
@@ -14,22 +14,22 @@ import requests
 # humidity = current['main']['humidity']
 # wind_mph = current['wind']['speed']
 # response = """It is currently {} in {} at the moment. The temperature is {} degrees, the humidity is {}% and the wind speed is {} mph.""".format(condition, city, temperature_c, humidity, wind_mph)
-# print(temperature_c)
+# print(response)
 
-import requests
+# import requests
 
-url = "https://google-maps-geocoding.p.rapidapi.com/geocode/json"
+# url = "https://google-maps-geocoding.p.rapidapi.com/geocode/json"
 
-querystring = {"address":"San Francisco","language":"en"}
+# querystring = {"address":"San Francisco","language":"en"}
 
-headers = {
-    'x-rapidapi-host': "google-maps-geocoding.p.rapidapi.com",
-    'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
-    }
+# headers = {
+#     'x-rapidapi-host': "google-maps-geocoding.p.rapidapi.com",
+#     'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+#     }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+# response = requests.request("GET", url, headers=headers, params=querystring)
 
-print(response.text)
+# print(response.text)
 
 
 # url = "https://booking-com.p.rapidapi.com/v1/hotels/search-by-coordinates"

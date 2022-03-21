@@ -86,8 +86,6 @@ stories:
 - story: get_weather_short
   steps:
     - intent: weather_for_loc
-      entities:
-        - weather_loc: London
     - action: utter_getting_weather
     - action: action_get_weather
     - intent: thanks
@@ -161,37 +159,37 @@ stories:
     - number: 1
   - slot_was_set:
     - number_rooms: 1
-    - location: Kelowna
 
 
 
 
-#flights
-- story: flight
-  steps:
-    - action: utter_ask_confirm
-    - intent: confirm_desire_flight
-    - action: utter_flight_intro
-    - action: utter_where_to
-    - intent: destination
-      entities:
-      - departure_loc: Kelowna
-    - slot_was_set:
-      - departure_location: Kelowna
-#    - slot_was_set:
-#      - weather_loc: Kelowna
 
-    - action: utter_oneway_roundtrip
-    - intent: one_way
-    - action: utter_verify_trip
-    - intent: user_confirm
-    - action: utter_untitled-path-intent-9
-    - intent: one_way
-    - action: utter_verify_trip
-    - intent: user_enter_date_proper_format
-    - action: utter_bot_see_what_we_can_do
-    - action: utter_bot_list_flights
-    - intent: user_confirm_interest
-    # - action: utter_user_confirm
+# #flights
+# - story: flight
+#   steps:
+#     - action: utter_ask_confirm
+#     - intent: confirm_desire_flight
+#     - action: utter_flight_intro
+#     - action: utter_where_to
+#     - intent: destination
+#       entities:
+#       - departure_loc: Kelowna
+#     - slot_was_set:
+#       - departure_location: Kelowna
+# #    - slot_was_set:
+# #      - weather_loc: Kelowna
+
+#     - action: utter_oneway_roundtrip
+#     - intent: one_way
+#     - action: utter_verify_trip
+#     - intent: user_confirm
+#     - action: utter_untitled-path-intent-9
+#     - intent: one_way
+#     - action: utter_verify_trip
+#     - intent: user_enter_date_proper_format
+#     - action: utter_bot_see_what_we_can_do
+#     - action: utter_bot_list_flights
+#     - intent: user_confirm_interest
+#     # - action: utter_user_confirm
 
 

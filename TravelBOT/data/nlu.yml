@@ -108,7 +108,7 @@ nlu:
     - [Kelowna](weather_loc)
     - [New York](weather_loc)
     - [Vancouver](weather_loc)
-    
+
 - intent: bot_name
   examples: |
     - what is your name?
@@ -256,22 +256,22 @@ nlu:
 
 
 # flights
-- intent: confirm_desire_flight
-  examples: |
-    - Yeah I wanna book a flight
-- intent: departure_loc
-  examples: |
-    - From USA to Canada
-- intent: user_confirm_interest
-  examples: |
-    - 'Yes the 3rd one :)'
-- intent: one_way
-  examples: |
-    - One-way please
-    - Next Tuesday
-- intent: user_confirm
-  examples: |
-    - Yep
+# - intent: confirm_desire_flight
+#   examples: |
+#     - Yeah I wanna book a flight
+# - intent: departure_loc
+#   examples: |
+#     - From USA to Canada
+# - intent: user_confirm_interest
+#   examples: |
+#     - 'Yes the 3rd one :)'
+# - intent: one_way
+#   examples: |
+#     - One-way please
+#     - Next Tuesday
+# - intent: user_confirm
+#   examples: |
+#     - Yep
 #This should make country entity extraction better
 - lookup: country
   examples: |
