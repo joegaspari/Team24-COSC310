@@ -13,13 +13,7 @@ stories:
       - intent: mood_great
       - intent: mood_bad
     - action: utter_howru
-    
-
-
-  ##### 
-  #utter_howru includes how can I help? 
-###############################
-#get user name
+  
 - story: name
   steps: 
     - intent: bot_name
@@ -31,30 +25,20 @@ stories:
     - intent: name
     - action: utter_nice_2meet
 
-
-###########################################
-# Story functions is meant to happen when a user asks what the bot can do
-
 - story: functions
   steps:
     - intent: what_canU_do
     - action: utter_functionality
 
 
-
-##################################################
-# Story book_hotel
-
 - story: hotelBook_happyP
   steps:
     - intent: hotel_book
-    - action: hotelForm
+    - action: action_hotelForm
     - active_loop: hotelForm
     - active_loop: null
     - action: utter_see_do
-    - action: action_hotelForm
     - action: utter_goodbye
-
 
 
 - story: get_weather
@@ -66,23 +50,8 @@ stories:
     - action: action_get_weather
     - intent: thanks
     - action: utter_welcome
-    # - action: utter_anything_els
-    # - intent: deny
     - action: utter_goodbye
 
-# - story: get_weather2
-#   steps: 
-#     - intent: weather
-#     - action: utter_ask_location
-#     - intent: city_info
-#     - action: utter_getting_weather
-#     - action: action_get_weather
-#     - intent: thanks
-#     - action: utter_welcome
-#     - action: utter_anything_els
-#     - intent: 
-#     - action: utter_goodbye  
-#  Here we need to add intent confirm then utter_howcan i help (which will be used in other stories in a bit)
 - story: get_weather_short
   steps:
     - intent: weather_for_loc
@@ -90,34 +59,31 @@ stories:
     - action: action_get_weather
     - intent: thanks
     - action: utter_welcome
-    # - action: utter_anything_els
-    # - intent: deny
     - action: utter_goodbye
-
-
-
-
-# - story: interactive_story_1
-#   steps:
-#   - intent: weather
-#   - action: utter_ask_location
-#   - intent: city_info
-#     entities:
-#     - weather_loc: Kelowna
-#   - slot_was_set:
-#     - weather_location: Kelowna
-#   - action: utter_getting_weather
-#   - action: action_get_weather
-#   - slot_was_set:
-#     - location: Kelowna
-
 
 
 
 - story: interactive_story_1
   steps:
+  - intent: weather
+  - action: utter_ask_location
+  - intent: city_info
+    entities:
+    - weather_loc: Kelowna
+  - slot_was_set:
+    - weather_location: Kelowna
+  - action: utter_getting_weather
+  - action: action_get_weather
+  - slot_was_set:
+    - weather_location: Kelowna
+
+
+
+
+- story: interactive_story_2
+  steps:
   - intent: hotel_book
-  - action: hotelForm
+  - action: action_hotelForm
   - active_loop: hotelForm
   - slot_was_set:
     - requested_slot: hotel_loc
@@ -133,32 +99,7 @@ stories:
   - slot_was_set:
     - weather_location: Kelowna
 
-- story: interactive_story_1
-  steps:
-  - intent: hotel_book
-  - action: hotelForm
-  - active_loop: hotelForm
-  - slot_was_set:
-    - requested_slot: hotel_loc
-  - slot_was_set:
-    - hotel_loc: London
-  - slot_was_set:
-    - requested_slot: checkIn
-  - slot_was_set:
-    - checkIn: '2023-02-01T00:00:00.000-08:00'
-  - slot_was_set:
-    - requested_slot: number_Adults
-  - slot_was_set:
-    - number_Adults: 2
-  - slot_was_set:
-    - requested_slot: number_rooms
-  - intent: confirm
-  - intent: number_rooms
-    entities:
-    - number: '1'
-    - number: 1
-  - slot_was_set:
-    - number_rooms: 1
+
 
 
 

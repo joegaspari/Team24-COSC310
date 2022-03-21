@@ -1,39 +1,39 @@
 version: '3.0'
-
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 intents:
-  - number_rooms
-  - check_in
-  - hotel_book
-  - number_Adults
-  - hotel_local
-  - confirm
-  - city_info
-  - weather
-  - greet
-  - mood_great
-  - mood_bad
-  - goodbye
-  - thanks
-  - deny
-  - weather_for_loc
-  - bot_name
-  - name
-  - what_canU_do
-  - check_out
-  - out_of_scope
-  - out_of_scope_non_english
-  - destination
+- city_info
+- weather
+- number_rooms
+- check_in
+- hotel_book
+- number_Adults
+- hotel_local
+- confirm
+- greet
+- mood_great
+- mood_bad
+- goodbye
+- thanks
+- deny
+- weather_for_loc
+- bot_name
+- name
+- what_canU_do
+- check_out
+- out_of_scope
+- out_of_scope_non_english
 
 
 entities:
-  - hotel_location
-  - name
-  - number
-  - time
-  - weather_loc
-  - departure_loc
-  - arrival_loc
-
+- arrival_loc
+- departure_loc
+- hotel_location
+- name
+- number
+- time
+- weather_loc
 
 slots:
   weather_location:
@@ -42,18 +42,13 @@ slots:
     mappings:
     - type: from_entity
       entity: weather_loc
-  
+
   name_set:
     type: text
     influence_conversation: false
     mappings:
     - type: from_entity
       entity: name
-  
-  # departure_location:
-  #     entity: departure_loc
-  #     type: text
-
 
   hotel_loc:
     type: text
@@ -72,7 +67,6 @@ slots:
       entity: time
       conditions:
       - active_loop: hotelForm
-
   number_Adults:
     type: any
     influence_conversation: false
@@ -81,6 +75,7 @@ slots:
       entity: number
       conditions:
       - active_loop: hotelForm
+
   number_rooms:
     type: any
     influence_conversation: false
@@ -89,6 +84,7 @@ slots:
       entity: number
       conditions:
       - active_loop: hotelForm
+
   checkOut:
     type: any
     influence_conversation: false
@@ -97,7 +93,16 @@ slots:
       entity: time
       conditions:
       - active_loop: hotelForm
-      
+
+forms:
+  hotelForm:
+    required_slots:
+    - hotel_loc
+    - checkIn
+    - number_Adults
+    - number_rooms
+    - checkOut
+
 responses:
   utter_goodbye:
   - text: Goodbye friend
@@ -156,51 +161,36 @@ responses:
   - text: we are going to need a check out date to confirm available hotels! Format - (2022-08-15)
   utter_see_do:
   - text: perfect! let me see what I can do!
-  utter_flight_intro:
-    - text: Alright let me help you book a flight!
-  utter_where_to:
-    - text: Where do you want to go?
-  utter_oneway_roundtrip:
-    - text: One-way or round trip?
-  utter_verify_trip:
-    - text: 'You want to go from [entity1] to [entity2], is that correct?'
-    - text: Could you please input the date as mm/dd/yyyy?
-  utter_user_confirm:
-    - text: OK!
-  utter_untitled-path-intent-9:
-    - text: And when would you like to leave?
-  utter_bot_see_what_we_can_do:
-    - text: Let me see what we can do for you!
-  utter_bot_list_flights:
-    - text: |-
-        Here are 5 flights:
-        -1
-        -2
-        -3
-        -4
-        -5
-        Are any of these of interest to you?
-
-
-forms:
-  hotelForm:
-    required_slots:
-    - hotel_loc
-    - checkIn
-    - number_Adults
-    - number_rooms
-    - checkOut
-  
+  # utter_flight_intro:
+  # - text: Alright let me help you book a flight!
+  # utter_where_to:
+  # - text: Where do you want to go?
+  # utter_oneway_roundtrip:
+  # - text: One-way or round trip?
+  # utter_verify_trip:
+  # - text: You want to go from [entity1] to [entity2], is that correct?
+  # - text: Could you please input the date as mm/dd/yyyy?
+  # utter_user_confirm:
+  # - text: OK!
+  # utter_untitled-path-intent-9:
+  # - text: And when would you like to leave?
+  # utter_bot_see_what_we_can_do:
+  # - text: Let me see what we can do for you!
+  # utter_bot_list_flights:
+  # - text: |-
+  #     Here are 5 flights:
+  #     -1
+  #     -2
+  #     -3
+  #     -4
+  #     -5
+  #     Are any of these of interest to you?
 
 actions:
-  - action_get_weather
-  - action_hotelForm
-  - utter_goodbye
-  - utter_see_do
+- action_get_weather
+- action_hotelForm
+- utter_ask_location
+- utter_goodbye
+- utter_see_do
 
-
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
 

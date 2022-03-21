@@ -85,6 +85,7 @@ nlu:
     - hows the forecast for today
     - whats the temp today
     - whats the weather like today
+    - What is the weather
 - intent: weather_for_loc
   examples: |
     - what is the weather like in [Calgary](weather_loc)
@@ -108,7 +109,7 @@ nlu:
     - [Kelowna](weather_loc)
     - [New York](weather_loc)
     - [Vancouver](weather_loc)
-
+    - [Kelowna](weather_loc)
 - intent: bot_name
   examples: |
     - what is your name?
@@ -153,7 +154,6 @@ nlu:
     - I am looking in [New York](hotel_location)
     - I want a hotel in [Madrid](hotel_location)
     - I am looking in [Vancouver](hotel_location)
-    - I am looking in [New York](hotel_location)
 - intent: check_in
   examples: |
     - [2022-09-22](time)
@@ -170,7 +170,6 @@ nlu:
     - there are [4](number) people in total
     - It will be just [1](number) person
     - There is [2](number) people
-    - There will be [2](number)
 - intent: number_rooms
   examples: |
     - We will need [2](number) rooms
@@ -253,26 +252,6 @@ nlu:
     - αστεία λές
     - rasa codigo abierto
     - 卧槽
-
-
-# flights
-# - intent: confirm_desire_flight
-#   examples: |
-#     - Yeah I wanna book a flight
-# - intent: departure_loc
-#   examples: |
-#     - From USA to Canada
-# - intent: user_confirm_interest
-#   examples: |
-#     - 'Yes the 3rd one :)'
-# - intent: one_way
-#   examples: |
-#     - One-way please
-#     - Next Tuesday
-# - intent: user_confirm
-#   examples: |
-#     - Yep
-#This should make country entity extraction better
 - lookup: country
   examples: |
     - Afghanistan
@@ -474,7 +453,7 @@ nlu:
     - Senegal
     - Serbia
     - Seychelles
-    -  Sierra Leone
+    - Sierra Leone
     - Singapore
     - Sint Maarten
     - Slovakia

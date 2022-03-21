@@ -30,30 +30,29 @@ class ActionCheckWeather(Action):
         dispatcher.utter_message(response)
         return [SlotSet('weather_location', loc)]
 
-# class hotelFormAction(Action):
+class hotelFormAction(FormAction):
     
-#     def name(self) -> Text:
-#         return "action_hotelForm"
+    def name(self) -> Text:
+        return "action_hotelForm"
         
-#     @staticmethod
-#     def required_slots(tracker: Tracker) -> List[Text]:
-#         return ["hotel_loc", "checkIn", "number_Adults", "number_rooms", "checkOut"]
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        return ["hotel_loc", "checkIn", "number_Adults", "number_rooms", "checkOut"]
     
 
     
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
-#        domain: Dict[Text, Any]) -> List[Dict]:
+    def run(self, dispatcher, tracker, domain):
        
-#        loc = tracker.get_slot('hotel_loc')
-#        checkI = tracker.get_slot('checkIn')
-#        num_a = tracker.get_slot('number_Adults')
-#        num_room = tracker.get_slot('number_rooms')
-#        checkO = tracker.get_slot('checkOut')
+       loc = tracker.get_slot('hotel_loc')
+       checkI = tracker.get_slot('checkIn')
+       num_a = tracker.get_slot('number_Adults')
+       num_room = tracker.get_slot('number_rooms')
+       checkO = tracker.get_slot('checkOut')
        
-#        response = "location: {}, checkin: {}, number of adults: {}, number of rooms: {}, check out: {}!".format(loc, checkI, num_a, num_room, checkO)
-#        dispatcher.utter_message(response)
+       response = "location: {}, checkin: {}, number of adults: {}, number of rooms: {}, check out: {}!".format(loc, checkI, num_a, num_room, checkO)
+       dispatcher.utter_message(response)
        
-#        return []
+       return []
  
  
 #  wind_kmph = current['wind']['speed'] / 1000 * 3600

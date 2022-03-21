@@ -4,7 +4,7 @@ version: "3.0"
 - rule: Activate hotelForm
   steps:
   - intent: hotel_book
-  - action: hotelForm
+  - action: action_hotelForm
   - active_loop: hotelForm
 
 
@@ -12,7 +12,7 @@ version: "3.0"
   condition:
   - active_loop: hotelForm
   steps:
-  - action: hotelForm
+  - action: action_hotelForm
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
