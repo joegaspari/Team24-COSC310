@@ -1,0 +1,20 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-weather_loc",
+      "2": "I-weather_loc",
+      "3": "L-weather_loc",
+      "4": "U-weather_loc",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-weather_loc": 1,
+      "I-weather_loc": 2,
+      "L-weather_loc": 3,
+      "U-weather_loc": 4,
+      "O": 0
+    },
+    "num_tags": 5
+  }
+]

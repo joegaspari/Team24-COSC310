@@ -1,0 +1,274 @@
+version: "3.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - moin
+    - hey there
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hi again
+    - hi folks
+    - hi mister
+    - hi miss
+    - hi robot
+    - hey bot
+    - hi bot
+    - hello robot
+
+- intent: mood_great
+  examples: |
+    - I'm good how are you?
+    - I am good
+    - I am doing well
+    - I am great thanks
+
+- intent: mood_bad
+  examples: |
+    - I am not doing great
+    - Not well, how are you?
+    - Not good, how are you?
+    - Not great, how are you?
+    - Not feeling good
+
+# - intent: goodbye
+#   examples: |
+#     - Bye
+#     - Goodbye
+#     - See you later
+#     - Bye bot
+#     - Goodbye friend
+#     - bye
+#     - bye for now
+#     - catch you later
+#     - gotta go
+#     - See you
+#     - goodnight
+#     - have a nice day
+#     - i'm off
+#     - see you later alligator
+#     - we'll speak soon
+
+- intent: thanks
+  examples: |
+    - thank you
+    - thank you very much
+    - thanks
+    - great, thank you
+
+- intent: deny
+  examples: |
+    - no
+    - no thank you
+    - n
+    - nope
+    - nada
+    - nah
+    - no thanks
+- intent: affirm
+  examples: |
+    - yes
+    - yes please
+    - yes thank you
+    - yup
+    - y
+    - confirm
+    - I do
+    - indeed
+- intent: weather
+  examples: |
+    - what's the weather
+    - what is the temperature today
+    - what is the temperature
+    - I want to know the weather
+    - whats the forecast for today
+    - how is the weather today
+    - hows the forecast for today
+    - whats the temp today
+    - whats the weather like today
+- intent: weather_for_loc
+  examples: |
+    - what is the weather like in [Calgary](weather_loc)
+    - what is the temperature today in [London](weather_loc)
+    - how is the forecast for [Mumbai](weather_loc)
+    - what is the temp today in [New York](weather_loc)
+    - can you tell me the weather in [Vancouver](weather_loc)
+    - weather of [Kelowna](weather_loc)
+    - tell me weather of [Toronto](weather_loc)
+
+- intent: city_info
+  examples: |
+    - [New Delhi](weather_loc)
+    - [India](weather_loc)
+    - [Mumbai](weather_loc)
+    - [Noida](weather_loc)
+    - [Kolkata](weather_loc)
+    - [Bangalore](weather_loc)
+    - [London](weather_loc)
+    - [Toronto](weather_loc)
+    - [Calgary](weather_loc)
+    - [Kelowna](weather_loc)
+    - [New York](weather_loc)
+    - [Vancouver](weather_loc)
+
+
+- intent: bot_name
+  examples: |
+    - what is your name?
+    - What do they call you?
+    - do you have a name?
+    - whats your name?
+
+- intent: name
+  examples: |
+    - My name is [Joe](name)
+    - they call me [Sarah](name)
+    - I'm [Kevin](name)
+    - I am [Gary](name)
+    - name is [Luke](name)
+
+- intent: what_canU_do
+  examples: |
+    - what can you do?
+    - How can you help me?
+    - what are you capable of?
+    - what can you do for me?
+    - what are you able to assist with?
+    - what are your functions
+    - help me
+    - help
+
+
+- intent: hotel_book
+  examples: |
+    - I want to book a hotel room
+    - I'm looking for a hotel room
+    - I need a hotel
+    - hotel
+    - hotel room
+    - I am looking for a hotel
+    - I urgently need a hotel
+    - a hotel
+    - can you help me find a hotel
+    - can you find me a hotel room
+    - are you able to find me a hotel room
+
+- intent: hotel_local
+  examples: |
+    - I am going to [Kelowna] (hotel_location)
+    - I want to stay in [London](hotel_location)
+    - In [Calgary](hotel_location)
+    - I am looking in [New York](hotel_location)
+    - I want a hotel in [Madrid](hotel_location)
+    - I am looking in [Vancouver](hotel_location)
+
+- intent: check_in
+  examples: |
+    - [02/06/2023](time)
+    - I need the hotel for [12/10/2023](time)
+    - I am looking to check in on [02/04/2023](time)
+    - check in on [02/11/2022](time)
+    - check in day of [02/05/2023](time)
+    - I'm looking for [12/04/2023](time)
+    - I am looking on [25/04/2024](time)
+    - check in [02/11/2023](time)
+    - in on [02/04/2023](time)
+
+
+- intent: number_Adults
+  examples: |
+    - There will be [2](number)
+    - [2](number) people
+    - there are [4](number) people in total
+    - It will be just [1](number) person
+    - There is [2](number) people
+
+- intent: number_rooms
+  examples: |
+    - We will need [2](number) rooms
+    - I just need [1] (number) room
+    - [2](number) rooms please
+    - I will need [1](number) room please
+    - We need [2](number) rooms
+    - [3](number) rooms
+    - I need [4](number) rooms
+    - I just need [1](number) room
+
+- intent: check_out
+  examples: |
+    - we will check out on [02/04/2023](time)
+    - check out [12/10/2023](time)
+    - [12/10/2023](time)
+    - we are checking out on [02/04/2023](time)
+    - a check out date of [12/10/2023](time)
+    - checking out [12/10/2023](time)
+    - checking out on [12/04/2023](time)
+    - we are out of there on [23/10/2023](time)
+    - we are leaving [12/10/2024](time)
+
+
+##### Out scope
+
+- intent: out_of_scope
+  examples: |
+    - that's not what I want to do
+    - wait stop
+    - you're no help
+    - this is no help at all
+    - how old are you
+    - this isn't working
+    - I already told you that
+    - don't like that
+    - I don't want to tell you that
+    - none of your business
+    - that's not right
+    - stop asking
+    - nevermind
+    - I want to do something else
+    - I changed my mind
+    - Wie fange ich mit Rasa an?
+    - hilf mir beim start
+    - tschüssikowski
+    - ¿Qué pasa?
+    - ça va ?
+    - como te llamas
+    - wer bist Du?
+    - como inicio en rasa
+    - come stai?
+    - como estas
+    - de donde eres
+    - de que lugar eres?
+    - epdi iruka
+    - eres humana
+    - kalhmera sara ti kaneis
+    - kannst du auch deutsch?
+    - kannst du dies auch auf deutsch?
+    - oui je besoine de l'aide
+    - que puedes hacer?
+    - tu parles francais?
+    - tudo bom
+    - tu pagal
+    - kannst du mir helfen
+    - tu kaisi he
+    - こにちは
+    - 日本語分かる？
+    - chào
+    - 你好
+    - I'm speaking a non-english language.
+    - 呵呵
+    - 我该如何使用
+    - 你懂中文吗？
+    - 您好
+    - 你叫什么名字
+    - 你是谁
+    - 中文
+    - kya hindi me bat kar sakate ho
+    - Dumme sara
+    - αστεία λές
+    - rasa codigo abierto
+    - 卧槽

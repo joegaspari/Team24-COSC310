@@ -1,0 +1,59 @@
+version: "3.0"
+
+rules:
+- rule: meet_greet
+  steps:
+    - intent: greet
+    - action: utter_greet_reply
+ 
+- rule: response2reply
+  steps:
+    - intent: mood_bad
+    - action: utter_howru
+
+- rule: response2reply2
+  steps:
+    - intent: mood_great
+    - action: utter_howru
+ 
+  
+- rule: name
+  steps: 
+    - intent: bot_name
+    - action: utter_name
+
+- rule: ask_name
+  steps: 
+    - action: utter_ask_name
+    - intent: name
+    - action: utter_nice_2meet
+
+- rule: functions
+  steps:
+    - intent: what_canU_do
+    - action: utter_functionality
+
+
+- rule: activate hotel form
+  steps:
+    - intent: hotel_book
+    - action: hotel_form
+    - active_loop: hotel_form
+
+
+- rule: submit form
+  condition:
+  - active_loop: hotel_form
+  steps:
+    - action: hotel_form
+    - active_loop: null
+    - action: utter_see_do
+    - intent: thanks
+    - action: utter_welcome
+    - action: action_hotelForm
+    
+
+- rule: out-of-scope
+  steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope

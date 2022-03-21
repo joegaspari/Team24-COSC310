@@ -1,0 +1,67 @@
+version: "3.0"
+
+stories:
+
+- story: get_weather
+  steps: 
+    - intent: greet
+    - action: utter_greet_reply
+    - intent: weather
+    - action: utter_ask_weather_location
+    - intent: city_info
+    - action: utter_getting_weather
+    - action: action_get_weather
+    - intent: thanks
+    - action: utter_welcome
+    - action: utter_goodbye
+
+
+- story: get_weather_short
+  steps:
+    - intent: weather_for_loc
+      entities:
+        - weather_loc: London
+    - action: utter_getting_weather
+    - action: action_get_weather
+    - intent: thanks
+    - action: utter_welcome
+    - action: utter_goodbye
+
+
+- story: hotelBook_happyP
+  steps:
+    - intent: hotel_book
+    - action: hotel_form
+    - active_loop: hotel_form
+    - active_loop: null
+    - action: utter_see_do
+    - intent: thanks
+    - action: utter_welcome
+    - action: action_hotelForm
+
+- story: hotelBook_happyP1
+  steps:
+    - intent: hotel_book
+    - action: hotel_form
+    - active_loop: hotel_form
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+    - action: utter_ask_continue
+    - intent: affirm
+    - action: hotel_form
+    - active_loop: null
+    - action: utter_see_do
+    - intent: thanks
+    - action: utter_welcome
+    - action: action_hotelForm
+
+- story: hotelBook_sadP2
+  steps:
+    - intent: hotel_book
+    - action: hotel_form
+    - active_loop: hotel_form
+    - intent: out_of_scope
+    - action: utter_out_of_scope
+    - action: utter_ask_continue
+    - intent: deny
+    - action: utter_goodbye

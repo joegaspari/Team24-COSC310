@@ -1,0 +1,30 @@
+# The config recipe.
+# https://rasa.com/docs/rasa/model-configuration/
+recipe: default.v1
+
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: en
+
+pipeline:
+
+  - name: "WhitespaceTokenizer"
+  - name: "RegexFeaturizer"
+  - name: "LexicalSyntacticFeaturizer"
+  - name: "CountVectorsFeaturizer"
+  - name: "CountVectorsFeaturizer"
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: "DIETClassifier"
+    epochs: 200
+    constrain_similarities: true
+  - name: "EntitySynonymMapper"
+  - name: "DucklingEntityExtractor"
+    url: http://0.0.0.0:8000
+    dimensions: ["time", "number"]
+    timeout: 3
+
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy

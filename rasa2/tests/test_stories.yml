@@ -1,0 +1,35 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: happy path 1
+  steps:
+  - user: |
+      hello there!
+    intent: greet
+  - action: utter_greet
+  - user: |
+      amazing
+    intent: mood_great
+  - action: utter_happy
+
+- story: get_weather
+  steps: 
+  - user: |
+      Hi
+    intent: greet
+  - action: utter_howdy
+  - user: |
+      What is the temperature today
+    intent: weather
+  - action: utter_ask_weather_location
+  - user: |
+      [Kelowna]{"entity":"weather_loc", "value":"Kelowna"
+    intent: city_info
+  - action: action_get_weather
+  - user: |
+      Thanks!
+    intent: thanks
+  - action: utter_welcome
+  - action: utter_goodbye
+   
