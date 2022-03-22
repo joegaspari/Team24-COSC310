@@ -60,22 +60,24 @@ headers = {
 
 response = requests.request("GET", url, headers=headers, params=querystring).json()
 
-print(response)
+# print(response)
 
 
-url = "https://hotels4.p.rapidapi.com/locations/v2/search"
+# url = "https://hotels4.p.rapidapi.com/locations/v2/search"
 
-querystring = {"query":"new york","locale":"en_US","currency":"USD"}
+# querystring = {"query":"new york","locale":"en_US","currency":"USD"}
 
-headers = {
-    'x-rapidapi-host': "hotels4.p.rapidapi.com",
-    'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
-    }
+# headers = {
+#     'x-rapidapi-host': "hotels4.p.rapidapi.com",
+#     'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+#     }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+# response = requests.request("GET", url, headers=headers, params=querystring)
 
 # print(response.text)
 
 
-data = response.json()
-print(json.loads(data))
+# data = response.json()
+result_json = json.dumps(response, indent=2)
+# parsed = json.loads(data)
+print(result_json)
