@@ -2,52 +2,34 @@
 import requests
 import json
 
-api_key = '846be7071eb6f82c31610e982ad63cf0'
-loc = "Kelowna"
-current = requests.get('http://api.openweathermap.org/data/2.5/weather?q={}&appid={}'.format(loc, api_key)).json()
-print(current)
-country = current['sys']['country']
-city = current['name']
-condition = current['weather'][0]['main']
-temperature_c = current['main']['temp']
-temperature_c -= 273
-temperature_c = round(temperature_c)
-humidity = current['main']['humidity']
-wind_mph = current['wind']['speed']
-response = """It is currently {} in {} at the moment. The temperature is {} degrees, the humidity is {}% and the wind speed is {} mph.""".format(condition, city, temperature_c, humidity, wind_mph)
-print(response)
-
-print('coords are:' + str(current['coord']['lon']) + ' ' + str(current['coord']['lat']))
-
-# store longitude
-long = current['coord']['lon']
-
-# store lat
-lat = current['coord']['lat']
-
 ##########################
 # API TO GET CITY LAT LONG
+##########################
 
-# url = "https://google-maps-geocoding.p.rapidapi.com/geocode/json"
+url = "https://google-maps-geocoding.p.rapidapi.com/geocode/json"
 
-# querystring = {"address":"San Francisco","language":"en"}
+querystring = {"address":"San Francisco","language":"en"}
 
-# headers = {
-#     'x-rapidapi-host': "google-maps-geocoding.p.rapidapi.com",
-#     'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
-#     }
+headers = {
+    'x-rapidapi-host': "google-maps-geocoding.p.rapidapi.com",
+    'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+    }
 
-# response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers, params=querystring)
 
+data = json.loads(response.text)
+result_json = json.dumps(data, indent=2)
 
-# print(response.text)
+# store longitude
+lat = data['results'][0]['geometry']['location']['lat']
 
-# import requests
-
+# store lat
+long = data['results'][0]['geometry']['location']['lng']
+print('long is ${} lat is ${}'.format(long, lat))
 
 ############################
-##
 # Api to call the hotels in that area using the other slots and the lat long produced from the first API call
+############################
 
 url = "https://booking-com.p.rapidapi.com/v1/hotels/search-by-coordinates"
 
@@ -60,8 +42,6 @@ headers = {
 
 response = requests.request("GET", url, headers=headers, params=querystring).json()
 
-# print(response)
-
 
 # url = "https://hotels4.p.rapidapi.com/locations/v2/search"
 
@@ -72,12 +52,36 @@ response = requests.request("GET", url, headers=headers, params=querystring).jso
 #     'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
 #     }
 
-# response = requests.request("GET", url, headers=headers, params=querystring)
+# response = requests.request("GET", url, headers=headers, parclerams=querystring)
 
 # print(response.text)
 
 
-# data = response.json()
+
 result_json = json.dumps(response, indent=2)
-# parsed = json.loads(data)
-print(result_json)
+
+# print(result_json)
+
+#  "hotel_name","distance", "net_amount", "discounted_amount", "main_photo_url" 
+for list_result in response['result']:
+    hotel_id = list_result['hotel_name']
+    net_amount = list_result['composite_price_breakdown']['all_inclusive_amount']
+    discounted_amount = list_result['composite_price_breakdown']
+
+    print(str(net_amount['value']) + ' ' + net_amount['currency'] + ' per night for this motherfucker')
+    if 'discounted_amount' in list_result['composite_price_breakdown']:
+        print(str(discounted_amount['discounted_amount']['value']) + ' ' + discounted_amount['discounted_amount']['currency'] + ' discount!')
+
+    else:
+        print('No discounts!')
+
+
+    print('Photo url: ' + list_result['max_photo_url'])
+    print('-' * 10)
+    print(hotel_id)
+
+
+
+    print(list_result['distance_to_cc'] + 'km to the city center')
+
+
