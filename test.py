@@ -28,19 +28,19 @@ lat = current['coord']['lat']
 ##########################
 # API TO GET CITY LAT LONG
 
-# url = "https://google-maps-geocoding.p.rapidapi.com/geocode/json"
+url = "https://google-maps-geocoding.p.rapidapi.com/geocode/json"
 
-# querystring = {"address":"San Francisco","language":"en"}
+querystring = {"address":"San Francisco","language":"en"}
 
-# headers = {
-#     'x-rapidapi-host': "google-maps-geocoding.p.rapidapi.com",
-#     'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
-#     }
+headers = {
+    'x-rapidapi-host': "google-maps-geocoding.p.rapidapi.com",
+    'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+    }
 
-# response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers, params=querystring)
 
 
-# print(response.text)
+print(response.text)
 
 # import requests
 
