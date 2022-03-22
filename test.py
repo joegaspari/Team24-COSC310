@@ -1,5 +1,6 @@
    
 import requests
+import json
 
 api_key = '846be7071eb6f82c31610e982ad63cf0'
 loc = "Kelowna"
@@ -77,4 +78,4 @@ response = requests.request("GET", url, headers=headers, params=querystring)
 
 
 data = response.json()
-print(data)
+print(json.loads(data))
