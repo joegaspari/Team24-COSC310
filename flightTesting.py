@@ -25,12 +25,13 @@ print("\n")
 
 f = open('resources/list_of_airline_codes.json')
 airports = json.load(f)
-  
+
+
 for element in data['data']:
     # print('─' * 10)
     print('Flying with: ' + str(element['airlines']))
     # print('Flying from: ' + element['cityFrom'] + ", " + element['countryFrom']['name'])
     # print('Flying to: ' + element['cityTo'] + ", " + element['countryTo']['name'])
-    # print('Flight time: ' + element['fly_duration'])
+    print('Flight time: ' + element['fly_duration'])
     print('Price: ' + str(element['price']) + " EUR")
     # print('─' * 10)
