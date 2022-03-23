@@ -9,7 +9,7 @@ stories:
   - user: |
       Hi
     intent: greet
-  - action: utter_howdy
+  - action: utter_greet_reply
   - user: |
       What is the temperature today
     intent: weather
