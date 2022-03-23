@@ -42,26 +42,9 @@ headers = {
 
 response = requests.request("GET", url, headers=headers, params=querystring).json()
 
-
-# url = "https://hotels4.p.rapidapi.com/locations/v2/search"
-
-# querystring = {"query":"new york","locale":"en_US","currency":"USD"}
-
-# headers = {
-#     'x-rapidapi-host': "hotels4.p.rapidapi.com",
-#     'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
-#     }
-
-# response = requests.request("GET", url, headers=headers, parclerams=querystring)
-
-# print(response.text)
-
-
-
 result_json = json.dumps(response, indent=2)
 
 # print(result_json)
-
 #  "hotel_name","distance", "net_amount", "discounted_amount", "main_photo_url" 
 for list_result in response['result']:
     hotel_id = list_result['hotel_name']

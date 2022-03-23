@@ -33,7 +33,9 @@ rules:
     - intent: what_canU_do
     - action: utter_functionality
 
-
+###############################################################################
+# RULES FOR Hotel search
+###############################################################################
 - rule: activate hotel form
   steps:
     - intent: hotel_book
@@ -41,17 +43,71 @@ rules:
     - active_loop: hotel_form
 
 
-- rule: submit form
+- rule: submit hotel form
   condition:
   - active_loop: hotel_form
   steps:
     - action: hotel_form
     - active_loop: null
     - action: utter_see_do
-    - intent: thanks
-    - action: utter_welcome
     - action: action_hotelForm
-    
+
+###############################################################################
+# RULES FOR Flight booking form round trip version
+###############################################################################
+
+- rule: activate flight form1
+  steps:
+  - intent: flight_book
+  - action: utter_flight_return
+  - intent: round_trip
+  - action: flight_form1
+  - active_loop: flight_form1
+
+- rule: activate flight form1 v2
+  steps:
+  - intent: round_trip
+  - action: flight_form1
+  - active_loop: flight_form1
+
+- rule: submit flight form1
+  condition:
+  - active_loop: flight_form1
+  steps:
+    - action: flight_form1
+    - active_loop: null
+    - action: utter_see_do
+    - action: action_flight_form1
+
+
+
+###############################################################################
+# RULES FOR Flight booking form one-way trip version
+###############################################################################
+
+- rule: activate flight form2
+  steps:
+  - intent: flight_book
+  - action: utter_flight_return
+  - intent: one_way
+  - action: flight_form2
+  - active_loop: flight_form2
+
+- rule: activate flight form2 v2
+  steps:
+  - intent: one_way
+  - action: flight_form2
+  - active_loop: flight_form2
+
+- rule: submit flight form1
+  condition:
+  - active_loop: flight_form2
+  steps:
+    - action: flight_form2
+    - active_loop: null
+    - action: utter_see_do
+    - action: action_flight_form2
+
 
 - rule: out-of-scope
   steps:

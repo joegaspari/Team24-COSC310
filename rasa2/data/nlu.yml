@@ -53,6 +53,10 @@ nlu:
 #     - i'm off
 #     - see you later alligator
 #     - we'll speak soon
+# Lets come up with a rule that states whenever the intent goodbye appears the chat is canceled
+
+
+
 
 - intent: thanks
   examples: |
@@ -80,6 +84,10 @@ nlu:
     - confirm
     - I do
     - indeed
+
+###############################################################################
+# Weather api call intents
+###############################################################################
 - intent: weather
   examples: |
     - what's the weather
@@ -115,7 +123,10 @@ nlu:
     - [Kelowna](weather_loc)
     - [New York](weather_loc)
     - [Vancouver](weather_loc)
-
+    - to [Kelowna](weather_loc)
+    - from [Calgary](weather_loc)
+    - flying from [Toronto](weather_loc)
+    - flying to [Huston](weather_loc)
 
 - intent: bot_name
   examples: |
@@ -143,6 +154,10 @@ nlu:
     - help me
     - help
 
+
+###############################################################################
+#hotel form intents
+###############################################################################
 
 - intent: hotel_book
   examples: |
@@ -178,6 +193,10 @@ nlu:
     - I am looking on [25/04/2024](time)
     - check in [02/11/2023](time)
     - in on [02/04/2023](time)
+    - fly home on [02/18/2023](time)
+    - fly on [02/19/2023](time)
+    - fly in on [02/04/2024](time)
+    - I want ot be home on [12/04/2023](time)
 
 
 - intent: number_Adults
@@ -210,7 +229,46 @@ nlu:
     - checking out on [12/04/2023](time)
     - we are out of there on [23/10/2023](time)
     - we are leaving [12/10/2024](time)
+    - departure on [12/10/2024](time)
+    - arrive on [12/10/2024](time)
+###############################################################################
 
+
+###############################################################################
+####### Flight intents
+
+# We need an intent to enter us into the flight booking form
+
+- intent: flight_book
+  examples: |
+    - book flight
+    - book a flight
+    - I want to book a flight
+    - I need a flight
+    - I need a airplane ticket
+
+# utter_ask_flight_return: Are you looking for a one-way or round trip flight?
+- intent: round_trip
+  examples: |
+    - round trip
+    - return 
+    - round 
+    - roundtrip
+    - round trip
+    - I need a return
+
+
+- intent: one_way
+  examples: |
+    - one way
+    - oneway
+    - single direction
+    - I want only one direction
+    - one direction
+    - 1 way
+
+
+###############################################################################
 
 ##### Out scope
 

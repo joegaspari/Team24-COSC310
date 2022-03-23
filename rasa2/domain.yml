@@ -20,10 +20,14 @@ intents:
   - number_Adults
   - number_rooms
   - check_out
+  - flight_book
+  - round_trip
+  - one_way
   - out_of_scope
 
 entities: 
   - weather_loc
+  - time
   - name
   - hotel_location
   - number
@@ -93,7 +97,36 @@ slots:
       - active_loop: hotel_form
         requested_slot: check_out
 
+  departureC:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: weather_loc
+
+  arrivalC:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: weather_loc
+
+  departure_date:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: time
+
+  return_date:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: time 
+
 forms:
+
   hotel_form:
     ignored_intents:
     - greet
@@ -111,6 +144,43 @@ forms:
     - number_Adults
     - number_rooms
     - check_out
+
+  flight_form1:
+    ignored_intents:
+    - greet
+    - mood_great
+    - mood_bad
+    - weather
+    - bot_name
+    - name
+    - what_canU_do
+    - hotel_book
+    - hotel_local
+    - number_Adults
+    - number_rooms
+    required_slots:
+    - departureC
+    - arrivalC
+    - departure_date
+    - return_date
+  
+  flight_form2:
+    ignored_intents:
+    - greet
+    - mood_great
+    - mood_bad
+    - weather
+    - bot_name
+    - name
+    - what_canU_do
+    - hotel_book
+    - hotel_local
+    - number_Adults
+    - number_rooms
+    required_slots:
+    - departureC
+    - arrivalC
+    - departure_date
 
 responses:
 
@@ -197,6 +267,30 @@ responses:
   utter_ask_continue:
   - text: Do you wanna continue with this form filling process?
 
+############################################
+#flight book utterances#
+
+  utter_flight_return:
+  - text: are you looking for a one way or round trip flight?
+  - text: Is this round trip? or one way?
+
+  utter_ask_departureC:
+  - text: where are you looking to fly from?
+  - text: What city are you flying from?
+
+  utter_ask_arrivalC:
+  - text: what city are you wanting to fly to?
+  - text: What's the destination city?
+  - text: what city are you looking to fly to my friend!?
+
+  utter_ask_departure_date:
+  - text: What date do you want to leave on?
+  - text: What is the departure date your looking for?
+
+  utter_ask_return_date:
+  - text: When are you wanting to come home?
+  - text: do you have a date in mind for when you want to fly back?
+  - text: What day do you want to return on?
 
 actions: 
   - utter_howdy
@@ -218,7 +312,13 @@ actions:
   - utter_out_of_scope
   - utter_ask_continue
   - action_hotelForm
- 
+  - utter_flight_return
+  - utter_ask_departureC
+  - utter_ask_arrivalC
+  - utter_ask_departure_date
+  - utter_ask_return_date
+  - action_flight_form1
+  - action_flight_form2
 
 
 session_config:
