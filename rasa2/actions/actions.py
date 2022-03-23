@@ -9,12 +9,26 @@ from rasa_sdk.forms import FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import (
     SlotSet,
-    UserUtteranceReverted,
-    ConversationPaused,
-    EventType,
+    AllSlotsReset,
+    Restarted
 )
 
 import requests
+
+class ActionSlotReset(Action):
+    def name(self) -> Text:
+        return 'action_slot_reset'
+    
+    def run(self, dispatcher, tracker, domain):
+        return[AllSlotsReset()]
+    
+
+class ActionRestarted(Action):
+    def name(self):
+        return "action_chat_restart"
+
+    def run(self, dispatcher, tracker, domain):
+        return [Restarted()]
 
 class ActionCheckWeather(Action):
 
