@@ -61,4 +61,55 @@ class ActionSubmitHotelForm(Action):
        dispatcher.utter_message(response)
        
        return []
+   
+   
+class ActionSubmitFlightForm1(Action):
+     
+     
+    def name(self) -> Text:
+        return "action_flight_form1"
+        
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        return ["departureC", "arrivalC", "departure_date", "return_date"]
+    
+
+    
+    def run(self, dispatcher, tracker, domain):
+       
+       departC = tracker.get_slot('departureC')
+       arrivalC = tracker.get_slot('arrivalC')
+       dDate = tracker.get_slot('departure_date')
+       rDate = tracker.get_slot('return_date')
+       
+       
+       response = "Departure City: {}, Arrival City: {}, Departure Date: {}, Return Date: {}!!".format(departC, arrivalC, dDate, rDate)
+       dispatcher.utter_message(response)
+       
+       return []
+   
+   
+class ActionSubmitFlightForm2(Action):
+     
+     
+    def name(self) -> Text:
+        return "action_flight_form2"
+        
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        return ["departureC", "arrivalC", "departure_date"]
+    
+
+    
+    def run(self, dispatcher, tracker, domain):
+       
+       departC = tracker.get_slot('departureC')
+       arrivalC = tracker.get_slot('arrivalC')
+       dDate = tracker.get_slot('departure_date')
+       
+       
+       response = "Departure City: {}, Arrival City: {}, Departure Date: {}!!".format(departC, arrivalC, dDate)
+       dispatcher.utter_message(response)
+       
+       return []
  
