@@ -46,25 +46,50 @@ result_json = json.dumps(response, indent=2)
 
 # print(result_json)
 #  "hotel_name","distance", "net_amount", "discounted_amount", "main_photo_url" 
+# data_arr = []
+# i = 0
+
+string_builder = ''
 for list_result in response['result']:
+    
+    #preparing json document to return
+    # data = {}
+    # data['hotel_name'] = list_result['hotel_name']
+    # data['net_amount'] = list_result['composite_price_breakdown']['all_inclusive_amount']
+    # data['photo'] = list_result['max_photo_url']
+
+
     hotel_id = list_result['hotel_name']
     net_amount = list_result['composite_price_breakdown']['all_inclusive_amount']
     discounted_amount = list_result['composite_price_breakdown']
 
-    print(str(net_amount['value']) + ' ' + net_amount['currency'] + ' per night for this motherfucker')
+    string_builder += hotel_id + '\n'
+    string_builder += ' ' + str(net_amount['value']) + ' ' + net_amount['currency'] + ' per night\n'
+
+
+    # print(str(net_amount['value']) + ' ' + net_amount['currency'] + ' per night')
     if 'discounted_amount' in list_result['composite_price_breakdown']:
-        print(str(discounted_amount['discounted_amount']['value']) + ' ' + discounted_amount['discounted_amount']['currency'] + ' discount!')
-
+        # print(str(discounted_amount['discounted_amount']['value']) + ' ' + discounted_amount['discounted_amount']['currency'] + ' discount!')
+        # data['discounted_amount'] = str(discounted_amount['discounted_amount']['value']) + ' ' + discounted_amount['discounted_amount']['currency'] + ' discount!'
+        string_builder += ' ' +  str(discounted_amount['discounted_amount']['value']) + ' ' + discounted_amount['discounted_amount']['currency'] + ' discount!\n'
+    
     else:
-        print('No discounts!')
+        # print('No discounts!')
+        data['discounted_amount'] = 'No discounts!\n'
+        string_builder += ' ' +  'No discounts!\n'
 
+    # print('Photo url: ' + list_result['max_photo_url'])
+    # print('-' * 10)
+    # print(hotel_id)
 
-    print('Photo url: ' + list_result['max_photo_url'])
-    print('-' * 10)
-    print(hotel_id)
+    # json_data = json.dumps(data)
+    # data_arr.append(json_data)
+    # print(list_result['distance_to_cc'] + 'km to the city center')
+    string_builder += ' ' + list_result['distance_to_cc'] + 'km to the city center\n'
 
+# for element in data_arr:
+    # print(element)
 
+print(string_builder)
 
-    print(list_result['distance_to_cc'] + 'km to the city center')
-
-
+dispatch.utter_message(text = string_builder)
