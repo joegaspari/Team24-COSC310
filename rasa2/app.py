@@ -1,25 +1,12 @@
+
 #import files
 from flask import Flask, render_template, request
 import os
-import spacy
-spacy.load('en_core_web_sm')
 import requests 
 import json
 
-#Import chat which trains the model 
-#When this is commented, the previously trained and saved model is loaded (allows for quick testing)
-#Uncomment when changes made to chat.py
-
-#import chat
-#exec(open('chat.py').read())
-
-#Import Fox which contains method for processing user inputs
-# import Fox as Fox
-
-
 
 app = Flask(__name__)
-
 
 
 @app.route('/')
@@ -34,7 +21,13 @@ def get_bot_response():
     headers = {'Content-type': 'application/json', 'Accept':'text/plain'}
     res = requests.post('http://localhost:5005/webhooks/rest/webhook',  data= data, headers = headers)
     res = res.json()
-    val = res[0]['text']
+
+    val = ''
+    if not res:
+        val = 'returned values are empty'
+    else:
+        val = res[0]['text']
+        
     return str(val)
 
 
