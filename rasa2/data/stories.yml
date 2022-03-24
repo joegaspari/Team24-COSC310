@@ -11,6 +11,7 @@ stories:
     - intent: city_info
     - action: utter_getting_weather
     - action: action_get_weather
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_goodbye
@@ -23,6 +24,7 @@ stories:
         - weather_loc: London
     - action: utter_getting_weather
     - action: action_get_weather
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_goodbye
@@ -38,6 +40,7 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_hotelForm
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
 
@@ -54,6 +57,7 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_hotelForm
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
 
@@ -82,6 +86,7 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_flight_form1
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
 
@@ -100,6 +105,7 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_flight_form1
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
 
@@ -125,6 +131,7 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_flight_form1
+    - action: action_slot_reset
     - intent: thanks
     - action: welcome
 
@@ -141,6 +148,7 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_flight_form1
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
 
@@ -170,6 +178,7 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_flight_form2
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
 
@@ -188,6 +197,7 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_flight_form2
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
 
@@ -213,12 +223,13 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_flight_form2
+    - action: action_slot_reset
     - intent: thanks
     - action: welcome
 
 - story: flightBook2 sadP3
   steps:
-    - intent: one-way
+    - intent: one_way
     - action: flight_form2
     - active_loop: flight_form2
     - intent: out_of_scope
@@ -229,6 +240,7 @@ stories:
     - active_loop: null
     - action: utter_see_do
     - action: action_flight_form2
+    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
 

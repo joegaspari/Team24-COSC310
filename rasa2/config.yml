@@ -7,7 +7,7 @@ recipe: default.v1
 language: en
 
 pipeline:
-
+  # - name: "spellchecker.CorrectSpelling"
   - name: "WhitespaceTokenizer"
   - name: "RegexFeaturizer"
   - name: "LexicalSyntacticFeaturizer"
@@ -22,7 +22,7 @@ pipeline:
   - name: "EntitySynonymMapper"
   - name: "DucklingEntityExtractor"
     url: http://0.0.0.0:8000
-    dimensions: ["time", "number"]
+    dimensions: ["number"]
     timeout: 3
 
 policies:

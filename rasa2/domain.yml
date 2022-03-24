@@ -4,7 +4,7 @@ intents:
   - greet
   - mood_great
   - mood_bad
-  # - goodbye
+  - goodbye
   - thanks
   - deny
   - affirm
@@ -27,7 +27,7 @@ intents:
 
 entities: 
   - weather_loc
-  - time
+  - date
   - name
   - hotel_location
   - number
@@ -62,7 +62,7 @@ slots:
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: time
+      entity: date
       conditions:
       - active_loop: hotel_form
         requested_slot: check_in
@@ -92,7 +92,7 @@ slots:
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: time
+      entity: date
       conditions:
       - active_loop: hotel_form
         requested_slot: check_out
@@ -116,14 +116,15 @@ slots:
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: time
+      entity: date
 
   return_date:
     type: any
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: time 
+      entity: date
+       
 
 forms:
 
@@ -319,7 +320,8 @@ actions:
   - utter_ask_return_date
   - action_flight_form1
   - action_flight_form2
-
+  - action_slot_reset
+  - action_chat_restart
 
 session_config:
   session_expiration_time: 60

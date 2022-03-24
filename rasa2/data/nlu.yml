@@ -36,23 +36,23 @@ nlu:
     - Not great, how are you?
     - Not feeling good
 
-# - intent: goodbye
-#   examples: |
-#     - Bye
-#     - Goodbye
-#     - See you later
-#     - Bye bot
-#     - Goodbye friend
-#     - bye
-#     - bye for now
-#     - catch you later
-#     - gotta go
-#     - See you
-#     - goodnight
-#     - have a nice day
-#     - i'm off
-#     - see you later alligator
-#     - we'll speak soon
+- intent: goodbye
+  examples: |
+    - Bye
+    - Goodbye
+    - See you later
+    - Bye bot
+    - Goodbye friend
+    - bye
+    - bye for now
+    - catch you later
+    - gotta go
+    - See you
+    - goodnight
+    - have a nice day
+    - i'm off
+    - see you later alligator
+    - we'll speak soon
 # Lets come up with a rule that states whenever the intent goodbye appears the chat is canceled
 
 
@@ -184,19 +184,19 @@ nlu:
 
 - intent: check_in
   examples: |
-    - [02/06/2023](time)
-    - I need the hotel for [12/10/2023](time)
-    - I am looking to check in on [02/04/2023](time)
-    - check in on [02/11/2022](time)
-    - check in day of [02/05/2023](time)
-    - I'm looking for [12/04/2023](time)
-    - I am looking on [25/04/2024](time)
-    - check in [02/11/2023](time)
-    - in on [02/04/2023](time)
-    - fly home on [02/18/2023](time)
-    - fly on [02/19/2023](time)
-    - fly in on [02/04/2024](time)
-    - I want ot be home on [12/04/2023](time)
+    - [2022-08-12](date)
+    - I need the hotel for [2022-10-05](date)
+    - I am looking to check in on [2022-12-05](date)
+    - check in on [2022-11-05](date)
+    - check in day of [2022-02-05](date)
+    - I'm looking for [2022-01-05](date)
+    - I am looking on [2022-08-12](date)
+    - check in [2022-08-15](date)
+    - in on [2023-08-05](date)
+    - fly home on [2023-04-05](date)
+    - fly on [2022-08-05](date)
+    - fly in on [2024-08-05](date)
+    - I want ot be home on [2022-08-05](date)
 
 
 - intent: number_Adults
@@ -220,17 +220,17 @@ nlu:
 
 - intent: check_out
   examples: |
-    - we will check out on [02/04/2023](time)
-    - check out [12/10/2023](time)
-    - [12/10/2023](time)
-    - we are checking out on [02/04/2023](time)
-    - a check out date of [12/10/2023](time)
-    - checking out [12/10/2023](time)
-    - checking out on [12/04/2023](time)
-    - we are out of there on [23/10/2023](time)
-    - we are leaving [12/10/2024](time)
-    - departure on [12/10/2024](time)
-    - arrive on [12/10/2024](time)
+    - we will check out on [2022-12-07](date)
+    - check out [2023-09-11](date)
+    - [2022-01-01](date)
+    - we are checking out on [2023-08-11](date)
+    - a check out date of [2022-08-05](date)
+    - checking out [2023-08-30](date)
+    - checking out on [2022-08-29](date)
+    - we are out of there on [2022-08-28](date)
+    - we are leaving [2022-08-27](date)
+    - departure on [2022-08-05](date)
+    - arrive on [2022-08-05](date)
 ###############################################################################
 
 

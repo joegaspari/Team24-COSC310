@@ -71,12 +71,47 @@ class ActionSubmitHotelForm(Action):
        num_room = tracker.get_slot('number_rooms')
        checkO = tracker.get_slot('check_out')
        
-       response = "location: {}, checkin: {}, number of adults: {}, number of rooms: {}, check out: {}!".format(loc, checkI, num_a, num_room, checkO)
-       dispatcher.utter_message(response)
+       url1 = "https://google-maps-geocoding.p.rapidapi.com/geocode/json"
+       querystring = {"address":loc,"language":"en"}
+       headers = {
+        'x-rapidapi-host': "google-maps-geocoding.p.rapidapi.com",
+        'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+        }
+       response = requests.request("GET", url1, headers=headers, params=querystring)
+       data = json.loads(response.text)
+       lat = data['results'][0]['geometry']['location']['lat']
+       long = data['results'][0]['geometry']['location']['lng']
        
+       
+       url2 = "https://booking-com.p.rapidapi.com/v1/hotels/search-by-coordinates"
+       querystring2 = {"checkin_date":checkI,"order_by":"popularity","units":"metric","longitude":long,"adults_number":num_a,"latitude":lat,"room_number":num_room,"locale":"en-us","filter_by_currency":"USD","checkout_date":checkO,"children_number":"0","children_ages":"0,0","page_number":"0","categories_filter_ids":"class::2,class::4,free_cancellation::1","include_adjacency":"true"}
+       headers = {
+            'x-rapidapi-host': "booking-com.p.rapidapi.com",
+            'x-rapidapi-key': "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+        }
+       response = requests.request("GET", url2, headers=headers, params=querystring2).json()
+       string_builder = ''
+       for list_result in response['result']:
+           hotel_id = list_result['hotel_name']
+           net_amount = list_result['composite_price_breakdown']['all_inclusive_amount']
+           discounted_amount = list_result['composite_price_breakdown']
+           string_builder += hotel_id + '\n'
+           string_builder += ' ' + str(net_amount['value']) + ' ' + net_amount['currency'] + ' per night\n'
+           if 'discounted_amount' in list_result['composite_price_breakdown']:
+               string_builder += ' ' +  str(discounted_amount['discounted_amount']['value']) + ' ' + discounted_amount['discounted_amount']['currency'] + ' discount!\n'
+           else:
+               data['discounted_amount'] = 'No discounts!\n'
+               string_builder += ' ' +  'No discounts!\n'
+               
+           string_builder += ' ' + list_result['distance_to_cc'] + 'km to the city center\n'
+       dispatcher.utter_message(text = string_builder)
        return []
-   
-   
+       
+       
+
+
+
+
 class ActionSubmitFlightForm1(Action):
      
      
