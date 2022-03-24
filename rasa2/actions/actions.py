@@ -111,7 +111,7 @@ class ActionSubmitHotelForm(Action):
 
 
 
-
+# round trip
 class ActionSubmitFlightForm1(Action):
      
      
@@ -137,7 +137,7 @@ class ActionSubmitFlightForm1(Action):
        
        return []
    
-   
+# one way
 class ActionSubmitFlightForm2(Action):
      
      
