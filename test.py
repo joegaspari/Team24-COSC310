@@ -25,7 +25,7 @@ lat = data['results'][0]['geometry']['location']['lat']
 
 # store lat
 long = data['results'][0]['geometry']['location']['lng']
-print('long is ${} lat is ${}'.format(long, lat))
+print('long is {} lat is {}'.format(long, lat))
 
 ############################
 # Api to call the hotels in that area using the other slots and the lat long produced from the first API call
