@@ -126,17 +126,41 @@ class ActionSubmitFlightForm1(Action):
 
     
     def run(self, dispatcher, tracker, domain):
+        f1 = open('resources/airports_rmDuplicates.json')
+        data = json.load(f1)
+
+
+
+        departC = tracker.get_slot('departureC')
+        arrivalC = tracker.get_slot('arrivalC')
+        dDate = tracker.get_slot('departure_date')
+        rDate = tracker.get_slot('return_date')
        
-       departC = tracker.get_slot('departureC')
-       arrivalC = tracker.get_slot('arrivalC')
-       dDate = tracker.get_slot('departure_date')
-       rDate = tracker.get_slot('return_date')
+        # Get airport code from city slot name
+        depart_code = 'Not found'
+        arrival_code = 'Not found'
+
+        for e in data:
+            response = 'e["city"]: {}, arrivalC {} departCC {}'.format(e['city'], arrivalC, departC)
+            dispatcher.utter_message(response)
+            if(e['city'] == arrivalC):
+                arrival_code = e['code']
+            if(e['city'] == departC):
+                depart_code = e['code']
+                
+
+        # Updates slots to reflect airport code from inputting city here
+
+
+        # For testing vv
+        response = 'Arrival code: {}, depature code {}'.format(arrival_code, depart_code)
+        dispatcher.utter_message(response)
+        # For testing ^^
+
+        response = 'Departure City: {}, Arrival City: {}, Departure Date: {}, Return Date: {}!!'.format(departC, arrivalC, dDate, rDate)
+        dispatcher.utter_message(response)
        
-       
-       response = "Departure City: {}, Arrival City: {}, Departure Date: {}, Return Date: {}!!".format(departC, arrivalC, dDate, rDate)
-       dispatcher.utter_message(response)
-       
-       return []
+        return []
    
 # one way
 class ActionSubmitFlightForm2(Action):

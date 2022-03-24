@@ -15151,16 +15151,6 @@
       "gmt": "-5.0"
     },
     {
-      "city": "Vancouver",
-      "code": "CXH",
-      "worldareacode": "906",
-      "country": "Canada",
-      "longitude": "-123.1",
-      "latitude": "49.28",
-      "airportname": "Coal Harbour",
-      "gmt": "-8.0"
-    },
-    {
       "city": "Cayman Brac Is",
       "code": "CYB",
       "worldareacode": "233",
@@ -20321,16 +20311,6 @@
       "gmt": "+0.0"
     },
     {
-      "city": "Vancouver",
-      "code": "XEA",
-      "worldareacode": "906",
-      "country": "Canada",
-      "longitude": "-1.13",
-      "latitude": "49.25",
-      "airportname": "Vancouver Rail Stn.",
-      "gmt": "+0.0"
-    },
-    {
       "city": "Xingcheng",
       "code": "XEN",
       "worldareacode": "713",
@@ -21518,16 +21498,6 @@
       "longitude": "-122.25",
       "latitude": "47.75",
       "airportname": "Desolation Sound",
-      "gmt": "-8.0"
-    },
-    {
-      "city": "Vancouver",
-      "code": "YDT",
-      "worldareacode": "906",
-      "country": "Canada",
-      "longitude": "-123.0",
-      "latitude": "49.06",
-      "airportname": "Boundary Bay",
       "gmt": "-8.0"
     },
     {
