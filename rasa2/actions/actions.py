@@ -141,26 +141,41 @@ class ActionSubmitFlightForm1(Action):
         arrival_code = 'Not found'
 
         for e in data:
-            response = 'e["city"]: {}, arrivalC {} departCC {}'.format(e['city'], arrivalC, departC)
-            dispatcher.utter_message(response)
             if(e['city'] == arrivalC):
                 arrival_code = e['code']
             if(e['city'] == departC):
                 depart_code = e['code']
                 
 
-        # Updates slots to reflect airport code from inputting city here
+        
+        #Now that you have the airport code saved int depart_code and arrival_code we can use the skypicker
+        # api to aquire the flight information
+        
+        print(f"depart_code = {depart_code}, arrival_code = {arrival_code}, depart city = {departC}, arrival city = {arrivalC}, departureDate = {dDate}, returnDate ={rDate} ")
+       
+        url = "https://skyscanner44.p.rapidapi.com/search-extended"
 
+        querystring = {"adults":"1","origin":depart_code,"destination":arrival_code,"departureDate":dDate,"returnDate":rDate,"currency":"CAD"}
 
-        # For testing vv
-        response = 'Arrival code: {}, depature code {}'.format(arrival_code, depart_code)
-        dispatcher.utter_message(response)
-        # For testing ^^
+        headers = {
+	        "X-RapidAPI-Host": "skyscanner44.p.rapidapi.com",
+	        "X-RapidAPI-Key": "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+            }
 
-        response = 'Departure City: {}, Arrival City: {}, Departure Date: {}, Return Date: {}!!'.format(departC, arrivalC, dDate, rDate)
-        dispatcher.utter_message(response)
+        response = requests.request("GET", url, headers=headers, params=querystring)
+
+       
+        
+        dispatcher.utter_message(response.text)
        
         return []
+        # # For testing vv
+        # response = 'Arrival code: {}, depature code {}'.format(arrival_code, depart_code)
+        # dispatcher.utter_message(response)
+        # # For testing ^^
+
+        # response = 'Departure City: {}, Arrival City: {}, Departure Date: {}, Return Date: {}!!'.format(departC, arrivalC, dDate, rDate)
+        
    
 # one way
 class ActionSubmitFlightForm2(Action):
@@ -176,14 +191,48 @@ class ActionSubmitFlightForm2(Action):
 
     
     def run(self, dispatcher, tracker, domain):
+        f1 = open('resources/airports_rmDuplicates.json')
+        data = json.load(f1)
+
+
+
+        departC = tracker.get_slot('departureC')
+        arrivalC = tracker.get_slot('arrivalC')
+        dDate = tracker.get_slot('departure_date')
        
-       departC = tracker.get_slot('departureC')
-       arrivalC = tracker.get_slot('arrivalC')
-       dDate = tracker.get_slot('departure_date')
+        # Get airport code from city slot name
+        depart_code = 'Not found'
+        arrival_code = 'Not found'
+
+        for e in data:
+            if(e['city'] == arrivalC):
+                arrival_code = e['code']
+            if(e['city'] == departC):
+                depart_code = e['code']
+                
+
+        
+        #Now that you have the airport code saved int depart_code and arrival_code we can use the skypicker
+        # api to aquire the flight information
+        
+        print(f"depart_code = {depart_code}, arrival_code = {arrival_code}, depart city = {departC}, arrival city = {arrivalC}, departureDate = {dDate}")
+              
+        url = "https://skyscanner44.p.rapidapi.com/search-extended"
+
+        querystring = {"adults":"1","origin":depart_code,"destination":arrival_code,"departureDate":dDate,"currency":"CAD"}
+
+        headers = {
+	        "X-RapidAPI-Host": "skyscanner44.p.rapidapi.com",
+	        "X-RapidAPI-Key": "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+            }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+
        
+        
+        dispatcher.utter_message(response.text)
        
-       response = "Departure City: {}, Arrival City: {}, Departure Date: {}!!".format(departC, arrivalC, dDate)
-       dispatcher.utter_message(response)
-       
-       return []
- 
+        return []
+    
+    
+
