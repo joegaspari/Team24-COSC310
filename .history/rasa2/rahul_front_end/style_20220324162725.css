@@ -1,6 +1,6 @@
 #textInput {
   border: none;
-  border-bottom: 3px solid rgb(255, 255, 255);
+  border-bottom: 3px solid aqua;
 }
 
 .userText {
@@ -28,19 +28,16 @@
   border-radius: 2px;
 }
 .background-container {
-  /* width: 100%; */
+  width: 100%;
+  height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("https://images.hdqwalls.com/download/hosting-colors-8k-zk-1920x1080.jpg");
   background-attachment: fixed;
-  overflow: scroll;
-  line-height: 2em;
-  max-width: 100%;
-  max-height: 100%;
 }
 .chatbox {
   float: center;
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 500px;
+  max-width: 200px;
 }
