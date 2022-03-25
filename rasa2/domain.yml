@@ -124,7 +124,7 @@ slots:
     mappings:
     - type: from_entity
       entity: date
-       
+
 
 forms:
 
@@ -295,7 +295,7 @@ responses:
 
 actions: 
   - utter_howdy
-  - utter_ask_location
+  - utter_ask_weather_location
   - utter_welcome
   - utter_goodbye
   - action_get_weather
