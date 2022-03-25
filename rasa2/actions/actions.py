@@ -35,7 +35,7 @@ class ActionCheckWeather(Action):
     def name(self) -> Text:
         return "action_get_weather"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text,Any]) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher, tracker, domain):
         api_key = '846be7071eb6f82c31610e982ad63cf0'
         loc = tracker.get_slot('weather_location')
         current = requests.get('http://api.openweathermap.org/data/2.5/weather?q={}&appid={}'.format(loc, api_key)).json()
@@ -125,7 +125,7 @@ class ActionSubmitFlightForm1(Action):
     
 
     
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text,Any]) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher, tracker, domain):
         f1 = open('resources/airports_rmDuplicates.json')
         data = json.load(f1)
 
