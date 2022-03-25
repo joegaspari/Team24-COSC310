@@ -188,10 +188,10 @@ class ActionSubmitFlightForm1(Action):
                     arriv_on = 'Arriving on {}'.format(ee['arrival'][0:10] + ' @ ' + ee['arrival'][-8:])
                     price_send = 'Which will cost you aboot: ${}'.format(price)
                     
-                    string_builder += flight_num + '\n'
-                    string_builder += flight_with + '\n'
-                    string_builder += depart_on + '\n'
-                    string_builder += arriv_on + '\n'
+                    string_builder += flight_num + '<br>\n'
+                    string_builder += flight_with + '<br>\n'
+                    string_builder += depart_on + '<br>\n'
+                    string_builder += arriv_on + '<br>\n'
                     string_builder += price_send 
 
                     i += 1
