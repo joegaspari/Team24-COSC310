@@ -154,8 +154,11 @@ class ActionSubmitFlightForm1(Action):
         print(f"depart_code = {depart_code}, arrival_code = {arrival_code}, depart city = {departC}, arrival city = {arrivalC}, departureDate = {dDate}, returnDate ={rDate} ")
        
         url = "https://skyscanner44.p.rapidapi.com/search-extended"
+        
+        response = 'Departure City: {}, Arrival City: {}, Departure Date: {}, Return Date: {}!!'.format(departC, arrivalC, dDate, rDate)
 
-        querystring = {"adults":"1","origin":f"{depart_code}","destination":f"{arrival_code}","departureDate":f"{dDate}","returnDate":f"{rDate}","currency":"CAD"}
+
+        querystring  = 'adults:{}, origin:{}, destination:{}, departureDate:{}, returnDate:{}, currency:CAD'.format(depart_code, arrival_code, dDate, rDate)
         print(querystring)
         headers = {
 	        "X-RapidAPI-Host": "skyscanner44.p.rapidapi.com",
