@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 import os
 import requests 
 import json
+import random
 
 
 app = Flask(__name__)
@@ -24,7 +25,8 @@ def get_bot_response():
 
     val = ''
     if not res:
-        val = 'returned values are empty'
+        defaultResponses = ["Sorry, I didn't quite understand that input.", "Sorry, I didn't catch that. Could you reword that for me?", "Sorry, I wasn't able to understand that message.", "Apologies, I was not able to understand that input.", "Sorry, could you rephrase that for me?"]
+        val = random.choice(defaultResponses)
     else:
         val = res[0]['text']
         
