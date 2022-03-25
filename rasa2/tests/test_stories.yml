@@ -35,3 +35,8 @@ stories:
     intent: thanks
   - action: utter_welcome
   - action: utter_goodbye
+
+
+- story: hotelBook_happyP
+  steps:
+  - 

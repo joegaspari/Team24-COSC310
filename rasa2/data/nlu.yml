@@ -272,6 +272,8 @@ nlu:
 
 ##### Out scope
 
+################################################################################
+
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -330,3 +332,14 @@ nlu:
     - αστεία λές
     - rasa codigo abierto
     - 卧槽
+
+###############################################################################
+
+##### To handle categories of intents that may appear in coversation #####
+
+#### 1. Food intents
+#### 2. Inapropriate intents
+#### 3. Rasa Question Intents
+#### 
+
+################################################################################
