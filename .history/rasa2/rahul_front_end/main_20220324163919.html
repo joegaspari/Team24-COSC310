@@ -16,15 +16,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 </head>
 
-<div class="background-container">
+<div class="background-container" style="background-repeat:no-repeat;
+		background-attachment:fixed;
+		overflow:scroll;
+		line-height:2em;
+        max-width: 100%;
+        height: auto;">
     <body>
         <br>
         <br>
-    <div class="fixed-top">
-        <br>
-        <h1 class="jumbotron text-center text-light">Flight Finder V1</h1>
-    <b><h6 style = "text-align:center; color:#e0129c;" >The World's Choice For Air Travel</h6></b>
-    </div>    
+    <h1 class="jumbotron text-center text-light">Flight Finder V1</h1>
+    <h6 style = "text-align:center color: #f027ad" >The World's Choice For Air Travel</h6>
         <div class="row">           
             <div class="col-sm-6 offset-sm-3">
                 <div class="d-grid gap-3">
@@ -33,8 +35,7 @@
                     </div>
                         <input id="textInput" class="form-control" type="text" name="msg" placeholder="Type Your Message Here">
                         <input id="buttonInput" class="btn btn-primary form-control" type="submit" value="Send">
-                        <br>
-                    </div>
+                </div>
             </div>
         </div>
     </body>
