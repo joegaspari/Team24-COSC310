@@ -54,7 +54,6 @@ rules:
   steps:
     - action: hotel_form
     - active_loop: null
-    - action: utter_see_do
     - action: action_hotelForm
     - action: action_slot_reset
 
@@ -75,7 +74,6 @@ rules:
   steps:
     - action: flight_form1
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form1
     - action: action_slot_reset
 
@@ -97,7 +95,6 @@ rules:
   steps:
     - action: flight_form2
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form2
     - action: action_slot_reset
 

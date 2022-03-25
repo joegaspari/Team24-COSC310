@@ -48,7 +48,7 @@ class ActionCheckWeather(Action):
         temperature_c = round(temperature_c)
         humidity = current['main']['humidity']
         wind_mph = current['wind']['speed']
-        response = """It is currently {} in {} at the moment. The temperature is {} degrees, the humidity is {}% and the wind speed is {} mph.""".format(condition, city, temperature_c, humidity, wind_mph)
+        response = """It is currently {} in {} at the moment. The temperature is {} degrees, the humidity is {}% and the wind speed is {} m/s.""".format(condition, city, temperature_c, humidity, wind_mph)
         dispatcher.utter_message(response)
         return [SlotSet('weather_location', loc)]
 
@@ -212,6 +212,10 @@ class ActionSubmitFlightForm1(Action):
         
    
 # one way
+
+from bs4 import BeautifulSoup
+import urllib.request
+import re
 class ActionSubmitFlightForm2(Action):
      
      
@@ -249,24 +253,24 @@ class ActionSubmitFlightForm2(Action):
         #Now that you have the airport code saved int depart_code and arrival_code we can use the skypicker
         # api to aquire the flight information
         
-        print(f"depart_code = {depart_code}, arrival_code = {arrival_code}, depart city = {departC}, arrival city = {arrivalC}, departureDate = {dDate}")
-              
-        url = "https://skyscanner44.p.rapidapi.com/search-extended"
-
-        querystring = {"adults":"1","origin":depart_code,"destination":arrival_code,"departureDate":dDate,"currency":"CAD"}
-
-        headers = {
-	        "X-RapidAPI-Host": "skyscanner44.p.rapidapi.com",
-	        "X-RapidAPI-Key": "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
-            }
-
-        response = requests.request("GET", url, headers=headers, params=querystring)
-
-       
-        
-        dispatcher.utter_message(response.text)
-       
+        quote_page = "https://flights.makemytrip.com/makemytrip/search/O/O/E/1/0/0/S/V0/{}_{}_{}?contains=false&remove="
+        page=urllib.request.urlopen(quote_page.format(depart_code,arrival_code,dDate))
+        soup = BeautifulSoup(page, 'html.parser')
+        list1=[]
+        message=soup.find_all('label',attrs={'class':'flL mtop5 mleft3 vallabel'})
+        dispatcher.utter_message("Here is the list of carriers with their fare")
+        for a in message:
+            list1.append(a.text)
+        message1=soup.find_all('span',attrs={'class':'flR'})
+        list2=[]
+        for b in message1:
+            if "Rs." in b.text:
+                list2.append(re.sub('\s+', '', b.text))
+        for i in range(len(list1)):
+            dispatcher.utter_message(list1[i]+" : "+list2[i])
         return []
+       
+      
     
     
 

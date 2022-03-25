@@ -9,7 +9,6 @@ stories:
     - intent: weather
     - action: utter_ask_weather_location
     - intent: city_info
-    - action: utter_getting_weather
     - action: action_get_weather
     - action: action_slot_reset
     - intent: thanks
@@ -22,7 +21,6 @@ stories:
     - intent: weather_for_loc
       entities:
         - weather_loc: London
-    - action: utter_getting_weather
     - action: action_get_weather
     - action: action_slot_reset
     - intent: thanks
@@ -38,7 +36,6 @@ stories:
     - action: hotel_form
     - active_loop: hotel_form
     - active_loop: null
-    - action: utter_see_do
     - action: action_hotelForm
     - action: action_slot_reset
     - intent: thanks
@@ -55,7 +52,6 @@ stories:
     - intent: affirm
     - action: hotel_form
     - active_loop: null
-    - action: utter_see_do
     - action: action_hotelForm
     - action: action_slot_reset
     - intent: thanks
@@ -84,7 +80,6 @@ stories:
     - action: flight_form1
     - active_loop: flight_form1
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form1
     - action: action_slot_reset
     - intent: thanks
@@ -103,7 +98,6 @@ stories:
     - intent: affirm
     - action: flight_form1
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form1
     - action: action_slot_reset
     - intent: thanks
@@ -129,7 +123,6 @@ stories:
     - action: flight_form1
     - active_loop: flight_form1
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form1
     - action: action_slot_reset
     - intent: thanks
@@ -146,7 +139,6 @@ stories:
     - intent: affirm
     - action: flight_form1
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form1
     - action: action_slot_reset
     - intent: thanks
@@ -176,7 +168,6 @@ stories:
     - action: flight_form2
     - active_loop: flight_form2
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form2
     - action: action_slot_reset
     - intent: thanks
@@ -195,7 +186,6 @@ stories:
     - intent: affirm
     - action: flight_form2
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form2
     - action: action_slot_reset
     - intent: thanks
@@ -221,7 +211,6 @@ stories:
     - action: flight_form2
     - active_loop: flight_form2
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form2
     - action: action_slot_reset
     - intent: thanks
@@ -238,7 +227,6 @@ stories:
     - intent: affirm
     - action: flight_form2
     - active_loop: null
-    - action: utter_see_do
     - action: action_flight_form2
     - action: action_slot_reset
     - intent: thanks

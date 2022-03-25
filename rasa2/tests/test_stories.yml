@@ -1,8 +1,5 @@
-#### This file contains tests to evaluate that your bot behaves as expected.
-#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
-
-
 stories:
+
 
 - story: get_weather
   steps: 
@@ -23,7 +20,8 @@ stories:
     intent: thanks
   - action: utter_welcome
   - action: utter_goodbye
-  
+
+######################################################################################################################################
 - story: get_weather_short
   steps:
   - user: |
@@ -36,10 +34,456 @@ stories:
   - action: utter_welcome
   - action: utter_goodbye
 
-
+######################################################################################################################################
 - story: hotelBook_happyP
   steps:
-  - user: |
-      I am looking for a hotel
+  - user: | 
+      I am looking for a hotel room
     intent: hotel_book
-    -
+  - action: hotel_form
+  - active_loop: hotel_form
+  - action: utter_ask_hotel_local
+  - user: |
+      I am looking in [New York]{"entity":"hotel_location", "value":"New York"}
+    intent: hotel_local
+  - action: utter_ask_check_in
+  - user: |
+      I am looking to check in on [2022-08-12]{"entity":"date", "value":"2022-08-12"}
+    intent: check_in
+  - action: utter_ask_number_Adults
+  - user: |
+      [2]{"entity":"number", "value":"2"} people
+    intent: number_Adults
+  - action: utter_ask_number_rooms
+  - user: |
+      we will need [2]{"entity":"number", "value":"2"}
+    intent: number_rooms
+  - action: utter_ask_check_out
+  - user: |
+      we will check out on [2022-12-07]{"entity":"date", "value":"2022-12-07"}
+    intent: check_out
+  - active_loop: null
+  - action: action_hotelForm
+  - action: action_slot_reset
+  - user: | 
+      Thanks for the help!
+    intent: thanks
+  - action: utter_welcome
+
+######################################################################################################################################
+
+- story: hotelBook_happyP1
+  steps: 
+  - user: |
+     I am looking for a hotel room
+    intent: hotel_book
+  - action: hotel_form
+  - active_loop: hotel_form
+  - user: |
+      none of your business 
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: | 
+      Yes please
+    intent: affirm
+  - action: hotel_form
+  - active_loop: hotel_form
+  - active_loop: null
+  - action: action_hotelForm
+  - action: action_slot_reset
+  - user: | 
+      Thanks for the help!
+    intent: thanks
+  - action: utter_welcome
+
+######################################################################################################################################
+- story: hotelBook_sadP2
+  steps: 
+  - user: |
+      I am looking for a hotel room
+    intent: hotel_book
+  - action: hotel_form   
+  - active_loop: hotel_form  
+  - user : |
+      This is not what I was looking for. 
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: |
+      No
+    intent: deny
+  - action: utter_goodbye
+
+######################################################################################################################################
+
+- story: flightBook1 happy1
+  steps: 
+  - user: |
+      I want to book a flight
+    intent: flight_book
+  - action: utter_flight_return
+  - user: |
+      roundtrip
+    intent: round_trip
+  - action: flight_form1
+  - active_loop: flight_form1
+  - action: utter_ask_departureC
+  - user: |
+      flying from [Calgary]{"entity":"weather_loc", "value":"Calgary"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      flying to [Vancouver]{"entity":"weather_loc", "value":"Vancouver"}
+    intent: city_info
+  - action: utter_ask_departure_date
+  - user: | 
+      departure on [2022-12-07]{"entity":"date", "value":"2022-12-07"}
+    intent: check_out
+  - action: utter_return_date
+  - user: |
+      arrive back [2023-01-17]{"entity":"date", "value":"2022-01-17"}
+    intent: check_out
+  - active_loop: null
+  - action: action_flight_form1
+  - action: action_slot_reset
+  - user: | 
+      Thanks
+    intent: thanks
+  - action: utter_welcome
+
+######################################################################################################################################
+
+- story: flightBook1 sadP1
+   steps: 
+  - user: |
+      I want to book a flight
+    intent: flight_book
+  - action: utter_flight_return
+  - user: |
+      roundtrip
+    intent: round_trip
+  - action: flight_form1
+  - active_loop: flight_form1
+  - action: utter_ask_departureC
+  - user: |
+      flying from [Calgary]{"entity":"weather_loc", "value":"Calgary"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      how old are you?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: | 
+      yes please!
+    intent: affirm
+  - action: flight_form1
+  - active_loop: flight_form1
+  - active_loop: null
+  - action: action_flight_form1
+  - action: action_slot_reset
+  - user: | 
+      Thanks for the assistance!
+    intent: thanks
+  - action: utter_welcome
+
+######################################################################################################################################
+
+- story: flightBook1 sadP2
+   steps: 
+  - user: |
+      I want to book a flight
+    intent: flight_book
+  - action: utter_flight_return
+  - user: |
+      roundtrip
+    intent: round_trip
+  - action: flight_form1
+  - active_loop: flight_form1
+  - action: utter_ask_departureC
+  - user: |
+      flying from [London]{"entity":"weather_loc", "value":"London"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      how old are you?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: | 
+      no thank you
+    intent: deny
+  - action: utter_goodbye
+
+######################################################################################################################################
+
+- story: flightBook1 happy2
+  steps: 
+  - user: |
+      roundtrip
+    intent: round_trip
+  - action: flight_form1
+  - active_loop: flight_form1
+  - action: utter_ask_departureC
+  - user: |
+      flying from [Calgary]{"entity":"weather_loc", "value":"Calgary"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      flying to [Vancouver]{"entity":"weather_loc", "value":"Vancouver"}
+    intent: city_info
+  - action: utter_ask_departure_date
+  - user: | 
+      departure on [2022-12-07]{"entity":"date", "value":"2022-12-07"}
+    intent: check_out
+  - action: utter_return_date
+  - user: |
+      arrive back [2023-01-17]{"entity":"date", "value":"2022-01-17"}
+    intent: check_out
+  - active_loop: null
+  - action: action_flight_form1
+  - action: action_slot_reset
+  - user: | 
+      Thanks
+    intent: thanks
+  - action: utter_welcome
+######################################################################################################################################
+
+- story: flightBook1 sadP3
+  steps: 
+  - user: |
+      roundtrip
+    intent: round_trip
+  - action: flight_form1
+  - active_loop: flight_form1
+  - action: utter_ask_departureC
+  - user: |
+      flying from [Calgary]{"entity":"weather_loc", "value":"Calgary"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      how old are you?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: | 
+      yes please!
+    intent: affirm
+  - action: flight_form1
+  - active_loop: flight_form1
+  - active_loop: null
+  - action: action_flight_form1
+  - action: action_slot_reset
+  - user: | 
+      Thanks for the assistance!
+    intent: thanks
+  - action: utter_welcome
+######################################################################################################################################
+
+- story: flightBook1 sadP4
+  steps: 
+   - user: |
+      roundtrip
+    intent: round_trip
+  - action: flight_form1
+  - active_loop: flight_form1
+  - action: utter_ask_departureC
+  - user: |
+      flying from [London]{"entity":"weather_loc", "value":"London"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      how old are you?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: | 
+      no thank you
+    intent: deny
+  - action: utter_goodbye
+
+
+######################################################################################################################################
+
+- story: flightbook2 happy1 
+  steps: 
+   - user: |
+      I want to book a flight
+    intent: flight_book
+  - action: utter_flight_return
+  - user: |
+      one way
+    intent: one_way
+  - action: flight_form2
+  - active_loop: flight_form2
+  - action: utter_ask_departureC
+  - user: |
+      flying from [Calgary]{"entity":"weather_loc", "value":"Calgary"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      flying to [Vancouver]{"entity":"weather_loc", "value":"Vancouver"}
+    intent: city_info
+  - action: utter_ask_departure_date
+  - user: | 
+      departure on [2022-12-07]{"entity":"date", "value":"2022-12-07"}
+    intent: check_out
+  - active_loop: null
+  - action: action_flight_form2
+  - action: action_slot_reset
+  - user: | 
+      Thanks
+    intent: thanks
+  - action: utter_welcome
+######################################################################################################################################
+
+- story: flightbook2 sadP1
+  steps: 
+ - user: |
+      I want to book a flight
+    intent: flight_book
+  - action: utter_flight_return
+  - user: |
+      one way
+    intent: one_way
+  - action: flight_form2
+  - active_loop: flight_form2
+  - action: utter_ask_departureC
+  - user: |
+      flying from [Calgary]{"entity":"weather_loc", "value":"Calgary"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      how old are you?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: | 
+      yes please!
+    intent: affirm
+  - action: flight_form2
+  - active_loop: flight_form2
+  - active_loop: null
+  - action: action_flight_form2
+  - action: action_slot_reset
+  - user: | 
+      Thanks for the assistance!
+    intent: thanks
+  - action: utter_welcome
+
+
+######################################################################################################################################
+
+- story: flightbook2 sadP2
+  steps: 
+ - user: |
+      I want to book a flight
+    intent: flight_book
+  - action: utter_flight_return
+  - user: |
+      one way
+    intent: one_way
+  - action: flight_form2
+  - active_loop: flight_form2
+  - action: utter_ask_departureC
+  - user: |
+      flying from [London]{"entity":"weather_loc", "value":"London"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      how old are you?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: | 
+      no thank you
+    intent: deny
+  - action: utter_goodbye
+
+######################################################################################################################################
+
+
+- story: flightBook2 happy2
+  steps:
+  - user: |
+      one way
+    intent: one_way
+  - action: flight_form2
+  - active_loop: flight_form2
+  - action: utter_ask_departureC
+  - user: |
+      flying from [Calgary]{"entity":"weather_loc", "value":"Calgary"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      flying to [Vancouver]{"entity":"weather_loc", "value":"Vancouver"}
+    intent: city_info
+  - action: utter_ask_departure_date
+  - user: | 
+      departure on [2022-12-07]{"entity":"date", "value":"2022-12-07"}
+    intent: check_out
+  - active_loop: null
+  - action: action_flight_form2
+  - action: action_slot_reset
+  - user: | 
+      Thanks
+    intent: thanks
+  - action: utter_welcome
+
+######################################################################################################################################
+
+- story: flightBook2 sadP3
+  steps: 
+- user: |
+      one way
+    intent: one_way
+  - action: flight_form2
+  - active_loop: flight_form2
+  - action: utter_ask_departureC
+  - user: |
+      flying from [Calgary]{"entity":"weather_loc", "value":"Calgary"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      how old are you?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: | 
+      yes please!
+    intent: affirm
+  - action: flight_form2
+  - active_loop: flight_form2
+  - active_loop: null
+  - action: action_flight_form2
+  - action: action_slot_reset
+  - user: | 
+      Thanks for the assistance!
+    intent: thanks
+  - action: utter_welcome
+######################################################################################################################################
+
+- story: flightBook2 sadP4
+  steps:
+  - user: |
+      one way
+    intent: one_way
+  - action: flight_form2
+  - active_loop: flight_form2
+  - action: utter_ask_departureC
+  - user: |
+      flying from [London]{"entity":"weather_loc", "value":"London"}
+    intent: city_info
+  - action: utter_ask_arrivalC
+  - user: |
+      how old are you?
+    intent: out_of_scope
+  - action: utter_out_of_scope
+  - action: utter_ask_continue
+  - user: | 
+      no thank you
+    intent: deny
+  - action: utter_goodbye
+
+  ######################################################################################################################################
