@@ -37,9 +37,9 @@ stories:
   - action: utter_goodbye
 
 
-- story: hotelBook_happyP
-  steps:
-  - user: |
-      I am looking for a hotel
-    intent: hotel_book
-    -
+# - story: hotelBook_happyP
+#   steps:
+#   - user: |
+#       I am looking for a hotel
+#     intent: hotel_book
+#     -

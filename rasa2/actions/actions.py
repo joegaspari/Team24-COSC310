@@ -125,16 +125,16 @@ class ActionSubmitFlightForm1(Action):
     
 
     
-    def run(self, dispatcher, tracker, domain):
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text,Any]) -> List[Dict[Text, Any]]:
         f1 = open('resources/airports_rmDuplicates.json')
         data = json.load(f1)
 
 
 
-        departC = str(tracker.get_slot('departureC'))
-        arrivalC = str(tracker.get_slot('arrivalC'))
-        dDate = str(tracker.get_slot('departure_date'))
-        rDate = str(tracker.get_slot('return_date'))
+        departC = tracker.get_slot('departureC')
+        arrivalC = tracker.get_slot('arrivalC')
+        dDate = tracker.get_slot('departure_date')
+        rDate = tracker.get_slot('return_date')
        
         # Get airport code from city slot name
         depart_code = 'Not found'
@@ -146,7 +146,7 @@ class ActionSubmitFlightForm1(Action):
             if(e['city'] == departC):
                 depart_code = e['code']
                 
-
+        f1.close()
         
         #Now that you have the airport code saved int depart_code and arrival_code we can use the skypicker
         # api to aquire the flight information
@@ -155,7 +155,7 @@ class ActionSubmitFlightForm1(Action):
        
         url = "https://skyscanner44.p.rapidapi.com/search-extended"
 
-        querystring = {"adults":"1","origin":"YVR","destination":"YYZ","departureDate":dDate,"returnDate":"2022-08-01","currency":"CAD"}
+        querystring = {"adults":"1","origin":f"{depart_code}","destination":f"{arrival_code}","departureDate":f"{dDate}","returnDate":f"{rDate}","currency":"CAD"}
         print(querystring)
         headers = {
 	        "X-RapidAPI-Host": "skyscanner44.p.rapidapi.com",
@@ -197,8 +197,10 @@ class ActionSubmitFlightForm1(Action):
                     i += 1
                 if(i >= 10):
                     break
+       
+       
         print(string_builder)
-        dispatcher.utter_message(text=string_builder)
+        dispatcher.utter_message(string_builder)
        
         return []
         # # For testing vv
