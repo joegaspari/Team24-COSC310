@@ -131,10 +131,10 @@ class ActionSubmitFlightForm1(Action):
 
 
 
-        departC = tracker.get_slot('departureC')
-        arrivalC = tracker.get_slot('arrivalC')
-        dDate = tracker.get_slot('departure_date')
-        rDate = tracker.get_slot('return_date')
+        departC = str(tracker.get_slot('departureC'))
+        arrivalC = str(tracker.get_slot('arrivalC'))
+        dDate = str(tracker.get_slot('departure_date'))
+        rDate = str(tracker.get_slot('return_date'))
        
         # Get airport code from city slot name
         depart_code = 'Not found'
@@ -155,14 +155,14 @@ class ActionSubmitFlightForm1(Action):
        
         url = "https://skyscanner44.p.rapidapi.com/search-extended"
 
-        querystring = {"adults":"1","origin":depart_code,"destination":arrival_code,"departureDate":dDate,"returnDate":rDate,"currency":"CAD"}
-
+        querystring = {"adults":"1","origin":"YVR","destination":"YYZ","departureDate":dDate,"returnDate":"2022-08-01","currency":"CAD"}
+        print(querystring)
         headers = {
 	        "X-RapidAPI-Host": "skyscanner44.p.rapidapi.com",
 	        "X-RapidAPI-Key": "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
             }
 
-        response = requests.request("GET", url, headers=headers, params=querystring)
+        response = requests.request("GET", url, headers=headers, params=querystring).json()
 
 
         string_builder = ''
@@ -197,8 +197,8 @@ class ActionSubmitFlightForm1(Action):
                     i += 1
                 if(i >= 10):
                     break
-
-        dispatcher.utter_message(string_builder)
+        print(string_builder)
+        dispatcher.utter_message(text=string_builder)
        
         return []
         # # For testing vv

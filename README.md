@@ -219,7 +219,7 @@ We define the following Slots for each of the form calls:
 
 Rasa forms are what allow the bot to rapid fire a series of questions in order to collect data to make an api call. Forms are defined in the domain and must include the required slots that are needed to be filled to complete the api call. Since we have a large number of intents many of the intents can be ignored as to limit confusion the bot may have surrounding low confidence predictions. 
 
-The responses section is the dialogue available to the bot. When an appropriate action is predicted the
+The responses section is the dialogue available to the bot. When an appropriate action is predicted the but can either confirm an action call or utter a message back to the user!
 
 Actions are the system's responses to the user's intents
 
