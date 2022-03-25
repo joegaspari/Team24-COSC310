@@ -116,7 +116,7 @@ rules:
   - action: flight_form2
   - active_loop: flight_form2
 
-- rule: submit flight form1
+- rule: submit flight form2
   condition:
   - active_loop: flight_form2
   steps:

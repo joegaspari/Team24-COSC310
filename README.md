@@ -242,4 +242,44 @@ Actions define the methods or utterances the bot can use during the conversation
     - The hotel form api required the latitude and longitude of our city thus we use Google geocoding to extract the lat long information from the city entity provided by the user. Then the slots for check in, check out, number of adults and number of rooms is used to fill the api call from booking.com. This call will produce a list of hotels available to the user on the specified details. The api orders the returned data by most popular. Using dispatcher.utter_message to forward the response to the user's interface.
 
   class ActionSubmitFlightForm(Action):
-    - The flight booking form uses a local json file to extract airport codes from the cities provided by the user's input. 
+    - The flight booking form uses a local json file to extract airport codes from the cities provided by the user's input. Using the skyscanner api we are able to query flight data based on the entities extracted from the user's response. 
+
+
+# Automated Testing
+
+'test_stories.yml'
+
+Since we are using a conversation model, we define tests as test stories that provide detail for the model to compare current conversations against. Since each of our main functions include 1. getting weather data, 2. Hotel booking data and 3. flight booking data we have created unit stories that encompass the possible conversational paths the user can explore without breaking down. Since our system uses forms frequently we build cases to encompass when a form has been interrupted or canceled completely. The complete set of test stories can be found in the file test_stories.yml
+
+# Config.yml
+
+  The Rasa config file is the pipeline used to dissect the contents of a user's message. The config file includes a number of language toolkits used to clean, categorize and tag words for possible extraction or to help classify the intent of the message by quantifying the types of words used.
+
+  The pipeline begins with:
+    - spellchecker.CorrectSpelling
+
+    This is a custom toolkit that uses pyspellchecker package to check each token of the user string for spelling errors. It corrects the spelling errors and concantinates the tokens back into a sentence that is passed onto the next pipeline component. 
+    
+    - SpacyNLP 
+    - SpacyTokenizer
+    - SpacyFeaturizer
+
+    These pipelines begin to tokenize the words found in the user message, and then creates part-of-speech tags to help to decern the context of the response. These include verbs, nouns, propernouns and adjectives. The featurizer transforms the tokens and some of their POS properties into features that can be later used in the machine learning model.
+
+    - LexicalSyntacticFeaturizer
+
+    This pipeline is used to detect entities from the features formed by the SpacyNLP toolkit.
+
+    - DIETClassifier
+
+    The DIET classifier is a multi-task transformer architecture built by Rasa to handle both intent classification and entity recognition. With help from tagging produced by the LexicalSyntacticFeaturizer the classifier is able to accuratly detect entities found in the users response. The classifier goes further to help detect the intent of the user message as well.
+
+    - EntitySynonymMapper
+
+    The synonym mapper is utilized when an entity can take on multiple forms. This allows the model to detect a wider user response checking each word in the string for possible synonyms which are compared against test user response.  
+
+
+
+## spellchecker.py
+
+  Spellchecker is a python script used within the pipeline to correct for user spelling errors that might otherwise confuse the model in its prediction of intent. The file uses pyspellchecker to comb through each word found in the response string. The method process is used to split the sentence into tokens that are then corrected and concatenated back into a string. This custom module must be incorporated into the user's path to allow the python interpreter the ability to see the new pipeline file created.
