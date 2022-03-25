@@ -198,9 +198,9 @@ responses:
 
 
   utter_welcome:
-  - text: You are welcome!
-  - text: no sweat little bean! I got you!
-  - text: Welcome!
+  - text: You are welcome! Anything else I can help you with?
+  - text: no sweat little bean! I got you! Is there anything else I can do for you?
+  - text: Welcome! Is there anything else I can help with?
 
   utter_goodbye:
   - text: Goodbye friend
