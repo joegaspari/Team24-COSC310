@@ -9,7 +9,7 @@ rules:
 - rule: response2reply
   steps:
     - intent: mood_bad
-    - action: utter_howru
+    - action: utter_howruB
 
 - rule: response2reply2
   steps:

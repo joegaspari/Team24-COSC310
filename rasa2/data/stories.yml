@@ -2,10 +2,23 @@ version: "3.0"
 
 stories:
 
-- story: get_weather
-  steps: 
+- story: greetBad
+  steps:
     - intent: greet
     - action: utter_greet_reply
+    - intent: mood_bad
+    - action: utter_howruB
+
+- story: greetGood
+  steps:
+    - intent: greet
+    - action: utter_greet_reply
+    - intent: mood_great
+    - action: utter_howru
+      
+- story: get_weather
+  steps: 
+
     - intent: weather
     - action: utter_ask_weather_location
     - intent: city_info

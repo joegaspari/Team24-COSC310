@@ -221,6 +221,18 @@ Rasa forms are what allow the bot to rapid fire a series of questions in order t
 
 The responses section is the dialogue available to the bot. When an appropriate action is predicted the but can either confirm an action call or utter a message back to the user!
 
-Actions are the system's responses to the user's intents
+Responses define the particular text response given by the bot after each action call. They follow the format of utter_(name of utterance), bot utterances that occur during a form action must be defined as utter_ask_(slot name). This specificity is to ensure that the bot gathers the correct entity from the user after the utterance is made!
 
-Responses define the particular text response given by the bot after each action call
+Actions define the methods or utterances the bot can use during the conversation. As we described above the bot maintains a set of text responses meant to reply to the user, the actions also include custom methods that are called in response to form completion or other trigger events.
+
+# Actions.py
+
+  The actions file is responsible for custom actions that are required to call specific APIs. 
+
+  class ActionSlotReset(Action):
+    - As slots become filled over the course of a conversation due to completed forms they must be reset in order to be able to repeat the same call. For example, you want to search hotels in Vancouver, but then change your mind when you see the price and decide that Pemberton might be more affordable. The bot uses action slot reset to wipe the slots after each form has been completed.
+
+  class ActionRestarted(Action):
+    - We use this action whenever the user intent is goodbye, this class when called will reset the chat state back to the beginning
+
+  class 

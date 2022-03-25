@@ -216,7 +216,10 @@ responses:
   - text: How are you????? I am SO excited to chat
 
   utter_howru:
-  - text: I am good thanks for asking! How can I help?
+  - text: That is great news human!! How can I help?
+
+  utter_howruB:
+  - text: That's not good, let me help you! What are you looking for todat?
 
   utter_name:
   - text: My name is Fox, and I am a travel booking bot! I can do anything from book flights, tell you the weather or help with a hotel!
@@ -301,6 +304,7 @@ actions:
   - action_get_weather
   - utter_greet_reply
   - utter_howru
+  - utter_howruB
   - utter_name
   - utter_ask_name
   - utter_nice_2meet
