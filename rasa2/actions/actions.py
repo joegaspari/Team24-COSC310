@@ -166,7 +166,7 @@ class ActionSubmitFlightForm1(Action):
 
        
         
-        dispatcher.utter_message(response.text)
+        dispatcher.utter_message(response)
        
         return []
         # # For testing vv
