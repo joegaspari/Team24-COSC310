@@ -8,6 +8,7 @@ stories:
     - action: utter_greet_reply
     - intent: mood_bad
     - action: utter_howruB
+    
 
 - story: greetGood
   steps:

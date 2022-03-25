@@ -235,4 +235,5 @@ Actions define the methods or utterances the bot can use during the conversation
   class ActionRestarted(Action):
     - We use this action whenever the user intent is goodbye, this class when called will reset the chat state back to the beginning
 
-  class 
+  class ActionCheckWeather(Action):
+    - uses openweathermap.org api to call weather information specific to the user's request. The method run uses python requests and the requested slot weather_location to call the api and subsequently display it to the user,

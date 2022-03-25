@@ -60,7 +60,11 @@ rules:
 ###############################################################################
 # RULES FOR Flight booking form round trip version
 ###############################################################################
-
+- rule: bookf
+  steps:
+  - intent: flight_book
+  - action: utter_flight_return
+  
 - rule: activate flight form1
   steps:
   - intent: round_trip
