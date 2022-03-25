@@ -27,7 +27,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
-    - action: utter_goodbye
+    - action: utter_ask_continue
 
 
 - story: get_weather_short
@@ -39,7 +39,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
-    - action: utter_goodbye
+    - action: utter_ask_continue
 
 ###############################################################################
 # Stories FOR Hotel search
@@ -54,6 +54,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: hotelBook_happyP1
   steps:
@@ -70,6 +71,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: hotelBook_sadP2
   steps:
@@ -98,6 +100,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: flightBook1 sadP1
   steps: 
@@ -116,6 +119,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: flightBook1 sadP2
   steps:
@@ -140,7 +144,8 @@ stories:
     - action: action_flight_form1
     - action: action_slot_reset
     - intent: thanks
-    - action: welcome
+    - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: flightBook1 sadP3
   steps:
@@ -157,6 +162,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: flightBook1 sadP4
   steps:
@@ -186,6 +192,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: flightBook2 sadP1
   steps: 
@@ -204,6 +211,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: flightBook2 sadP2
   steps:
@@ -228,7 +236,8 @@ stories:
     - action: action_flight_form2
     - action: action_slot_reset
     - intent: thanks
-    - action: welcome
+    - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: flightBook2 sadP3
   steps:
@@ -245,6 +254,7 @@ stories:
     - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
+    - action: utter_ask_continue
 
 - story: flightBook2 sadP4
   steps:

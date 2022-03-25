@@ -16,6 +16,23 @@ rules:
     - intent: mood_great
     - action: utter_howru
 
+- rule: weather
+  steps:
+    - intent: weather
+    - action: utter_ask_weather_location
+
+- rule: getcity
+  steps:
+    - intent: city_info
+    - action: action_get_weather
+    - action: action_slot_reset
+
+- rule: get weather quick
+  steps:
+    - intent: weather_for_loc
+    - action: action_get_weather
+    - action: action_slot_reset
+
 - rule: done
   steps: 
     - intent: goodbye
@@ -37,6 +54,12 @@ rules:
   steps:
     - intent: what_canU_do
     - action: utter_functionality
+
+- rule: thanks
+  steps:
+    - intent: thanks
+    - action: utter_welcome
+    - action: utter_ask_continue
 
 ###############################################################################
 # RULES FOR Hotel search
@@ -64,7 +87,7 @@ rules:
   steps:
   - intent: flight_book
   - action: utter_flight_return
-  
+
 - rule: activate flight form1
   steps:
   - intent: round_trip

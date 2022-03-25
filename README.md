@@ -236,4 +236,10 @@ Actions define the methods or utterances the bot can use during the conversation
     - We use this action whenever the user intent is goodbye, this class when called will reset the chat state back to the beginning
 
   class ActionCheckWeather(Action):
-    - uses openweathermap.org api to call weather information specific to the user's request. The method run uses python requests and the requested slot weather_location to call the api and subsequently display it to the user,
+    - uses openweathermap.org api to call weather information specific to the user's request. The method run uses python requests and the requested slot weather_location to call the api and subsequently display the returned data to the user!
+
+  class ActionSubmitHotelForm(Action):
+    - The hotel form api required the latitude and longitude of our city thus we use Google geocoding to extract the lat long information from the city entity provided by the user. Then the slots for check in, check out, number of adults and number of rooms is used to fill the api call from booking.com. This call will produce a list of hotels available to the user on the specified details. The api orders the returned data by most popular. Using dispatcher.utter_message to forward the response to the user's interface.
+
+  class ActionSubmitFlightForm(Action):
+    - The flight booking form uses a local json file to extract airport codes from the cities provided by the user's input. 

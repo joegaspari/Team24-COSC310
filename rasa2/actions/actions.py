@@ -256,11 +256,11 @@ class ActionSubmitFlightForm2(Action):
     
         url = "https://skyscanner44.p.rapidapi.com/search-extended"
     
-        querystring = {"adults":"1","origin":"YVR","destination":"LHR","departureDate":"2022-09-23","currency":"CAD"}
+        querystring = {"adults":"1","origin":"YVR","destination":"LHR","departureDate":"2022-09-23","returnDate":"2022-08-10","currency":"CAD"}
         print(querystring)
         headers = {
-        "X-RapidAPI-Host": "skyscanner44.p.rapidapi.com",
-        "X-RapidAPI-Key": "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
+            "X-RapidAPI-Host": "skyscanner44.p.rapidapi.com",
+            "X-RapidAPI-Key": "90a274727dmsh607a63ae7dd7473p12f953jsn5e3fb6071646"
         }
 
         response = requests.request("GET", url, headers=headers, params=querystring).json()
