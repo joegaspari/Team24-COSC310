@@ -53,9 +53,6 @@ nlu:
     - i'm off
     - see you later alligator
     - we'll speak soon
-# Lets come up with a rule that states whenever the intent goodbye appears the chat is canceled
-
-
 
 
 - intent: thanks
@@ -231,11 +228,11 @@ nlu:
     - we are leaving [2022-08-27](date)
     - departure on [2022-08-05](date)
     - arrive on [2022-08-05](date)
-###############################################################################
-
 
 ###############################################################################
 ####### Flight intents
+###############################################################################
+
 
 # We need an intent to enter us into the flight booking form
 
