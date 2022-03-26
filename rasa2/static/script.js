@@ -26,5 +26,7 @@ window.onload = (event) => {
     $("#buttonInput").click(function() {
       getResponse();
     });
+
+    document.getElementById("textInput").focus();
   };
   
