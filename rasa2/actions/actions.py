@@ -96,15 +96,15 @@ class ActionSubmitHotelForm(Action):
            hotel_id = list_result['hotel_name']
            net_amount = list_result['composite_price_breakdown']['all_inclusive_amount']
            discounted_amount = list_result['composite_price_breakdown']
-           string_builder += hotel_id + '\n'
-           string_builder += ' ' + str(net_amount['value']) + ' ' + net_amount['currency'] + ' per night\n'
+           string_builder += '<b>' + hotel_id + '</b><br>\n'
+           string_builder += ' ' + str(net_amount['value']) + ' ' + net_amount['currency'] + ' per night<br>\n'
            if 'discounted_amount' in list_result['composite_price_breakdown']:
-               string_builder += ' ' +  str(discounted_amount['discounted_amount']['value']) + ' ' + discounted_amount['discounted_amount']['currency'] + ' discount!\n'
+               string_builder += ' ' +  str(discounted_amount['discounted_amount']['value']) + ' ' + discounted_amount['discounted_amount']['currency'] + ' discount!<br>\n'
            else:
-               data['discounted_amount'] = 'No discounts!\n'
-               string_builder += ' ' +  'No discounts!\n'
+               data['discounted_amount'] = 'No discounts!<br>\n'
+               string_builder += ' ' +  'No discounts!<br>\n'
                
-           string_builder += ' ' + list_result['distance_to_cc'] + 'km to the city center\n'
+           string_builder += ' ' + list_result['distance_to_cc'] + 'km to the city center<br>\n'
        dispatcher.utter_message(text = string_builder)
        return []
        
