@@ -9,14 +9,22 @@ stories:
     - intent: mood_bad
     - action: utter_howruB
     
-
 - story: greetGood
   steps:
     - intent: greet
     - action: utter_greet_reply
     - intent: mood_great
     - action: utter_howru
-      
+
+- story: greetName
+  steps:
+    - intent: bot_name
+    - action: utter_name
+    - intent: name
+      entities:
+        - name: Dingus
+    - action: utter_nice_2meet
+
 - story: get_weather
   steps: 
 
@@ -28,7 +36,6 @@ stories:
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
-
 
 - story: get_weather_short
   steps:

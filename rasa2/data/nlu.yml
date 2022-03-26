@@ -140,7 +140,7 @@ nlu:
 
 - intent: name
   examples: |
-    - My name is [Joe](name)
+    - My name is [Dingus](name)
     - they call me [Sarah](name)
     - I'm [Kevin](name)
     - I am [Gary](name)

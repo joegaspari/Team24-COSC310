@@ -43,7 +43,6 @@ rules:
   steps: 
     - intent: bot_name
     - action: utter_name
-    - action: utter_ask_name
 
 - rule: ask_name
   steps: 

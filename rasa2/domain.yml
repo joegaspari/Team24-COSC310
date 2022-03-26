@@ -219,19 +219,14 @@ responses:
   - text: That is great news human!! How can I help?
 
   utter_howruB:
-  - text: That's not good, let me help you! What are you looking for todat?
+  - text: That's not good, let me help you! What are you looking for today?
 
   utter_name:
   - text: My name is Fox, and I am a travel booking bot! I can do anything from book flights, tell you the weather or help with a hotel! What is your name?
 
-  utter_ask_name:
-  - text: What is your name?
-  - text: what do they call you human?
-  - text: do you have a name friend??
-
   utter_nice_2meet:
-  - text: It is a pleasure to meet you (name_set)
-  - text: (name_set) cool name I like it!!
+  - text: It is a pleasure to meet you {name_set}
+  - text: Nice to meet you, {name_set}!
 
   utter_functionality:
   - text: I am glad you asked! I am able to help you plan your next vacation! I can find flights hotels, and check the weather for you!
