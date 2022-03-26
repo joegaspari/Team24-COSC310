@@ -196,7 +196,6 @@ responses:
   utter_getting_weather:
   - text: gotcha! okay let me get the weather for {weather_location} ...
 
-
   utter_welcome:
   - text: You are welcome! Anything else I can help you with?
   - text: no sweat little bean! I got you! Is there anything else I can do for you?
@@ -223,6 +222,9 @@ responses:
 
   utter_name:
   - text: My name is Fox, and I am a travel booking bot! I can do anything from book flights, tell you the weather or help with a hotel! What is your name?
+
+  utter_name_test:
+  - text: Your name is {name_set}.
 
   utter_nice_2meet:
   - text: It is a pleasure to meet you {name_set}

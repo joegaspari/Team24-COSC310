@@ -146,6 +146,13 @@ nlu:
     - I am [Gary](name)
     - name is [Luke](name)
 
+- intent: what_is_my_name
+  examples: |
+    - What is my name?
+    - Do you remember what my name is?
+    - Who am I?
+    - What's my name?
+
 - intent: what_canU_do
   examples: |
     - what can you do?

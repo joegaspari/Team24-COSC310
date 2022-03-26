@@ -32,7 +32,6 @@ stories:
     - action: utter_ask_weather_location
     - intent: city_info
     - action: action_get_weather
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -43,7 +42,6 @@ stories:
       entities:
         - weather_loc: London
     - action: action_get_weather
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -58,7 +56,6 @@ stories:
     - active_loop: hotel_form
     - active_loop: null
     - action: action_hotelForm
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -75,7 +72,6 @@ stories:
     - action: hotel_form
     - active_loop: null
     - action: action_hotelForm
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -104,7 +100,6 @@ stories:
     - active_loop: flight_form1
     - active_loop: null
     - action: action_flight_form1
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -123,7 +118,6 @@ stories:
     - action: flight_form1
     - active_loop: null
     - action: action_flight_form1
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -149,7 +143,6 @@ stories:
     - active_loop: flight_form1
     - active_loop: null
     - action: action_flight_form1
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -166,7 +159,6 @@ stories:
     - action: flight_form1
     - active_loop: null
     - action: action_flight_form1
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -196,7 +188,6 @@ stories:
     - active_loop: flight_form2
     - active_loop: null
     - action: action_flight_form2
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -215,7 +206,6 @@ stories:
     - action: flight_form2
     - active_loop: null
     - action: action_flight_form2
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -241,7 +231,6 @@ stories:
     - active_loop: flight_form2
     - active_loop: null
     - action: action_flight_form2
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
@@ -258,7 +247,6 @@ stories:
     - action: flight_form2
     - active_loop: null
     - action: action_flight_form2
-    - action: action_slot_reset
     - intent: thanks
     - action: utter_welcome
     - action: utter_ask_continue
