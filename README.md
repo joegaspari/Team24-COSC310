@@ -309,6 +309,9 @@ the bot chooses between 5 responses when it does not understand the user input
 # Level 0 Data Flow Diagram
 ![image](https://user-images.githubusercontent.com/70998757/160222002-d402e83d-b643-4999-b72e-e9725dc45519.png)
 
+# Level 1 Data Flow Diagram
+![image](https://user-images.githubusercontent.com/70998757/160223590-806387f0-5aa4-4525-904f-2316c0d5f91d.png)
+
 # 30-turn Sample output:
 ![Demonstration chat](https://user-images.githubusercontent.com/70998757/160222072-8298e315-cd73-489c-996a-125a200cfe95.png)
 
