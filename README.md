@@ -306,4 +306,20 @@ new topic: booking flights
 the bot chooses between 5 responses when it does not understand the user input
 ![image](https://user-images.githubusercontent.com/70998757/160221703-b8cbc2a6-fbf6-4c45-a65f-d5ba3fd4d619.png)
 
+# Level 0 Data Flow Diagram
 ![image](https://user-images.githubusercontent.com/70998757/160222002-d402e83d-b643-4999-b72e-e9725dc45519.png)
+
+# 30-turn Sample output:
+![Demonstration chat](https://user-images.githubusercontent.com/70998757/160222072-8298e315-cd73-489c-996a-125a200cfe95.png)
+
+# Limitations
+
+## Limitation exhibit A: Sometimes overly dependent on phrasing
+The bot would have understood if the input was phrased less context-dependently, such as "I want to go to new york"
+![Demonstration of bad output 2](https://user-images.githubusercontent.com/70998757/160222104-d8d128bb-c88e-40a6-b0e0-501d99e9c34f.jpg)
+
+
+## Limitation exhibit B: Recognizes some entities by name better than others
+The bot does not recognize the name "Vaughn" as a name, like it would for others such as "Dingus", and in turn also thinks that the user was asking the bot to recall their name, which it does not know
+![Demonstration of bad output](https://user-images.githubusercontent.com/70998757/160222101-3f149f63-9a3d-4ece-90e9-c6333ef59d69.jpg)
+
