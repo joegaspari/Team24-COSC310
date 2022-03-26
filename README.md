@@ -9,20 +9,14 @@ Rasa and Spacy were used in order to improve bot accuracy and overall conversati
 
 The Rasa model allows the implementation of multiple story flows following intents created to predict user responses.
 
-## Project Status
-Assignment 2 milestone complete. The next step is to further test input and responses and implement an API to lookup and return actual data.
-
-We are looking to increase the system's ability to recognize a particular intent by adding in more dynamic conversation variants.
-
-
 ## Project Screen Shots
 
-[ SCREEN SHOT IS HERE ]
+![image](https://user-images.githubusercontent.com/70998757/160221016-518f481d-2fbe-4c72-aac2-5b5329799e7c.png)
 
-[ OTHER SCREEN SHOT IS HERE ]
+![image](https://user-images.githubusercontent.com/70998757/160221061-459a15fd-4482-4946-9a5f-8ddee4aad077.png)
 
 
-## Installation and Setup Instructions  
+# Installation and Setup Instructions  
 
 ***Your system may require the python 3.8 version to run Rasa libraries***
 
@@ -114,13 +108,13 @@ To View App:
 `http://127.0.0.1:5000/` 
 
 
-###
+# Documentation
 
-# rasa2 Folder
+## rasa2 Folder
 
 Fox the travel bot stores all the required conversational elements. It uses a RASA model to implement the chat flow and allows the system to deduce intentions of the users statements. The system uses a neural network to predict the possible meaning behind the user's response. Let's begin with the RASA nlu or Natural Language Understanding.
 
-# The Rasa NLU Core
+## The Rasa NLU Core
   
   The job of the Rasa NLU Core is to extract structured information from the user's messages! A typical interaction between two people is usually goal driven and requires contextual information for each person to structure their next response. We create sample user messages that include possible user's intents and entities that may occur in the context of travel booking. Since our bot has the following functionality:
 
@@ -186,11 +180,11 @@ Fox the travel bot stores all the required conversational elements. It uses a RA
 
 
 
-# The Rasa Domain File
+## The Rasa Domain File
 
 The domain defines the universe in which our bot is allowed to operate within. It specifies the intents, entities, slots, responses, forms and actions the bot should know and will be tested on. 
 
-## domain.yml:
+### domain.yml:
 
 The domain.yml file is responsible for holding all the conversation elements that the user and bot may produce. The intents are described in the nlu.yml file, and are the possible user responses categorized by the message content.
 
@@ -225,7 +219,7 @@ Responses define the particular text response given by the bot after each action
 
 Actions define the methods or utterances the bot can use during the conversation. As we described above the bot maintains a set of text responses meant to reply to the user, the actions also include custom methods that are called in response to form completion or other trigger events.
 
-# Actions.py
+### Actions.py
 
   The actions file is responsible for custom actions that are required to call specific APIs. 
 
@@ -245,13 +239,13 @@ Actions define the methods or utterances the bot can use during the conversation
     - The flight booking form uses a local json file to extract airport codes from the cities provided by the user's input. Using the skyscanner api we are able to query flight data based on the entities extracted from the user's response. 
 
 
-# Automated Testing
+### Automated Testing
 
 'test_stories.yml'
 
 Since we are using a conversation model, we define tests as test stories that provide detail for the model to compare current conversations against. Since each of our main functions include 1. getting weather data, 2. Hotel booking data and 3. flight booking data we have created unit stories that encompass the possible conversational paths the user can explore without breaking down. Since our system uses forms frequently we build cases to encompass when a form has been interrupted or canceled completely. The complete set of test stories can be found in the file test_stories.yml
 
-# Config.yml
+### Config.yml
 
   The Rasa config file is the pipeline used to dissect the contents of a user's message. The config file includes a number of language toolkits used to clean, categorize and tag words for possible extraction or to help classify the intent of the message by quantifying the types of words used.
 
@@ -280,6 +274,36 @@ Since we are using a conversation model, we define tests as test stories that pr
 
 
 
-## spellchecker.py
+### spellchecker.py
 
   Spellchecker is a python script used within the pipeline to correct for user spelling errors that might otherwise confuse the model in its prediction of intent. The file uses pyspellchecker to comb through each word found in the response string. The method process is used to split the sentence into tokens that are then corrected and concatenated back into a string. This custom module must be incorporated into the user's path to allow the python interpreter the ability to see the new pipeline file created.
+  
+  # Project Status Updates
+
+-Made the user interface much fancier
+
+-Updated the bot's comprehension significantly
+
+-implemented more functionality, including the ability to return information about real flights, hotels, and weather, using calls to three different web APIs
+
+-implemented named entity recognition
+
+The bot can also remember entities such as a user's name for the entirety of the conversation
+![image](https://user-images.githubusercontent.com/70998757/160221829-c398274f-7c69-41f6-aa28-8411dcc90ae1.png)
+
+The bot can handle spelling errors and synonyms
+![image](https://user-images.githubusercontent.com/70998757/160221866-9c1939e5-1e4b-4093-9449-a952238b3e44.png)
+
+new topic: weather
+![image](https://user-images.githubusercontent.com/70998757/160221752-813069a2-26db-48da-bd9e-f8a9e10237c8.png)
+
+new topic: Hotel booking
+![image](https://user-images.githubusercontent.com/70998757/160221781-0e26b943-5c42-47ab-a4c0-1aaa7d5973ea.png)
+
+new topic: booking flights
+![image](https://user-images.githubusercontent.com/70998757/160221899-c6321a30-8936-4bef-879a-319247e490e5.png)
+
+the bot chooses between 5 responses when it does not understand the user input
+![image](https://user-images.githubusercontent.com/70998757/160221703-b8cbc2a6-fbf6-4c45-a65f-d5ba3fd4d619.png)
+
+![image](https://user-images.githubusercontent.com/70998757/160222002-d402e83d-b643-4999-b72e-e9725dc45519.png)
