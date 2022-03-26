@@ -222,7 +222,7 @@ responses:
   - text: That's not good, let me help you! What are you looking for todat?
 
   utter_name:
-  - text: My name is Fox, and I am a travel booking bot! I can do anything from book flights, tell you the weather or help with a hotel!
+  - text: My name is Fox, and I am a travel booking bot! I can do anything from book flights, tell you the weather or help with a hotel! What is your name?
 
   utter_ask_name:
   - text: What is your name?
