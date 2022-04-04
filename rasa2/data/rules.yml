@@ -25,11 +25,13 @@ rules:
   steps:
     - intent: city_info
     - action: action_get_weather
+    - action: action_slot_reset
 
 - rule: get weather quick
   steps:
     - intent: weather_for_loc
     - action: action_get_weather
+    - action: action_slot_reset
 
 - rule: done
   steps: 
@@ -41,11 +43,7 @@ rules:
   steps: 
     - intent: bot_name
     - action: utter_name
-
-- rule: name_test
-  steps:
-    - intent: what_is_my_name
-    - action: utter_name_test
+    
 
 - rule: ask_name
   steps: 
@@ -80,6 +78,7 @@ rules:
     - action: hotel_form
     - active_loop: null
     - action: action_hotelForm
+    - action: action_slot_reset
 
 ###############################################################################
 # RULES FOR Flight booking form round trip version
@@ -103,6 +102,8 @@ rules:
     - action: flight_form1
     - active_loop: null
     - action: action_flight_form1
+    - action: action_slot_reset
+
 
 
 ###############################################################################
@@ -122,6 +123,7 @@ rules:
     - action: flight_form2
     - active_loop: null
     - action: action_flight_form2
+    - action: action_slot_reset
 
 
 - rule: out-of-scope

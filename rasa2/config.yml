@@ -8,6 +8,9 @@ language: en
 
 pipeline:
   # - name: "spellchecker.CorrectSpelling"
+  - name: SpacyNLP
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
   - name: "WhitespaceTokenizer"
   - name: "RegexFeaturizer"
   - name: "LexicalSyntacticFeaturizer"
